@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>One Shot</title>
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<link href="css/sub.css" rel="stylesheet" type="text/css">
+<link href="css/mobile.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/jquery.bxslider.min.js"></script>
+<script src="js/jquery.bpopup.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
+
+
+<script>//토큰발행
+function layer_token() {
+ $(".token_popup").bPopup({
+ 		modalClose : false
+	});
+}
+</script>
+
+<!--공통 스크립트-->
+<script>//로그인 시 상단 변경
+$(document).ready(function(){
+  $(".login").click(function(){
+    $(".login_btn, .join_btn").hide();
+    $(".myinfo_wrap").show();
+    $(".myinfo_wrap").css('display','inline-block');
+  });
+  });
+</script>
+
+<script>//퀵메뉴
+$(function(){
+    var cssTop = parseInt($(".quick_wrap").css("top"));
+    $(window).scroll(function() {
+        var position = $(window).scrollTop();
+
+        var total = cssTop + position + 0;
+
+        if(total == 0){
+            total = 0;
+        }
+
+        $(".quick_wrap").stop().animate({
+            "top" : total + "px"
+        }, 800);
+    });
+})
+</script>
+
+<script>//메인메뉴 호버
+$(document).ready(function(){
+  $('.sub_menu_wrap li').hover(function() {
+    var index = $(".sub_menu_wrap li").index(this) +1;
+    console.log(index);
+    $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+  }, function(){
+    var index = $(".sub_menu_wrap li").index(this) +1;
+      $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#444444").css("border-bottom", "none");
+    });
+
+    $('.menu_wrap>ul>li>a').hover(function() {
+      $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function(){
+      $(this).css("color", "#444444").css("border-bottom", "none");
+    });
+});
+</script>
+
+<script>//로그인팝업
+function layer_login() {
+ $(".login_box").bPopup({
+ 		modalClose : false
+	});
+}
+</script>
+
+<script>//모바일메뉴 클릭
+$(document).ready(function(){
+  $('.mobile_btn').on('click', function(){
+    $('.top_wrap').toggleClass('active');
+      if($('.top_wrap').hasClass('active')) {
+      $('.top_wrap').css('height', '100vh');
+      $('.top_wrap').css('transition', '0.5s');
+      $('.mobilemenu_wrap').css('display', 'block');
+      $('.mobilemenu_wrap').css('opacity', '1');
+      $('.mobilemenu_wrap').css('transition', '0.5s');
+      $('.m_quick_wrap').css('display', 'none');
+      $('.m_quick_wrap').css('transition', '0.5s');
+    } else {
+      $('.top_wrap').css('height', '65px');
+      $('.top_wrap').css('transition', '0.5s');
+      $('.mobilemenu_wrap').css('display', 'none');
+      $('.mobilemenu_wrap').css('opacity', '0');
+      $('.mobilemenu_wrap').css('transition', '0.5s');
+      $('.m_quick_wrap').css('display', 'block');
+      $('.m_quick_wrap').css('transition', '0.5s');
+    }
+  });
+  });
+</script>
+
+<script>// 모바일메뉴탭
+$(document).ready(function() {
+  $(".momenu_left>div").click(function(){
+   var idx=$(".momenu_left>div").index($(this));
+   $(".momenu_left>div.on").removeClass("on");
+   $(this).addClass("on");
+   $(".momenu_right").hide();
+   $(".momenu_right").eq(idx).show();
+
+   return false;
+  });
+});
+</script>
+
+</head>
+
+
+<body>
+  <header>
+    <div class="top_wrap">
+      <div class="main_logo">
+        <a href="main.html"><img src="img/logo.png" alt="원샷로고" /></a>
+      </div>
+      <div class="login_wrap">
+        <div class="login_btn">
+          <a href="#none;" onclick="layer_login();">로그인</a>
+        </div>
+        <div class="join_btn">
+          <a href="join.html">회원가입</a>
+        </div>
+        <div class="myinfo_wrap">
+          <div>
+            송중기님
+          </div>
+          <div class="info_price">
+            <span>잔액 : <strong>20,000 원</strong></span>
+             <span>SMS : <strong>1,000 건</strong></span>
+            <span>LMS : <strong>500 건</strong></span>
+            <span>MMS : <strong>200 건</strong></span>
+          </div>
+        </div>
+        <div class="mypage_btn">
+          <a href="mypage.html">마이페이지</a>
+        </div>
+      </div>
+      <div class="mobile_btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mobilemenu_wrap">
+        <div class="login_wrap mologin">
+          <div class="mologin_box">
+            <div class="login_btn">
+              <a href="#none;" onclick="layer_login();">로그인</a>
+            </div>
+            <div class="join_btn">
+              <a href="join.html">회원가입</a>
+            </div>
+            <div class="myinfo_wrap">
+              <div>
+                송중기님
+              </div>
+              <div class="info_price">
+                <span>잔액 : <strong>20,000 원</strong></span>
+              </div>
+            </div>
+            <div class="mypage_btn">
+              <a href="mypage.html">마이페이지</a>
+            </div>
+          </div>
+        </div>
+        <div class="momenu_sub">
+          <div class="momenu_left">
+            <div>
+              회사소개
+            </div>
+            <div>
+              문자보내기
+            </div>
+            <div>
+              카카오톡
+            </div>
+            <div>
+              결과조회
+            </div>
+            <div>
+              주소록관리
+            </div>
+            <div>
+              기프티샷
+            </div>
+            <div>
+              고객지원
+            </div>
+            <div>
+              충전하기
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="company.html">원샷소개</a>
+            </div>
+            <div>
+              <a href="function.html">기능소개</a>
+            </div>
+            <div>
+              <a href="link.html">문자연동서비스</a>
+            </div>
+            <div>
+              <a href="client.html">클라이언트 다운로드</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="message.html">문자보내기</a>
+            </div>
+            <div>
+              <a href="fileshot.html">파일샷보내기</a>
+            </div>
+            <div>
+              <a href="adshot.html">애드샷보내기</a>
+            </div>
+            <div>
+              <a href="reserve.html">예약조회</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="ka_service.html">카카오톡 소개</a>
+            </div>
+            <div>
+              <a href="ka_profile.html">프로필키관리</a>
+            </div>
+            <div>
+              <a href="ka_template.html">템플릿 관리</a>
+            </div>
+            <div>
+              <a href="ka_notice.html">알림톡 보내기</a>
+            </div>
+            <div>
+              <a href="ka_friend.html">친구톡 보내기</a>
+            </div>
+            <div>
+              <a href="ka_result.html">발송결과</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="result.html">발송내역</a>
+            </div>
+            <div>
+              <a href="statistics.html">발송통계</a>
+            </div>
+            <div>
+              <a href="point.html">포인트 사용내역</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="address.html">주소록 관리</a>
+            </div>
+            <div>
+              <a href="block.html">수신거부 관리</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="giftshot.html">기프티샷 보내기</a>
+            </div>
+            <div>
+              <a href="giftresult.html">결과조회</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="notice.html">공지사항</a>
+            </div>
+            <div>
+              <a href="faq.html">FAQ</a>
+            </div>
+            <div>
+              <a href="onetoone.html">1:1문의</a>
+            </div>
+            <div>
+              <a href="control.html">원격지원</a>
+            </div>
+            <div>
+              <a href="tax.html">세금계산서</a>
+            </div>
+            <div>
+              <a href="event.html">이벤트</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="charge.html">충전하기</a>
+            </div>
+            <div>
+              <a href="chargelist.html">충전내역</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu_wrap">
+      <ul>
+        <li>
+          <a href="#none;">회사소개</a>
+        </li>
+        <li>
+          <a href="#none;">문자보내기</a>
+        </li>
+        <li>
+          <a href="#none;">카카오톡</a>
+        </li>
+        <li>
+          <a href="#none;">결과조회</a>
+        </li>
+        <li>
+          <a href="#none;">주소록관리</a>
+        </li>
+        <li>
+          <a href="#none;">기프티샷</a>
+        </li>
+        <li>
+          <a href="#none;">고객지원</a>
+        </li>
+        <li>
+          <a href="#none;">충전하기</a>
+        </li>
+      </ul>
+      <div class="sub_menu_wrap">
+        <ul>
+          <li>
+            <a href="company.html">원샷소개</a>
+            <a href="function.html">기능소개</a>
+            <a href="link.html">문자연동서비스</a>
+            <a href="client.html">클라이언트 다운로드</a>
+          </li>
+          <li>
+            <a href="message.html">문자보내기</a>
+            <a href="fileshot.html">파일샷보내기</a>
+            <a href="adshot.html">애드샷보내기</a>
+            <a href="reserve.html">예약조회</a>
+          </li>
+          <li>
+            <a href="ka_service.html">서비스 안내</a>
+            <a href="ka_profile.html">프로필키 관리</a>
+            <a href="ka_template.html">템플릿 관리</a>
+            <a href="ka_notice.html">알림톡 보내기</a>
+            <a href="ka_friend.html">친구톡 보내기</a>
+            <a href="ka_result.html">발송결과</a>
+          </li>
+          <li>
+            <a href="result.html">발송내역</a>
+            <a href="statistics.html">발송통계</a>
+            <a href="point.html">포인트 사용내역</a>
+          </li>
+          <li>
+            <a href="address.html">주소록 관리</a>
+            <a href="block.html">수신거부 관리</a>
+          </li>
+          <li>
+            <a href="giftshot.html">기프티샷 보내기</a>
+            <a href="giftresult.html">결과조회</a>
+          </li>
+          <li>
+            <a href="notice.html">공지사항</a>
+            <a href="faq.html">FAQ</a>
+            <a href="onetoone.html">1:1문의</a>
+            <a href="control.html">원격지원</a>
+            <a href="tax.html">세금계산서</a>
+            <a href="event.html">이벤트</a>
+          </li>
+          <li>
+            <a href="charge.html">충전하기</a>
+            <a href="chargelist.html">충전내역</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+ 	</header>
+  <section>
+    <div class="sub_tab_wrap">
+      <ul>
+        <li>
+          <a href="ka_service.html">서비스 안내</a>
+        </li>
+        <li>
+          <a href="ka_profile.html" class="on">프로필키 관리</a>
+        </li>
+        <li>
+          <a href="ka_template.html" >템플릿 관리</a>
+        </li>
+        <li>
+          <a href="ka_notice.html">알림톡 보내기</a>
+        </li>
+        <li>
+          <a href="ka_friend.html">친구톡 보내기</a>
+        </li>
+        <li>
+          <a href="ka_result.html">발송결과</a>
+        </li>
+      </ul>
+    </div>
+    <div class="shot_wrap">
+      <div class="shot_tit">
+        <h1><span></span>프로필키 관리</h1>
+      </div>
+    </div>
+		<div class="message_wrap">
+      <div class="message_box last_box add_wrap">
+        <div class="add_all_list">
+          <div class="add_list_btn">
+						<div class="add_search_wrap kakao_search">
+              <div class="search_wrap">
+                <input type="text" placeholder="@검색용아이디" />
+                <button><img src="img/search_btn.png" alt="검색" /></button>
+              </div>
+            </div>
+						<button class="pink_btn" onclick="layer_token();">토큰발행</button>
+						<span class="id_text">[ 아이디 검색 시 @는 필수값입니다. ]</span>
+            <div class="guide_btn">
+    					<a href="http://b2c.one-shot.co.kr/guide/new_guide.html" target="_blank">프로필키 등록 가이드</a>
+    				</div>
+          </div>
+          <div class="add_list_table kakao_table">
+            <div class="table_wrap">
+              <table>
+                <colgroup>
+                  <col style="width:5%" />
+                  <col style="width:10%" />
+                  <col style="width:10%" />
+                  <col style="width:10%" />
+                  <col style="width:39%" />
+                  <col style="width:8%" />
+                  <col style="width:8%" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>
+                      No.
+                    </th>
+                    <th>
+                      아이디
+                    </th>
+                    <th>
+                      이름
+                    </th>
+                    <th>
+                    	검색용 ID
+                    </th>
+                    <th>
+                      프로필키
+                    </th>
+										<th>
+                      상태
+                    </th>
+                    <th>
+                      삭제
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                    	1
+                    </td>
+                    <td>
+                      dododo
+                    </td>
+                    <td>
+                      프로필
+                    </td>
+                    <td>
+                      @프로필
+                    </td>
+                    <td>
+                      f842fe3052c17e34fe6fb479217b3c2cec506968
+                    </td>
+                    <td>
+                      정상
+                    </td>
+                    <td>
+                      <button class="grey_btn" onclick="alert('삭제하시겠습니까?');">삭제</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                      @그룹
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="add_listnum">
+              <div class="numpre_prev">
+                <span>pre</span>
+              </div>
+              <div class="num_prev">
+                <span>prev</span>
+              </div>
+              <div class="add_num">
+                <span class="on">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+              </div>
+              <div class="num_next">
+                <span>next</span>
+              </div>
+              <div class="numne_next">
+                <span>ne</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" modify_number token_popup">
+      <div class="popup_tit">
+        <p>
+          프로필키 등록
+        </p>
+        <span class="b-close">&times;</span>
+      </div>
+      <div class="add_list_wrap">
+        <div class="company_info">
+          <div class="join_write">
+            <div class="join_tab">
+              <div class="join_tit">
+               검색용 아이디
+              </div>
+              <div class="join_text">
+                <span><input type="text" placeholder="@검색용아이디" /></span>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit">
+                전화번호
+              </div>
+              <div class="join_text btn_text">
+                <span><input type="text" placeholder="카카오 채널 가입 전화번호를 입력해 주세요." /></span>
+                <button class="pink_rbtn">인증요청</button>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit">
+                토큰
+              </div>
+              <div class="join_text">
+                <span><input type="text" placeholder="토큰번호 6자리를 입력해 주세요."/></span>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit">
+                카테고리코드
+              </div>
+              <div class="join_text token_select">
+                <span>
+                  <select>
+                    <option>
+                      (00100001000001)건강, 병원, 종합병원
+                    </option>
+                  </select>
+                </span>
+                <i class="down_icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="send_btn">
+            <button class="ok_btn">등록</button>
+            <button class="cancle_btn">취소</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login_box">
+      <h1>
+        <img src="img/logo.png" alt="원샷로고" />
+      </h1>
+      <span class="b-close">&times;</span>
+      <div class="login_input">
+        <form>
+          <div>
+            <label for="user_id"></label>
+            <input id="user_id" type="text" name="user_id" placeholder="아이디"/>
+          </div>
+          <div>
+            <label for="user_pw"></label>
+            <input id="user_pw" type="password" placeholder="비밀번호"/>
+          </div>
+          <div>
+            <input class="login" type="submit" value="로그인" />
+          </div>
+
+        </form>
+      </div>
+      <div class="find_wrap">
+        <a href="#none" class="find_btn">아이디 / 비밀번호 찾기</a>
+        <a href="join.html">회원가입</a>
+      </div>
+
+    </div>
+
+  </section>
+  <aside>
+    <div class="quick_wrap">
+      <div class="charge">
+        <a href="#none;">충전하기</a>
+      </div>
+      <div class="customer">
+        <p class="customer_font">
+          고객센터
+        </p>
+        <img src="img/customer.png" alt="고객센터" />
+        <p class="customer_font font_28">
+          1566-6639
+        </p>
+        <p>
+          평일(월~금)<br/>09:00 ~ 18:00<br/>토/일/공휴일 휴무<br/>점심시간<br/>12:30 ~ 13:30
+        </p>
+      </div>
+      <div class="quick_button">
+        <div class="quick_b01">
+          <p>
+            <a href="client.html">클라이언트<br/>다운로드</a>
+          </p>
+        </div>
+        <div class="quick_b02">
+          <p>
+            <a href="tax.html">세금계산서</a>
+          </p>
+        </div>
+        <div class="quick_b03">
+          <p>
+            <a href="control.html">원격지원</a>
+          </p>
+        </div>
+        <div class="quick_b04">
+          <p>
+            <a href="price.html">견적문의</a>
+          </p>
+        </div>
+        <div class="quick_b05">
+          <p>
+            <a href="onetoone.html">1:1 문의</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="m_quick_wrap">
+      <div class="m_quick">
+        <div class="m_customer">
+          <span><img src="img/customer.png" alt="고객센터"></span>
+          <p class="customer_num">
+            고객센터  1566-6639
+          </p>
+          <p class="customer_time">
+            월~금 09:00 ~ 18:00 (토/일/공휴일 휴무)
+          </p>
+        </div>
+        <div class="m_quickmenu">
+          <div>
+            <span>
+              <a href="client.html">클라이언트 다운로드</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="tax.html">세금계산서</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="control.html">원격지원</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="price.html">견적문의</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="onetoone.html">1:1문의</a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+  <footer>
+    <div class="footer_wrap">
+      <div class="footer_logo">
+        <img src="img/logo_white.png" alt="로고" />
+      </div>
+      <div class="footer_text">
+        <div class="claus">
+          <ul class="footer_line">
+            <li>
+              <a href="#none;">이용약관</a>
+            </li>
+            <li>
+              <a href="#none;">개인정보취급방침</a>
+            </li>
+            <li>
+              <a href="#none;">스팸정책</a>
+            </li>
+            <li>
+              <a href="#none;">이메일 무단수집거부</a>
+            </li>
+            <li>
+              <a href="#none;">스팸방지 이용약관</a>
+            </li>
+          </ul>
+        </div>
+        <div class="claus">
+          <ul>
+            <li>
+              주식회사 에스엠티엔티
+            </li>
+            <li>
+              서울시 강동구 성내로 36 6층 (예원빌딩)
+            </li>
+            <li>
+              고객센터 1566-6639
+            </li>
+            <li>
+              팩스 02-477-9035
+            </li>
+            <li>
+              이메일 master@smtnt.com
+            </li>
+            <li>
+              대표 김문식
+            </li>
+            <li>
+              사업자등록번호 212-81-75893
+            </li>
+            <li>
+              통신판매업신고번호 25-2245호
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

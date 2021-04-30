@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>One Shot</title>
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<link href="css/sub.css" rel="stylesheet" type="text/css">
+<link href="css/mobile.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/jquery.bxslider.min.js"></script>
+<script src="js/jquery.bpopup.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
+
+<script>//특수기능.선택사항 팝업
+  $(document).ready(function(){
+    $(".msg_btn01").click(function(){
+      $(".function_pop>div").hide();
+      $(".spe_box").show();
+    });
+    $(".msg_btn02").click(function(){
+      $(".function_pop>div").hide();
+      $(".imo_box").show();
+    });
+    $(".msg_btn03").click(function(){
+      $(".function_pop>div").hide();
+      $(".col_box").show();
+    });
+    $(".msg_btn04").click(function(){
+      $(".function_pop>div").hide();
+      $(".chan_box").show();
+    });
+    $(".msg_btn05").click(function(){
+      $(".function_pop>div").hide();
+    });
+    $(".msg_btn06").click(function(){
+      $(".function_pop>div").hide();
+      $(".save_box").show();
+    });
+    $(".msg_btn07").click(function(){
+      $(".function_pop>div").hide();
+      $(".my_box").show();
+    });
+    $(".msg_btn08").click(function(){
+      $(".function_pop>div").hide();
+      $(".pic_box").show();
+    });
+    $(".close_btn").click(function(){
+      $(".function_pop>div").hide();
+    });
+  });
+
+</script>
+
+<script>//레이어팝업
+function layer_replysel() {
+ $(".reply_sel").bPopup({
+ 		modalClose : false
+	});
+}
+function layer_replyregi() {
+ $(".reply_regi").bPopup({
+ 		modalClose : false
+	});
+}
+function layer_test() {
+ $(".test_result").bPopup({
+ 		modalClose : false
+	});
+}
+function layer_add() {
+ $(".add_popup").bPopup({
+ 		modalClose : false
+	});
+}
+</script>
+
+<script>//받는사람 라디오탭
+$(document).ready(function(){
+  $(".tab_selbox").not('.first').hide();
+    var radioContent = $(".tab_selbox");
+  $(".radio_tab input[type='radio']").click(function(){
+    radioContent.hide();
+    radioContent.eq($(".radio_tab input[type='radio']").index(this)).show();
+  });
+});
+</script>
+
+<script>//문자창 클릭
+  $(document).ready(function(){
+    $("textarea").click(function(){
+      $(".basic_text").hide();
+       });
+    });
+</script>
+
+<script>//파일샷보내기
+  $(document).ready(function(){
+    $(".send_fileshot").click(function(){
+      $(".message_open").show();
+
+      $('html, body').animate({scrollTop: $(".message_open").offset().top},500);
+       });
+    });
+
+</script>
+
+<!--공통 스크립트-->
+<script>//로그인 시 상단 변경
+$(document).ready(function(){
+  $(".login").click(function(){
+    $(".login_btn, .join_btn").hide();
+    $(".myinfo_wrap").show();
+    $(".myinfo_wrap").css('display','inline-block');
+  });
+  });
+</script>
+
+<script>//퀵메뉴
+$(function(){
+    var cssTop = parseInt($(".quick_wrap").css("top"));
+    $(window).scroll(function() {
+        var position = $(window).scrollTop();
+
+        var total = cssTop + position + 0;
+
+        if(total == 0){
+            total = 0;
+        }
+
+        $(".quick_wrap").stop().animate({
+            "top" : total + "px"
+        }, 800);
+    });
+})
+</script>
+
+<script>//메인메뉴 호버
+$(document).ready(function(){
+  $('.sub_menu_wrap li').hover(function() {
+    var index = $(".sub_menu_wrap li").index(this) +1;
+    console.log(index);
+    $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+  }, function(){
+    var index = $(".sub_menu_wrap li").index(this) +1;
+      $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#444444").css("border-bottom", "none");
+    });
+
+    $('.menu_wrap>ul>li>a').hover(function() {
+      $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function(){
+      $(this).css("color", "#444444").css("border-bottom", "none");
+    });
+});
+</script>
+
+<script>//로그인팝업
+function layer_login() {
+ $(".login_box").bPopup({
+ 		modalClose : false
+	});
+}
+</script>
+
+<script>//모바일메뉴 클릭
+$(document).ready(function(){
+  $('.mobile_btn').on('click', function(){
+    $('.top_wrap').toggleClass('active');
+      if($('.top_wrap').hasClass('active')) {
+      $('.top_wrap').css('height', '100vh');
+      $('.top_wrap').css('transition', '0.5s');
+      $('.mobilemenu_wrap').css('display', 'block');
+      $('.mobilemenu_wrap').css('opacity', '1');
+      $('.mobilemenu_wrap').css('transition', '0.5s');
+      $('.m_quick_wrap').css('display', 'none');
+      $('.m_quick_wrap').css('transition', '0.5s');
+    } else {
+      $('.top_wrap').css('height', '65px');
+      $('.top_wrap').css('transition', '0.5s');
+      $('.mobilemenu_wrap').css('display', 'none');
+      $('.mobilemenu_wrap').css('opacity', '0');
+      $('.mobilemenu_wrap').css('transition', '0.5s');
+      $('.m_quick_wrap').css('display', 'block');
+      $('.m_quick_wrap').css('transition', '0.5s');
+    }
+  });
+  });
+</script>
+
+<script>// 모바일메뉴탭
+$(document).ready(function() {
+  $(".momenu_left>div").click(function(){
+   var idx=$(".momenu_left>div").index($(this));
+   $(".momenu_left>div.on").removeClass("on");
+   $(this).addClass("on");
+   $(".momenu_right").hide();
+   $(".momenu_right").eq(idx).show();
+
+   return false;
+  });
+});
+</script>
+
+</head>
+
+
+<body>
+  <header>
+    <div class="top_wrap">
+      <div class="main_logo">
+        <a href="main.html"><img src="img/logo.png" alt="원샷로고" /></a>
+      </div>
+      <div class="login_wrap">
+        <div class="login_btn">
+          <a href="#none;" onclick="layer_login();">로그인</a>
+        </div>
+        <div class="join_btn">
+          <a href="join.html">회원가입</a>
+        </div>
+        <div class="myinfo_wrap">
+          <div>
+            송중기님
+          </div>
+          <div class="info_price">
+            <span>잔액 : <strong>20,000 원</strong></span>
+             <span>SMS : <strong>1,000 건</strong></span>
+            <span>LMS : <strong>500 건</strong></span>
+            <span>MMS : <strong>200 건</strong></span>
+          </div>
+        </div>
+        <div class="mypage_btn">
+          <a href="mypage.html">마이페이지</a>
+        </div>
+      </div>
+      <div class="mobile_btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mobilemenu_wrap">
+        <div class="login_wrap mologin">
+          <div class="mologin_box">
+            <div class="login_btn">
+              <a href="#none;" onclick="layer_login();">로그인</a>
+            </div>
+            <div class="join_btn">
+              <a href="join.html">회원가입</a>
+            </div>
+            <div class="myinfo_wrap">
+              <div>
+                송중기님
+              </div>
+              <div class="info_price">
+                <span>잔액 : <strong>20,000 원</strong></span>
+              </div>
+            </div>
+            <div class="mypage_btn">
+              <a href="mypage.html">마이페이지</a>
+            </div>
+          </div>
+        </div>
+        <div class="momenu_sub">
+          <div class="momenu_left">
+            <div>
+              회사소개
+            </div>
+            <div>
+              문자보내기
+            </div>
+            <div>
+              카카오톡
+            </div>
+            <div>
+              결과조회
+            </div>
+            <div>
+              주소록관리
+            </div>
+            <div>
+              기프티샷
+            </div>
+            <div>
+              고객지원
+            </div>
+            <div>
+              충전하기
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="company.html">원샷소개</a>
+            </div>
+            <div>
+              <a href="function.html">기능소개</a>
+            </div>
+            <div>
+              <a href="link.html">문자연동서비스</a>
+            </div>
+            <div>
+              <a href="client.html">클라이언트 다운로드</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="message.html">문자보내기</a>
+            </div>
+            <div>
+              <a href="fileshot.html">파일샷보내기</a>
+            </div>
+            <div>
+              <a href="adshot.html">애드샷보내기</a>
+            </div>
+            <div>
+              <a href="reserve.html">예약조회</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="ka_service.html">카카오톡 소개</a>
+            </div>
+            <div>
+              <a href="ka_profile.html">프로필키관리</a>
+            </div>
+            <div>
+              <a href="ka_template.html">템플릿 관리</a>
+            </div>
+            <div>
+              <a href="ka_notice.html">알림톡 보내기</a>
+            </div>
+            <div>
+              <a href="ka_friend.html">친구톡 보내기</a>
+            </div>
+            <div>
+              <a href="ka_result.html">발송결과</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="result.html">발송내역</a>
+            </div>
+            <div>
+              <a href="statistics.html">발송통계</a>
+            </div>
+            <div>
+              <a href="point.html">포인트 사용내역</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="address.html">주소록 관리</a>
+            </div>
+            <div>
+              <a href="block.html">수신거부 관리</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="giftshot.html">기프티샷 보내기</a>
+            </div>
+            <div>
+              <a href="giftresult.html">결과조회</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="notice.html">공지사항</a>
+            </div>
+            <div>
+              <a href="faq.html">FAQ</a>
+            </div>
+            <div>
+              <a href="onetoone.html">1:1문의</a>
+            </div>
+            <div>
+              <a href="control.html">원격지원</a>
+            </div>
+            <div>
+              <a href="tax.html">세금계산서</a>
+            </div>
+            <div>
+              <a href="event.html">이벤트</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="charge.html">충전하기</a>
+            </div>
+            <div>
+              <a href="chargelist.html">충전내역</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu_wrap">
+      <ul>
+        <li>
+          <a href="#none;">회사소개</a>
+        </li>
+        <li>
+          <a href="#none;">문자보내기</a>
+        </li>
+        <li>
+          <a href="#none;">카카오톡</a>
+        </li>
+        <li>
+          <a href="#none;">결과조회</a>
+        </li>
+        <li>
+          <a href="#none;">주소록관리</a>
+        </li>
+        <li>
+          <a href="#none;">기프티샷</a>
+        </li>
+        <li>
+          <a href="#none;">고객지원</a>
+        </li>
+        <li>
+          <a href="#none;">충전하기</a>
+        </li>
+      </ul>
+      <div class="sub_menu_wrap">
+        <ul>
+          <li>
+            <a href="company.html">원샷소개</a>
+            <a href="function.html">기능소개</a>
+            <a href="link.html">문자연동서비스</a>
+            <a href="client.html">클라이언트 다운로드</a>
+          </li>
+          <li>
+            <a href="message.html">문자보내기</a>
+            <a href="fileshot.html">파일샷보내기</a>
+            <a href="adshot.html">애드샷보내기</a>
+            <a href="reserve.html">예약조회</a>
+          </li>
+          <li>
+            <a href="ka_service.html">서비스 안내</a>
+            <a href="ka_profile.html">프로필키 관리</a>
+            <a href="ka_template.html">템플릿 관리</a>
+            <a href="ka_notice.html">알림톡 보내기</a>
+            <a href="ka_friend.html">친구톡 보내기</a>
+            <a href="ka_result.html">발송결과</a>
+          </li>
+          <li>
+            <a href="result.html">발송내역</a>
+            <a href="statistics.html">발송통계</a>
+            <a href="point.html">포인트 사용내역</a>
+          </li>
+          <li>
+            <a href="address.html">주소록 관리</a>
+            <a href="block.html">수신거부 관리</a>
+          </li>
+          <li>
+            <a href="giftshot.html">기프티샷 보내기</a>
+            <a href="giftresult.html">결과조회</a>
+          </li>
+          <li>
+            <a href="notice.html">공지사항</a>
+            <a href="faq.html">FAQ</a>
+            <a href="onetoone.html">1:1문의</a>
+            <a href="control.html">원격지원</a>
+            <a href="tax.html">세금계산서</a>
+            <a href="event.html">이벤트</a>
+          </li>
+          <li>
+            <a href="charge.html">충전하기</a>
+            <a href="chargelist.html">충전내역</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+ 	</header>
+  <section>
+    <div class="sub_tab_wrap">
+      <ul>
+        <li>
+          <a href="message.html">문자보내기</a>
+        </li>
+        <li>
+          <a href="fileshot.html" class="on">파일샷 보내기</a>
+        </li>
+        <li>
+          <a href="adshot.html">애드샷 보내기</a>
+        </li>
+        <li>
+          <a href="reserve.html">예약조회</a>
+        </li>
+      </ul>
+    </div>
+    <div class="shot_wrap">
+      <div class="shot_tit">
+        <h1><span></span>파일샷 보내기</h1>
+        <P class="shot_mtit">
+          문자로 보내는 모바일 팩스 <strong>'File Shot'</strong>
+        </P>
+        <p>
+          텍스트에 모바일웹을 결합한 형태의 메시지로 브로셔, 카탈로그 등 기업에서 필요로 하는 다양한형태의 홍보&마케팅 자료를 모바일 웹(URL)으로 변환하여 메시지로 제공하는 마케팅 서비스입니다.
+        </p>
+      </div>
+    </div>
+    <div class="message_wrap wrap_bottom">
+      <div class="message_box last_box">
+        <div>
+          <div class="m_sel">
+            <div class="sel_radio">
+              <label><input type="checkbox"  value=""/><span>불법스팸 발송 규제 방침 동의 (필수)</span></label>
+              <button class="grey_btn" style="margin-top:3px;">자세히보기</button>
+              <!--클릭시 팝업-->
+            </div>
+          </div>
+          <div class="m_sel url_wrap">
+            <div>
+              <div class="fileshot_wrap">
+                <span>파일을 업로드 해주세요 (최대 5MB)</span>
+                <!--파일 업로드시 파일명으로 변경-->
+                <div class="fileshot_down">
+                  <input type="file"/>
+                </div>
+              </div>
+              <button class="add_url">URL 생성하기</button>
+            </div>
+            <div>
+              <div class="url_t">
+                <span>http://12354.45465d.d2d5d5;</span>
+              </div>
+              <button class="add_url pre_url">미리보기</button>
+            </div>
+
+            <p>
+              &#8251; 파일은 업로드한 날로부터 30일간 보관되며, 만료일자가 초과된 URL은 다운로드가 제한됩니다.
+            </p>
+          </div>
+        </div>
+        <div class="send_btn">
+          <button class="send_fileshot">파일샷 보내기</button>
+          <!--파일첨부하고 url생성해야만 해당버튼 클릭시 문자보내는 창으로 연결-->
+        </div>
+      </div>
+    </div>
+    <div class="message_wrap message_open">
+      <div class="message_box">
+        <div class="sub_tit">
+          <p>
+            발송구분
+          </p>
+          <span></span>
+        </div>
+        <div class="sub_box">
+          <div class="m_sel">
+            <div class="sel_radio">
+              <label><input type="radio" name="send" value="1" checked><span>일반 광고문자</span></label>
+              <button class="grey_rbtn">광고문구 넣기</button>
+              <!--클릭시 문자발송창에 080 문구-->
+            </div>
+            <div class="sel_radio">
+              <label><input type="radio" name="send" value="2"><span>선거 홍보문자</span></label>
+              <button class="grey_rbtn">선거문구 넣기</button>
+              <!--클릭시 문자발송창에 선거 문구-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="message_box">
+        <div class="sub_tit">
+          <p>
+            문자발송
+          </p>
+          <span></span>
+        </div>
+        <div class="sub_box">
+          <div class="text_box">
+            <div class="text_wrap">
+              <span class="text_tit">SMS</span>
+              <textarea></textarea>
+              <span class="basic_text">90 bytes 초과시<br/> LMS 서비스로 변경됩니다.</span>
+              <span class="text_tit">0/90</span>
+            </div>
+          </div>
+          <div class="sel_box popup_fix">
+            <div class="selbox_tit">
+              <span>제목</span>
+              <div class="full_textbox">
+                <input type="text" placeholder="LMS 또는 MMS로 발송할 경우에만 휴대폰에 표시됩니다." />
+              </div>
+            </div>
+            <div class="selbox_tit">
+              <span>회신번호</span>
+              <div class="full_textbox dbtn_textbox">
+                <input type="text">
+              </div>
+              <div class="dbtn_wrap">
+                <button class="pink_btn" onclick="layer_replyregi();">등록</button>
+                <button class="grey_btn" onclick="layer_replysel();">선택</button>
+              </div>
+            </div>
+            <div class="test_btn_wrap">
+              <button class="pink_btn">스팸필터링 테스트 발송</button>
+              <button class="grey_btn" onclick="layer_test();">테스트 결과조회</button>
+              <div class="test_detail">
+                <span></span>
+                <p>
+                  발송전 통신 3사 (SKT,KT, LGU+)의 스팸필터링에 차단되는지 확인하는<br/> <strong>원샷 만의 특별한 기능</strong>
+                </p>
+              </div>
+            </div>
+            <div class="selbox_tit">
+              <span>특수기능</span>
+              <div class="full_textbox four_btn">
+                <span><button class="msg_btn01">특수문자</button></span>
+                <span><button class="msg_btn02">이모티콘</button></span>
+                <span><button class="msg_btn03">컬러티콘</button></span>
+                <span><button class="msg_btn04">치환문자</button></span>
+              </div>
+            </div>
+            <div class="selbox_tit">
+              <span>선택사항</span>
+              <div class="full_textbox four_btn">
+                <span><button class="msg_btn05">새로쓰기</button></span>
+                <span><button class="msg_btn06">문자저장</button></span>
+                <span><button class="msg_btn07">내문자함</button></span>
+                <span><button class="msg_btn08">사진첨부</button></span>
+              </div>
+            </div>
+            <div class="selbox_tit">
+              <span>발송유형</span>
+              <div class="full_textbox four_btn">
+                <span><label><input class="send_radio" type="radio" name="sms" value="10" checked/>즉시발송</label></span>
+                <span><label><input class="send_radio" type="radio" name="sms" value="11"/>예약발송</label></span>
+              </div>
+            </div>
+            <div class="selbox_tit"><!--즉시발송시에는 비활성화 예약발송에만 활성화-->
+              <span class="empty"></span>
+              <div class="full_textbox four_btn">
+                <span><input class="datesel" type="date"/></span><!--날짜 클릭시 날짜선택 팝업/임의로 보여주기-->
+                <span class="reserv_time">
+                  <select name="time">
+                    <option value="01">01 시</option>
+                    <option value="02">02 시</option>
+                    <option value="03">03 시</option>
+                    <option value="04">04 시</option>
+                    <option value="05">05 시</option>
+                    <option value="06">06 시</option>
+                    <option value="07">07 시</option>
+                    <option value="08">08 시</option>
+                    <option value="09">09 시</option>
+                    <option value="10">10 시</option>
+                    <option value="11">11 시</option>
+                    <option value="12">12 시</option>
+                    <option value="13">13 시</option>
+                    <option value="14">14 시</option>
+                    <option value="15">15 시</option>
+                    <option value="16">16 시</option>
+                    <option value="17">17 시</option>
+                    <option value="18">18 시</option>
+                    <option value="19">19 시</option>
+                    <option value="20">20 시</option>
+                    <option value="21">21 시</option>
+                    <option value="22">22 시</option>
+                    <option value="23">23 시</option>
+                    <option value="24">24 시</option>
+                  </select>
+                  <i class="down_icon"></i>
+                </span>
+                <span class="reserv_time">
+                  <select name="min">
+                    <option value="00">00 분</option>
+                    <option value="01">01 분</option>
+                    <option value="02">02 분</option>
+                    <option value="03">03 분</option>
+                    <option value="04">04 분</option>
+                    <option value="05">05 분</option>
+                    <option value="06">06 분</option>
+                    <option value="07">07 분</option>
+                    <option value="08">08 분</option>
+                    <option value="09">09 분</option>
+                    <option value="10">10 분</option>
+                    <option value="11">11 분</option>
+                    <option value="12">12 분</option>
+                    <option value="13">13 분</option>
+                    <option value="14">14 분</option>
+                    <option value="15">15 분</option>
+                    <option value="16">16 분</option>
+                    <option value="17">17 분</option>
+                    <option value="18">18 분</option>
+                    <option value="19">19 분</option>
+                    <option value="20">20 분</option>
+                    <option value="21">21 분</option>
+                    <option value="22">22 분</option>
+                    <option value="23">23 분</option>
+                    <option value="24">24 분</option>
+                  </select>
+                  <i class="down_icon"></i>
+                </span>
+              </div>
+            </div>
+            <div class="selbox_tit">
+              <span>발송옵션</span>
+              <div class="full_textbox four_btn">
+                <span><label><input class="send_radio" type="checkbox" name="division" />분할발송</label></span><!--분할발송 체크시에만 select활성화-->
+                <span>
+                  발송시간간격
+                </span>
+                <span>
+                  <select name="time">
+                    <option value="10m">10분</option>
+                    <option value="20m">20분</option>
+                    <option value="30m">30분</option>
+                    <option value="1h">60분</option>
+                    <option value="2h">120분</option>
+                    <option value="3h">180분</option>
+                    <option value="">직접입력</option>
+                  </select>
+                  <i class="down_icon"></i>
+                </span>
+                <span>
+                  <!--select에서 직접입력 선택시 활성화 background 제거-->
+                  <input type="text" placeholder="직접입력"/>
+                </span>
+              </div>
+            </div>
+            <div class="selbox_tit last_bottom" >
+              <span class="empty"></span>
+              <div class="full_textbox four_btn">
+                <span></span>
+                <span>분할발송건수</span>
+                <span>
+                  <select name="time">
+                    <option value="1000">1000건</option>
+                    <option value="2000">2000건</option>
+                    <option value="3000">3000건</option>
+                    <option value="">직접입력</option>
+                  </select>
+                  <i class="down_icon"></i>
+                </span>
+                <span>
+                  <!--select에서 직접입력 선택시 활성화 background 제거-->
+                  <input type="text" placeholder="직접입력">
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="message_box last_box" >
+        <div class="sub_tit">
+          <p>
+            받는사람
+          </p>
+          <span></span>
+        </div>
+        <div class="sub_box">
+          <div class="m_sel">
+            <div class="sel_radio radio_tab">
+              <label><input type="radio" name="receiver" value="1" checked><span>직접입력</span></label>
+            </div>
+            <div class="sel_radio radio_tab">
+              <label><input type="radio" name="receiver" value="2"><span>복사해서 붙여넣기</span></label>
+            </div>
+            <div class="sel_radio radio_tab" onclick="layer_add();">
+              <label><input type="radio" name="receiver" value="3"><span>주소록 불러오기</span></label>
+            </div>
+            <div class="sel_radio radio_tab">
+              <label><input type="radio" name="receiver" value="4"><span>파일 불러오기</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="sub_box sub_box_full">
+          <div class="text_box">
+            <div class="receive_all">
+              <table class="receive_count">
+                <colgroup>
+                  <col style="width:10%" />
+                  <col style="width:20%" />
+                  <col style="width:40%" />
+                  <col style="width:30%" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th>
+                      선택
+                    </th>
+                    <th>
+                      이름
+                    </th>
+                    <th>
+                      전화번호
+                    </th>
+                    <th>
+                      비고
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>
+                      홍길동
+                    </td>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>
+                      홍길동
+                    </td>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>
+                      홍길동
+                    </td>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>
+                      홍길동
+                    </td>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>
+                      홍길동
+                    </td>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>
+                      홍길동
+                    </td>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="all_count">총 <span>1,234</span> 명</div>
+            </div>
+            <div class="del_btn">
+              <button  onclick="alert('선택한 항목을 삭제하시겠습니까?');">선택삭제</button>
+              <button  onclick="alert('모두 삭제하시겠습니까?');">전체삭제</button>
+            </div>
+          </div>
+          <div class="sel_box tab_selbox first">
+            <div class="selbox_tit">
+              <span>휴대폰번호</span>
+              <div class="full_textbox btn_textbox">
+                <input type="text">
+              </div>
+              <div class="dbtn_wrap">
+                <button class="pink_btn">추가</button>
+              </div>
+            </div>
+          </div>
+          <div class="sel_box tab_selbox">
+            <div class="selbox_tit">
+              <span>휴대폰번호</span>
+              <div class="full_textbox">
+                <textarea></textarea>
+              </div>
+              <div class="dbtn_wrap drop_btn">
+                <button class="pink_btn">추가</button>
+              </div>
+            </div>
+            <div class="selbox_detail">
+              <p>
+                - 엑셀이나 텍스트 파일 등에서 휴대폰 번호를 복사한 후 위의 입력란에 붙여넣어 주세요.
+              </p>
+              <p>
+                - 엑셀에 '-'이나 '0'이 없어도 붙여넣기가 가능합나다.
+              </p>
+              <p>
+                - 한 줄에 한 번호씩 입력되어야 합니다.
+              </p>
+            </div>
+          </div>
+          <div class="sel_box tab_selbox">
+
+          </div>
+          <div class="sel_box tab_selbox">
+            <div class="selbox_tit">
+              <span>파일첨부</span>
+              <div class="full_textbox btn_textbox">
+                <input type="file" class="selbox_file">
+              </div>
+              <div class="dbtn_wrap">
+                <button class="pink_btn">추가</button>
+              </div>
+            </div>
+            <div class="selbox_detail">
+              <p>
+                - 엑셀파일만 가능합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="send_btn">
+          <button>문자보내기</button>
+        </div>
+      </div>
+      <div class="function_pop">
+        <div class="spe_box">
+          <div class="pop_tit">
+            특수문자 <span class="close_btn">&times;</span>
+          </div>
+          <div class="pop_contents">
+            <ul>
+              <li><a href="#none;">☆</a></li>
+              <li><a href="#none;" >★</a></li>
+              <li><a href="#none;" >○</a></li>
+              <li><a href="#none;" >●</a></li>
+              <li><a href="#none;" >◎</a></li>
+              <li><a href="#none;" >◇</a></li>
+              <li><a href="#none;" >◆</a></li>
+              <li><a href="#none;" >□</a></li>
+              <li><a href="#none;" >■</a></li>
+              <li><a href="#none;" >△</a></li>
+              <li><a href="#none;" >▲</a></li>
+              <li><a href="#none;" >▽</a></li>
+              <li><a href="#none;" >▼</a></li>
+              <li><a href="#none;" >※</a></li>
+              <li><a href="#none;" >▷</a></li>
+              <li><a href="#none;" >◀</a></li>
+              <li><a href="#none;" >▷</a></li>
+              <li><a href="#none;" >▶</a></li>
+              <li><a href="#none;" >♤</a></li>
+              <li><a href="#none;" >♠</a></li>
+              <li><a href="#none;" >♡</a></li>
+              <li><a href="#none;" >♥</a></li>
+              <li><a href="#none;" >♧</a></li>
+              <li><a href="#none;" >⊙</a></li>
+              <li><a href="#none;" >◈</a></li>
+              <li><a href="#none;" >▣</a></li>
+              <li><a href="#none;" >◐</a></li>
+              <li><a href="#none;" >◑</a></li>
+              <li><a href="#none;" >▒</a></li>
+              <li><a href="#none;" >▤</a></li>
+              <li><a href="#none;" >▥</a></li>
+              <li><a href="#none;" >▨</a></li>
+              <li><a href="#none;" >▧</a></li>
+              <li><a href="#none;" >▦</a></li>
+              <li><a href="#none;" >▩</a></li>
+              <li><a href="#none;" >♨</a></li>
+              <li><a href="#none;" >☏</a></li>
+              <li><a href="#none;" >☎</a></li>
+              <li><a href="#none;" >☜</a></li>
+              <li><a href="#none;" >☞</a></li>
+              <li><a href="#none;" >♭</a></li>
+              <li><a href="#none;" >♩</a></li>
+              <li><a href="#none;" >♪</a></li>
+              <li><a href="#none;" >♬</a></li>
+              <li><a href="#none;" >¶</a></li>
+              <li><a href="#none;" >†</a></li>
+              <li><a href="#none;" >‡</a></li>
+              <li><a href="#none;" >↕</a></li>
+              <li><a href="#none;" >↗</a></li>
+              <li><a href="#none;" >↙</a></li>
+              <li><a href="#none;" >↖</a></li>
+              <li><a href="#none;" >↘</a></li>
+              <li><a href="#none;" >→</a></li>
+              <li><a href="#none;" >←</a></li>
+              <li><a href="#none;" >↑</a></li>
+              <li><a href="#none;" >↓</a></li>
+              <li><a href="#none;" >↔</a></li>
+              <li><a href="#none;" >∑</a></li>
+              <li><a href="#none;" >∏</a></li>
+              <li><a href="#none;" >＿</a></li>
+              <li><a href="#none;" >￣</a></li>
+              <li><a href="#none;" >。</a></li>
+              <li><a href="#none;" >·</a></li>
+              <li><a href="#none;" >‥</a></li>
+              <li><a href="#none;" >…</a></li>
+              <li><a href="#none;" >㉿</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="imo_box">
+          <div class="pop_tit">
+            이모티콘
+            <span class="pop_sel">
+              <span>
+                <select>
+                  <option>
+                    전체
+                  </option>
+                  <option>
+                    감사
+                  </option>
+                  <option>
+                    새해인사
+                  </option>
+                  <option>
+                    대리운전
+                  </option>
+                  <option>
+                    추석
+                  </option>
+                </select>
+                <i class="down_icon"></i>
+              </span>
+            </span>
+            <span class="close_btn">&times;</span>
+          </div>
+          <div class="pop_contents">
+            <ul>
+              <li>
+                <div>
+                  <a href="#none;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*]<br />&nbsp;&nbsp;*-(_"_)-<br />■Ⅰ☞☜Ⅰ■<br />&nbsp;(__/___/__)<br />새해 복 많이 받으세요~
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*]<br />&nbsp;&nbsp;*-(_"_)-<br />■Ⅰ☞☜Ⅰ■<br />&nbsp;(__/___/__)<br />새해 복 많이 받으세요~
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*]<br />&nbsp;&nbsp;*-(_"_)-<br />■Ⅰ☞☜Ⅰ■<br />&nbsp;(__/___/__)<br />새해 복 많이 받으세요~
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*]<br />&nbsp;&nbsp;*-(_"_)-<br />■Ⅰ☞☜Ⅰ■<br />&nbsp;(__/___/__)<br />새해 복 많이 받으세요~
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*]<br />&nbsp;&nbsp;*-(_"_)-<br />■Ⅰ☞☜Ⅰ■<br />&nbsp;(__/___/__)<br />새해 복 많이 받으세요~
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*]<br />&nbsp;&nbsp;*-(_"_)-<br />■Ⅰ☞☜Ⅰ■<br />&nbsp;(__/___/__)<br />새해 복 많이 받으세요~
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*]<br />&nbsp;&nbsp;*-(_"_)-<br />■Ⅰ☞☜Ⅰ■<br />&nbsp;(__/___/__)<br />새해 복 많이 받으세요~
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*]<br />&nbsp;&nbsp;*-(_"_)-<br />■Ⅰ☞☜Ⅰ■<br />&nbsp;(__/___/__)<br />새해 복 많이 받으세요~
+                  </a>
+                </div>
+              </li>
+            </ul>
+            <div class="add_listnum pop_listnum">
+              <div>
+                <span>&#x276E;</span>
+              </div>
+              <div class="add_num">
+                <span class="on">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+              </div>
+              <div>
+                <span>&#x276F;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col_box">
+          <div class="pop_tit">
+            컬러티콘
+            <span class="pop_sel">
+              <span>
+                <select>
+                  <option>
+                    전체
+                  </option>
+                  <option>
+                    감사
+                  </option>
+                  <option>
+                    새해인사
+                  </option>
+                  <option>
+                    대리운전
+                  </option>
+                  <option>
+                    추석
+                  </option>
+                </select>
+              </span>
+              <i class="down_icon"></i>
+            </span>
+            <span class="close_btn">&times;</span>
+          </div>
+          <div class="pop_contents">
+            <ul>
+              <li>
+                <div>
+                  <a href="#none;">
+                    <img src="img/colorcon_0001.jpg" alt="새해인사" />
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    <img src="img/colorcon_0001.jpg" alt="새해인사" />
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    <img src="img/colorcon_0001.jpg" alt="새해인사" />
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    <img src="img/colorcon_0001.jpg" alt="새해인사" />
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    <img src="img/colorcon_0001.jpg" alt="새해인사" />
+                  </a>
+                </div>
+              </li>
+            </ul>
+            <div class="add_listnum pop_listnum">
+              <div>
+                <span>&#x276E;</span>
+              </div>
+              <div class="add_num">
+                <span class="on">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+              </div>
+              <div>
+                <span>&#x276F;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chan_box">
+          <div class="pop_tit">
+            치환문자 <span class="close_btn">&times;</span>
+          </div>
+          <div class="pop_contents">
+            <ul>
+              <li>
+                <a href="#none">치환1</a>
+              </li>
+              <li>
+                <a href="#none">치환2</a>
+              </li>
+              <li>
+                <a href="#none">치환3</a>
+              </li>
+              <li>
+                <a href="#none">치환4</a>
+              </li>
+              <li>
+                <a href="#none">치환5</a>
+              </li>
+            </ul>
+            <div class="chan_detail">
+              <p>
+                <strong>치환문자란?</strong>
+              </p>
+              <p>
+                직접입력, 주소록이나, 엑셀파일을 불러왔을 때 이름 또는 메모의 내용을 자동으로 넣는 자동입력기능입니다.
+              </p>
+              <p>
+                - 각각 다른 사람에게 다른 내용의 메시지를 한번에 보낼 수 있습니다.<br />- 버튼을 클릭 하시면 &#8249;/이름/&#8250; 또는 &#8249;/메모/&#8250;로 발송창에 등록됩니다.<br />- 대량발송 전 테스트 후 발송을 권장합니다.
+              </p>
+              <p>
+                &#8249;예시&#8250;<br />
+                발송 전 : 안녕하세요&#60;&#47;치환1&#47;&#62;님!&nbsp;&nbsp;&nbsp;&nbsp;&#10148;&nbsp;&nbsp;
+                발송 후 : 안녕하세요 홍길동 님!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="save_box">
+          <div class="pop_tit">
+            문자저장 <span class="close_btn">&times;</span>
+          </div>
+          <div class="pop_contents">
+            <div class="folder_sel">
+              <span class="pop_sel">
+                <input type="radio" name="save"/>
+                <div class="save_sms">
+                  <span>
+                    <select>
+                      <option>
+                        기존폴더
+                      </option>
+                      <option>
+                        새해
+                      </option>
+                      <option>
+                        감사
+                      </option>
+                      <option>
+                        이벤트
+                      </option>
+                    </select>
+                  </span>
+                  <i class="down_icon"></i>
+                </div>
+              </span>
+              <span>
+                <input type="radio" name="save" />
+                <span>
+                  <input type="text" placeholder="새롭게 생성할 폴더의 이름을 입력하세요."/>
+                </span>
+              </span>
+              <div>
+                <button class="grey_btn">저장하기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="my_box">
+          <div class="pop_tit">
+            내문자함
+            <span class="pop_sel">
+              <span>
+                <select>
+                  <option>
+                    전체
+                  </option>
+                  <option>
+                    감사
+                  </option>
+                  <option>
+                    새해인사
+                  </option>
+                  <option>
+                    대리운전
+                  </option>
+                  <option>
+                    추석
+                  </option>
+                </select>
+                <i class="down_icon"></i>
+              </span>
+            </span>
+            <span class="sms_search">
+              <input type="text" placeholder="검색어를 입력해주세요">
+              <button><img src="img/search_btn.png" alt="검색"></button>
+            </span>
+            <span class="close_btn">&times;</span>
+          </div>
+          <div class="pop_contents">
+            <ul>
+              <li>
+                <div>
+                  <a href="#none;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*]<br />&nbsp;&nbsp;*-(_"_)-<br />■Ⅰ☞☜Ⅰ■<br />&nbsp;(__/___/__)<br />새해 복 많이 받으세요~
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*]<br />&nbsp;&nbsp;*-(_"_)-<br />■Ⅰ☞☜Ⅰ■<br />&nbsp;(__/___/__)<br />새해 복 많이 받으세요~
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="#none;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*]<br />&nbsp;&nbsp;*-(_"_)-<br />■Ⅰ☞☜Ⅰ■<br />&nbsp;(__/___/__)<br />새해 복 많이 받으세요~
+                  </a>
+                </div>
+              </li>
+
+            </ul>
+            <div class="add_listnum pop_listnum">
+              <div>
+                <span>&#x276E;</span>
+              </div>
+              <div class="add_num">
+                <span class="on">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+              </div>
+              <div>
+                <span>&#x276F;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pic_box">
+          <div class="pop_tit">
+            사진첨부 <span class="close_btn">&times;</span>
+          </div>
+          <div class="pop_contents">
+            <div class="file_plus">
+              <div class="file_box">
+                <span><input type="file" /></span>
+                <button class="grey_btn">확인</button>
+              </div>
+              <div class="file_list">
+                <p>
+                  djdjdj.jpg <a href="#none">&times;</a>
+                </p>
+                <p>
+                  djdjdj.jpg <a href="#none">&times;</a>
+                </p>
+                <p>
+                </p>
+              </div>
+              <span class="pic_btn"><button class="pink_btn">사진첨부하기</button></span>
+
+            </div>
+            <div class="pic_detail">
+              <p>
+                - 등록가능 갯수 : 총 3개
+              </p>
+              <p>
+                - 형식 : jpg, jpeg, png
+              </p>
+              <p>
+                - 사이즈 : 1500*1500 px 이하
+              </p>
+              <p>
+                - 용량 : 최대 1MB
+              </p>
+              <p>
+                - 메시지 수신시 이미지 순서는 통신사 사정에 따라 달라질 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reply_popup reply_sel">
+        <div class="popup_tit">
+          회신번호선택
+          <span class="b-close">&times;</span>
+        </div>
+        <div class="popup_contents">
+          <div>
+            <ul>
+              <li>
+                발신번호
+              </li>
+              <li>
+                이름
+              </li>
+              <li>
+                선택
+              </li>
+              <li>
+                삭제
+              </li>
+            </ul>
+            <ul>
+              <li>
+                07055556666
+              </li>
+              <li>
+                사무실
+              </li>
+              <li>
+                <button class="pink_btn">선택</button>
+              </li>
+              <li>
+                <button class="grey_btn">삭제</button>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                15667845
+              </li>
+              <li>
+                대표번호
+              </li>
+              <li>
+                <button class="pink_btn">선택</button>
+              </li>
+              <li>
+                <button class="grey_btn">삭제</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="reply_popup reply_regi">
+        <div class="popup_tit">
+          회신번호등록
+          <span class="b-close">&times;</span>
+        </div>
+        <div class="popup_contents">
+          <div>
+            <div class="regi_num">
+              <span>회신번호</span>
+              <span><input type="text" /></span>
+              <button class="grey_btn">실명인증</button>
+            </div>
+            <div class="regi_num">
+              <span>사용처</span>
+              <span><input type="text" /></span>
+              <span>
+                ex) 기관, 부서명 등
+              </span>
+            </div>
+            <button class="pink_rbtn">번호등록하기</button>
+            <p>
+              전국대표번호, 일반전화번호 등록은 고객센터로 연락주세요.<br /> (고객센터 : 1566 - 6639)
+            </p>
+          </div>
+
+        </div>
+      </div>
+      <div class="test_result">
+        <div class="popup_tit">
+          스팸필터링 결과조회
+          <span class="b-close">&times;</span>
+        </div>
+        <div class="popup_contents">
+          <div>
+            <div class="regi_num">
+              <span>발송일자</span>
+              <span><input type="text" /></span>
+              <button class="grey_btn">조회</button>
+            </div>
+          </div>
+          <div class="spam_result">
+            <ul>
+              <li>
+                휴대폰번호
+              </li>
+              <li>
+                통신사
+              </li>
+              <li>
+                타입
+              </li>
+              <li>
+                메시지
+              </li>
+              <li>
+                발송일자
+              </li>
+              <li>
+                결과
+              </li>
+            </ul>
+            <ul>
+              <li>
+                01012345678
+              </li>
+              <li>
+                SKT
+              </li>
+              <li>
+                LMS
+              </li>
+              <li class="text_short">
+                (광고)안녕하세요 반갑습니다 에스엠티엔티입니다.
+              </li>
+              <li>
+                2020-12-12 10:16
+              </li>
+              <li>
+                정상발송
+              </li>
+            </ul>
+            <ul>
+              <li>
+                01012345678
+              </li>
+              <li>
+                SKT
+              </li>
+              <li>
+                LMS
+              </li>
+              <li class="text_short">
+                (광고)안녕하세요 반갑습니다 에스엠티엔티입니다.
+              </li>
+              <li>
+                2020-12-12 10:16
+              </li>
+              <li>
+                정상발송
+              </li>
+            </ul>
+            <ul>
+              <li>
+                01012345678
+              </li>
+              <li>
+                SKT
+              </li>
+              <li>
+                LMS
+              </li>
+              <li class="text_short">
+                (광고)안녕하세요 반갑습니다 에스엠티엔티입니다.
+              </li>
+              <li>
+                2020-12-12 10:16
+              </li>
+              <li>
+                정상발송
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="add_popup">
+        <div class="popup_tit">
+          주소록 불러오기
+          <span class="b-close">&times;</span>
+        </div>
+        <div class="message_box add_wrap">
+          <div class="add_all_list">
+            <div class="add_list_btn">
+              <button class="grey_btn">전체보기</button>
+              <div class="add_search_wrap">
+                <div class="search_wrap">
+                  <input type="text" placeholder="검색어를 입력해주세요" />
+                  <button><img src="img/search_btn.png" alt="검색" /></button>
+                </div>
+                <div class="add_select">
+                  <span>
+                    <select>
+                      <option>
+                        그룹명 오름차순
+                      </option>
+                      <option>
+                        그룹명 내림차순
+                      </option>
+                      <option>
+                        등록일 과거순
+                      </option>
+                      <option>
+                        등록일 최신순
+                      </option>
+                      <option>
+                        인원 많은순
+                      </option>
+                      <option>
+                        인원 적은순
+                      </option>
+                    </select>
+                    <i class="down_icon"></i>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+            <div class="table_wrap">
+              <div class="add_list_table">
+                <table>
+                  <colgroup>
+                    <col style="width:5%" />
+                    <col style="width:10%" />
+                    <col style="width:15%" />
+                    <col style="width:30%" />
+                    <col style="width:10%" />
+                    <col style="width:30%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>
+                        <input type="checkbox" />
+                      </th>
+                      <th>
+                        No.
+                      </th>
+                      <th>
+                        등록일
+                      </th>
+                      <th>
+                        그룹명
+                      </th>
+                      <th>
+                        인원
+                      </th>
+                      <th>
+                        그룹메모
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <input type="checkbox" />
+                      </td>
+                      <td>
+                        1
+                      </td>
+                      <td>
+                        2020-12-01
+                      </td>
+                      <td>
+                        <a href="#none;" class="group_name">그룹1</a>
+                      </td>
+                      <td>
+                        20
+                      </td>
+                      <td>
+                        매월 5일 발송
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+                        <a href="#none;" class="group_name">그룹2</a>
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="addplus_btn">
+              <button class="b-close">발송목록 추가</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="message_wrap">
+      <div class="service_wrap">
+        <div class="service_tit">
+          <p>
+            File Shot 서비스 특징
+          </p>
+        </div>
+        <div class="contents_wrap service_box fileshot_box">
+          <ul>
+            <li>
+              <div class="contents_box service_contents">
+                <span class="fileser_01"></span>
+                <div class="box_text">
+                  <p class="small_text">
+                    메시지에 모바일 웹(URL)을 포함함으로써<br/> 보다 많은 정보 전달 가능
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="contents_box service_contents">
+                <span class="fileser_02"></span>
+                <div class="box_text">
+                  <p class="small_text">
+                    아래한글, 워드, 엑셀, 파워포인트, PDF문서 등 <br/>다양한 파일형식 지원
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="contents_box service_contents">
+                <span class="fileser_03"></span>
+                <div class="box_text">
+                  <p class="small_text">
+                    비용절감 및 원하는 제품,<br/>컨텐츠 집중홍보 가능
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="shotimg_wrap">
+      <div class="shotimg_half">
+        <div class="phone_url">
+
+        </div>
+        <div class="shot_text">
+          <div class="shot_stxt">
+            <p>
+              파일도
+            </p>
+            <p>
+              문서도
+            </p>
+            <p>
+              그림도
+            </p>
+            <p>
+              한번에
+            </p>
+            <span class="shot_big">샷</span>
+          </div>
+        </div>
+      </div>
+      <div class="shotimg_pre">
+        <div class="filepre_01">
+
+        </div>
+        <div class="filepre_02">
+
+        </div>
+        <div class="filepre_03">
+
+        </div>
+      </div>
+    </div>
+    <div class="login_box">
+      <h1>
+        <img src="img/logo.png" alt="원샷로고" />
+      </h1>
+      <span class="b-close">&times;</span>
+      <div class="login_input">
+        <form>
+          <div>
+            <label for="user_id"></label>
+            <input id="user_id" type="text" name="user_id" placeholder="아이디"/>
+          </div>
+          <div>
+            <label for="user_pw"></label>
+            <input id="user_pw" type="password" placeholder="비밀번호"/>
+          </div>
+          <div>
+            <input class="login" type="submit" value="로그인" />
+          </div>
+
+        </form>
+      </div>
+      <div class="find_wrap">
+        <a href="#none" class="find_btn">아이디 / 비밀번호 찾기</a>
+        <a href="join.html">회원가입</a>
+      </div>
+
+    </div>
+  </section>
+  <aside>
+    <div class="quick_wrap">
+      <div class="charge">
+        <a href="#none;">충전하기</a>
+      </div>
+      <div class="customer">
+        <p class="customer_font">
+          고객센터
+        </p>
+        <img src="img/customer.png" alt="고객센터" />
+        <p class="customer_font font_28">
+          1566-6639
+        </p>
+        <p>
+          평일(월~금)<br/>09:00 ~ 18:00<br/>토/일/공휴일 휴무<br/>점심시간<br/>12:30 ~ 13:30
+        </p>
+      </div>
+      <div class="quick_button">
+        <div class="quick_b01">
+          <p>
+            <a href="client.html">클라이언트<br/>다운로드</a>
+          </p>
+        </div>
+        <div class="quick_b02">
+          <p>
+            <a href="tax.html">세금계산서</a>
+          </p>
+        </div>
+        <div class="quick_b03">
+          <p>
+            <a href="control.html">원격지원</a>
+          </p>
+        </div>
+        <div class="quick_b04">
+          <p>
+            <a href="price.html">견적문의</a>
+          </p>
+        </div>
+        <div class="quick_b05">
+          <p>
+            <a href="onetoone.html">1:1 문의</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="m_quick_wrap">
+      <div class="m_quick">
+        <div class="m_customer">
+          <span><img src="img/customer.png" alt="고객센터"></span>
+          <p class="customer_num">
+            고객센터  1566-6639
+          </p>
+          <p class="customer_time">
+            월~금 09:00 ~ 18:00 (토/일/공휴일 휴무)
+          </p>
+        </div>
+        <div class="m_quickmenu">
+          <div>
+            <span>
+              <a href="client.html">클라이언트 다운로드</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="tax.html">세금계산서</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="control.html">원격지원</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="price.html">견적문의</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="onetoone.html">1:1문의</a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+  <footer>
+    <div class="footer_wrap">
+      <div class="footer_logo">
+        <img src="img/logo_white.png" alt="로고" />
+      </div>
+      <div class="footer_text">
+        <div class="claus">
+          <ul class="footer_line">
+            <li>
+              <a href="#none;">이용약관</a>
+            </li>
+            <li>
+              <a href="#none;">개인정보취급방침</a>
+            </li>
+            <li>
+              <a href="#none;">스팸정책</a>
+            </li>
+            <li>
+              <a href="#none;">이메일 무단수집거부</a>
+            </li>
+            <li>
+              <a href="#none;">스팸방지 이용약관</a>
+            </li>
+          </ul>
+        </div>
+        <div class="claus">
+          <ul>
+            <li>
+              주식회사 에스엠티엔티
+            </li>
+            <li>
+              서울시 강동구 성내로 36 6층 (예원빌딩)
+            </li>
+            <li>
+              고객센터 1566-6639
+            </li>
+            <li>
+              팩스 02-477-9035
+            </li>
+            <li>
+              이메일 master@smtnt.com
+            </li>
+            <li>
+              대표 김문식
+            </li>
+            <li>
+              사업자등록번호 212-81-75893
+            </li>
+            <li>
+              통신판매업신고번호 25-2245호
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

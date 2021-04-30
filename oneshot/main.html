@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>One Shot</title>
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<link href="css/sub.css" rel="stylesheet" type="text/css">
+<link href="css/mobile.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/jquery.bxslider.min.js"></script>
+<script src="js/jquery.bpopup.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
+
+<script>
+$(document).ready(function(){
+  $('.slider').bxSlider({//메인배너 슬라이드
+  auto:true,//자동실행
+  mode:'horizontal',
+  speed:1500,//애니메이트 속도
+  pause:4000,
+  controls:true,
+  pagerType:'short'
+  });
+
+  $('.event_slide ul').bxSlider({//이벤트 슬라이드
+  auto:true,//자동실행
+  mode:'horizontal',
+  speed:500,//애니메이트 속도
+  controls:false,
+  pause:4000,
+  pager:true,
+  });
+});
+</script>
+
+<script>//이용약관팝업
+function layer_clause01() { //이용약관
+ $(".clause_popup").bPopup({
+ 		modalClose : false
+	});
+}
+</script>
+
+
+
+
+
+<!--공통 스크립트-->
+<script>//로그인 시 상단 변경
+$(document).ready(function(){
+  $(".login").click(function(){
+    $(".login_btn, .join_btn").hide();
+    $(".myinfo_wrap").show();
+    $(".myinfo_wrap").css('display','inline-block');
+  });
+  });
+</script>
+
+<script>//퀵메뉴
+$(function(){
+    var cssTop = parseInt($(".quick_wrap").css("top"));
+    $(window).scroll(function() {
+        var position = $(window).scrollTop();
+
+        var total = cssTop + position + 0;
+
+        if(total == 0){
+            total = 0;
+        }
+
+        $(".quick_wrap").stop().animate({
+            "top" : total + "px"
+        }, 800);
+    });
+})
+</script>
+
+<script>//메인메뉴 호버
+$(document).ready(function(){
+  $('.sub_menu_wrap li').hover(function() {
+    var index = $(".sub_menu_wrap li").index(this) +1;
+    console.log(index);
+    $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+  }, function(){
+    var index = $(".sub_menu_wrap li").index(this) +1;
+      $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#444444").css("border-bottom", "none");
+    });
+
+    $('.menu_wrap>ul>li>a').hover(function() {
+      $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function(){
+      $(this).css("color", "#444444").css("border-bottom", "none");
+    });
+});
+</script>
+
+<script>//로그인팝업
+function layer_login() {
+ $(".login_box").bPopup({
+ 		modalClose : false
+	});
+}
+function layer_order() {  //견적문의 팝업
+ $(".order_wrap").bPopup({
+ 		modalClose : false
+	});
+}
+</script>
+
+<script>//모바일메뉴 클릭
+$(document).ready(function(){
+  $('.mobile_btn').on('click', function(){
+    $('.top_wrap').toggleClass('active');
+      if($('.top_wrap').hasClass('active')) {
+      $('.top_wrap').css('height', '100vh');
+      $('.top_wrap').css('transition', '0.5s');
+      $('.mobilemenu_wrap').css('display', 'block');
+      $('.mobilemenu_wrap').css('opacity', '1');
+      $('.mobilemenu_wrap').css('transition', '0.5s');
+      $('.m_quick_wrap').css('display', 'none');
+      $('.m_quick_wrap').css('transition', '0.5s');
+    } else {
+      $('.top_wrap').css('height', '65px');
+      $('.top_wrap').css('transition', '0.5s');
+      $('.mobilemenu_wrap').css('display', 'none');
+      $('.mobilemenu_wrap').css('opacity', '0');
+      $('.mobilemenu_wrap').css('transition', '0.5s');
+      $('.m_quick_wrap').css('display', 'block');
+      $('.m_quick_wrap').css('transition', '0.5s');
+    }
+  });
+  });
+</script>
+
+<script>// 모바일메뉴탭
+$(document).ready(function() {
+  $(".momenu_left>div").click(function(){
+   var idx=$(".momenu_left>div").index($(this));
+   $(".momenu_left>div.on").removeClass("on");
+   $(this).addClass("on");
+   $(".momenu_right").hide();
+   $(".momenu_right").eq(idx).show();
+
+   return false;
+  });
+});
+</script>
+
+</head>
+
+
+<body>
+ 	<header>
+    <div class="top_wrap">
+      <div class="main_logo">
+        <a href="main.html"><img src="img/logo.png" alt="원샷로고" /></a>
+      </div>
+      <div class="login_wrap">
+        <div class="login_btn">
+          <a href="#none;" onclick="layer_login();">로그인</a>
+        </div>
+        <div class="join_btn">
+          <a href="join.html">회원가입</a>
+        </div>
+        <div class="myinfo_wrap">
+          <div>
+            송중기님
+          </div>
+          <div class="info_price">
+            <span>잔액 : <strong>20,000 원</strong></span>
+             <span>SMS : <strong>1,000 건</strong></span>
+            <span>LMS : <strong>500 건</strong></span>
+            <span>MMS : <strong>200 건</strong></span>
+          </div>
+        </div>
+        <div class="mypage_btn">
+          <a href="mypage.html">마이페이지</a>
+        </div>
+      </div>
+      <div class="mobile_btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mobilemenu_wrap">
+        <div class="login_wrap mologin">
+          <div class="mologin_box">
+            <div class="login_btn">
+              <a href="#none;" onclick="layer_login();">로그인</a>
+            </div>
+            <div class="join_btn">
+              <a href="join.html">회원가입</a>
+            </div>
+            <div class="myinfo_wrap">
+              <div>
+                송중기님
+              </div>
+              <div class="info_price">
+                <span>잔액 : <strong>20,000 원</strong></span>
+              </div>
+            </div>
+            <div class="mypage_btn">
+              <a href="mypage.html">마이페이지</a>
+            </div>
+          </div>
+        </div>
+        <div class="momenu_sub">
+          <div class="momenu_left">
+            <div>
+              회사소개
+            </div>
+            <div>
+              문자보내기
+            </div>
+            <div>
+              카카오톡
+            </div>
+            <div>
+              결과조회
+            </div>
+            <div>
+              주소록관리
+            </div>
+            <div>
+              기프티샷
+            </div>
+            <div>
+              고객지원
+            </div>
+            <div>
+              충전하기
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="company.html">원샷소개</a>
+            </div>
+            <div>
+              <a href="function.html">기능소개</a>
+            </div>
+            <div>
+              <a href="link.html">문자연동서비스</a>
+            </div>
+            <div>
+              <a href="client.html">클라이언트 다운로드</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="message.html">문자보내기</a>
+            </div>
+            <div>
+              <a href="fileshot.html">파일샷보내기</a>
+            </div>
+            <div>
+              <a href="adshot.html">애드샷보내기</a>
+            </div>
+            <div>
+              <a href="reserve.html">예약조회</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="ka_service.html">카카오톡 소개</a>
+            </div>
+            <div>
+              <a href="ka_profile.html">프로필키관리</a>
+            </div>
+            <div>
+              <a href="ka_template.html">템플릿 관리</a>
+            </div>
+            <div>
+              <a href="ka_notice.html">알림톡 보내기</a>
+            </div>
+            <div>
+              <a href="ka_friend.html">친구톡 보내기</a>
+            </div>
+            <div>
+              <a href="ka_result.html">발송결과</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="result.html">발송내역</a>
+            </div>
+            <div>
+              <a href="statistics.html">발송통계</a>
+            </div>
+            <div>
+              <a href="point.html">포인트 사용내역</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="address.html">주소록 관리</a>
+            </div>
+            <div>
+              <a href="block.html">수신거부 관리</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="giftshot.html">기프티샷 보내기</a>
+            </div>
+            <div>
+              <a href="giftresult.html">결과조회</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="notice.html">공지사항</a>
+            </div>
+            <div>
+              <a href="faq.html">FAQ</a>
+            </div>
+            <div>
+              <a href="onetoone.html">1:1문의</a>
+            </div>
+            <div>
+              <a href="control.html">원격지원</a>
+            </div>
+            <div>
+              <a href="tax.html">세금계산서</a>
+            </div>
+            <div>
+              <a href="event.html">이벤트</a>
+            </div>
+          </div>
+          <div class="momenu_right">
+            <div>
+              <a href="charge.html">충전하기</a>
+            </div>
+            <div>
+              <a href="chargelist.html">충전내역</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu_wrap">
+      <ul>
+        <li>
+          <a href="#none;">회사소개</a>
+        </li>
+        <li>
+          <a href="#none;">문자보내기</a>
+        </li>
+        <li>
+          <a href="#none;">카카오톡</a>
+        </li>
+        <li>
+          <a href="#none;">결과조회</a>
+        </li>
+        <li>
+          <a href="#none;">주소록관리</a>
+        </li>
+        <li>
+          <a href="#none;">기프티샷</a>
+        </li>
+        <li>
+          <a href="#none;">고객지원</a>
+        </li>
+        <li>
+          <a href="#none;">충전하기</a>
+        </li>
+      </ul>
+      <div class="sub_menu_wrap">
+        <ul>
+          <li>
+            <a href="company.html">원샷소개</a>
+            <a href="function.html">기능소개</a>
+            <a href="link.html">문자연동서비스</a>
+            <a href="client.html">클라이언트 다운로드</a>
+          </li>
+          <li>
+            <a href="message.html">문자보내기</a>
+            <a href="fileshot.html">파일샷보내기</a>
+            <a href="adshot.html">애드샷보내기</a>
+            <a href="reserve.html">예약조회</a>
+          </li>
+          <li>
+            <a href="ka_service.html">서비스 안내</a>
+            <a href="ka_profile.html">프로필키 관리</a>
+            <a href="ka_template.html">템플릿 관리</a>
+            <a href="ka_notice.html">알림톡 보내기</a>
+            <a href="ka_friend.html">친구톡 보내기</a>
+            <a href="ka_result.html">발송결과</a>
+          </li>
+          <li>
+            <a href="result.html">발송내역</a>
+            <a href="statistics.html">발송통계</a>
+            <a href="point.html">포인트 사용내역</a>
+          </li>
+          <li>
+            <a href="address.html">주소록 관리</a>
+            <a href="block.html">수신거부 관리</a>
+          </li>
+          <li>
+            <a href="giftshot.html">기프티샷 보내기</a>
+            <a href="giftresult.html">결과조회</a>
+          </li>
+          <li>
+            <a href="notice.html">공지사항</a>
+            <a href="faq.html">FAQ</a>
+            <a href="onetoone.html">1:1문의</a>
+            <a href="control.html">원격지원</a>
+            <a href="tax.html">세금계산서</a>
+            <a href="event.html">이벤트</a>
+          </li>
+          <li>
+            <a href="charge.html">충전하기</a>
+            <a href="chargelist.html">충전내역</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+ 	</header>
+  <section>
+    <div class="main_slider">
+      <ul class="slider">
+        <li style="background: #d1f2fd;">
+          <div class="slider_wrap">
+            <div class="slider_text">
+              <div class="slider_t01">
+                전국 700여개 도서관 등 수많은 관공서에서
+              </div>
+              <div class="slider_t02">
+                원샷문자를 사용하고 있습니다.
+              </div>
+              <div class="slider_t03">
+                <a class="sms_btn" href="message.html">문자보내기</a>
+              </div>
+            </div>
+            <div class="slider_img">
+              <img src="img/main01.png" alt="메인배너" />
+            </div>
+          </div>
+        </li>
+        <li style="background:#f4f4f4;">
+          <div class="slider_wrap">
+            <div class="slider_text">
+              <div class="slider_t01">
+                전국 700여개 도서관 등 수많은 관공서에서
+              </div>
+              <div class="slider_t02">
+                원샷문자를 사용하고 있습니다.
+              </div>
+              <div class="slider_t03">
+                <a href="message.html">문자보내기</a>
+              </div>
+            </div>
+            <div class="slider_img">
+              <img src="img/main01.png" alt="메인배너" />
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="main_wrap">
+      <div class="banner_wrap">
+        <span><img src="img/banner.jpg" alt="배너" /></span>
+      </div>
+      <div class="contents_wrap">
+        <ul>
+          <li>
+            <a href="message.html">
+              <div class="contents_box">
+                <span class="box_01"></span>
+                <div class="box_text">
+                  <p>
+                    스팸테스트 기능
+                  </p>
+                  <p class="move_text">
+                    바로가기
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="fileshot.html">
+              <div class="contents_box">
+                <span class="box_02"></span>
+                <div class="box_text">
+                  <p>
+                    파일첨부 문자 기능
+                  </p>
+                  <p class="move_text">
+                    바로가기
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="adshot.html">
+              <div class="contents_box">
+                <span class="box_03"></span>
+                <div class="box_text">
+                  <p>
+                    웹 페이지 문자 기능
+                  </p>
+                  <p class="move_text">
+                    바로가기
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="onetoone.html">
+              <div class="contents_box">
+                <span class="box_04"></span>
+                <div class="box_text">
+                  <p>
+                    1:1 담당자 배정
+                  <br/>
+                  </p>
+                  <p class="move_text">
+                    바로가기
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="service_wrap">
+        <div class="service_tit">
+          <p>
+            One Shot 주요 서비스
+          </p>
+        </div>
+        <div class="contents_wrap service_box">
+          <ul>
+            <li>
+              <div class="contents_box service_contents">
+                <span class="service_01"></span>
+                <div class="box_text">
+                  <p class="small_text">
+                    문자, 카카오톡 둘 다 사용한다면?
+                  </p>
+                  <p>
+                    문자&알림톡 연동모듈제공
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="contents_box service_contents">
+                <span class="service_02"></span>
+                <div class="box_text">
+                  <p class="small_text">
+                    휴대전화로 문자를 발송한다고?
+                  </p>
+                  <p>
+                    모바일 웹 제공
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="contents_box service_contents">
+                <span class="service_03"></span>
+                <div class="box_text">
+                  <p class="small_text">
+                    내 컴퓨터로 편리하게 사용하고 싶다면?
+                  </p>
+                  <p>
+                    PC 설치형 프로그램 제공
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="contents_box service_contents">
+                <span class="service_04"></span>
+                <div class="box_text">
+                  <p class="small_text">
+                    우리회사만의 디자인이 필요하다면?
+                  </p>
+                  <p>
+                    업체 전용 PC 테마 제공
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="main_wrap middle_wrap">
+      <div class="contents_wrap">
+        <div class="check_wrap">
+          <div class="check">
+            <div class="service_tit">
+              <p>
+                문자 발송시 확인 사항
+              </p>
+            </div>
+            <ul class="check_list">
+              <li>
+                <span>광고표기<br/>의무사항</span>
+                <p>
+                  정보통신망법 50조에 따라<br />광고 발송시 표기 의무화
+                </p>
+              </li>
+              <li>
+                <span>회신번호<br/>사전등록</span>
+                <p>
+                  회신번호를 사전에 등록하여<br />등록한 회신번호만 사용
+                </p>
+              </li>
+              <li>
+                <span>불법스팸<br/>전송규제</span>
+                <p>
+                  3대 불법스팸(도박, 대출, 성인)<br />발송시 차단
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="check notice">
+            <div class="service_tit">
+              <p>
+                공지사항
+              </p>
+            </div>
+            <div class="notice_wrap">
+              <div class="notice_text">
+                <span class="notice_tit">1월 세금계산서 발행 안내 발행 안내 발행안내</span>
+                <span class="notice_date">2020-10-30</span>
+              </div>
+              <div class="notice_text">
+                <span class="notice_tit">1월 세금계산서 발행 안내</span>
+                <span class="notice_date">2020-10-30</span>
+              </div>
+              <div class="notice_text">
+                <span class="notice_tit">1월 세금계산서 발행 안내</span>
+                <span class="notice_date">2020-10-30</span>
+              </div>
+              <div class="notice_text">
+                <span class="notice_tit">1월 세금계산서 발행 안내</span>
+                <span class="notice_date">2020-10-30</span>
+              </div>
+            </div>
+            <div class="notice_plus">
+              <a href="notice.html">+ 더보기</a>
+            </div>
+          </div>
+        </div>
+        <div class="main_event">
+          <div class="notice">
+            <div class="service_tit">
+              <p>
+                진행중인 이벤트
+              </p>
+            </div>
+            <div class="event_slide">
+              <ul>
+                <li>
+                  <div>
+                    <a href="#none;"><img src="img/event.jpg" alt="이벤트" /></a>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <a href="#none;"><img src="img/event1.jpg" alt="이벤트" /></a>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <a href="#none;"><img src="img/event2.jpg" alt="이벤트" /></a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="send_detail order_wrap">
+      <div class="popup_tit">
+        <p>
+          견적문의
+        </p>
+        <span class="b-close">&times;</span>
+      </div>
+      <div class="add_list_wrap">
+        <div class="company_info">
+          <!--직통번호를 제외하고 나머지 항목은 값이 없을경우 문의하기 안되도록 해주세요-->
+          <div class="join_write">
+            <div class="join_tab">
+              <div class="join_tit join_height">
+                서비스구분
+              </div>
+              <div class="join_text">
+                <label><input type="checkbox" class="checkbox" /> SMS</label>
+                <label><input type="checkbox" class="checkbox" /> LMS</label>
+                <label><input type="checkbox" class="checkbox" /> MMS</label>
+                <label><input type="checkbox" class="checkbox" /> ARS 080</label>
+                <label><input type="checkbox" class="checkbox" /> 알림톡&#8725;비즈톡 </label>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit">
+                예상건수
+              </div>
+              <div class="join_text">
+                <span><input type="text" /></span>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit">
+                전송용도
+              </div>
+              <div class="join_text">
+                <span class="move_select">
+                  <select>
+                    <option>
+                      선택
+                    </option>
+                    <option>
+                      기업문자
+                    </option>
+                    <option>
+                      광고문자
+                    </option>
+                    <option>
+                      선거문자
+                    </option>
+                  </select>
+                </span>
+                <i class="down_icon"></i>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit">
+                담당자명
+              </div>
+              <div class="join_text">
+                <span><input type="text" /></span>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit">
+                이메일
+              </div>
+              <div class="join_text">
+                <span><input type="text"  /></span>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit">
+                휴대폰번호
+              </div>
+              <div class="join_text">
+                <span><input type="text"  /></span>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit">
+                직통번호
+              </div>
+              <div class="join_text">
+                <span><input type="text"  /></span>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit join_height">
+                문의내용
+              </div>
+              <div class="join_text">
+                <span><textarea></textarea></span>
+              </div>
+            </div>
+          </div>
+          <div class="price_agree">
+            <div class="box">
+              <p>
+                1. 개인정보 수집 항목 : 이름, 이메일주소, 핸드폰번호
+              </p>
+              <p>
+                2. 수집목적 : 회원제 서비스 이용에 따른 본인확인, 불만 및 오류 해결등 민원처리 결과 조회
+              </p>
+              <p>
+                3. 보유 및 이용기간 :문의 처리 후 3년간 보관
+              </p>
+              <p>
+                정보통신망 이용촉진 및 정보보호 등에 관한 법률을 준수하며 고객님의 개인정보를 수집하고 소중하게 다루고 있습니다.
+              </p>
+            </div>
+            <div>
+              <span><input type="checkbox" /></span> 개인정보 수집 및 취급방침 동의 (필수)
+            </div>
+          </div>
+          <div class="send_btn">
+            <button class="ok_btn">문의</button>
+            <button class="cancle_btn">취소</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login_box">
+      <h1>
+        <img src="img/logo.png" alt="원샷로고" />
+      </h1>
+      <span class="b-close">&times;</span>
+      <div class="login_input">
+        <form>
+          <div>
+            <label for="user_id"></label>
+            <input id="user_id" type="text" name="user_id" placeholder="아이디"/>
+          </div>
+          <div>
+            <label for="user_pw"></label>
+            <input id="user_pw" type="password" placeholder="비밀번호"/>
+          </div>
+          <div>
+            <input class="login" type="submit" value="로그인" />
+          </div>
+
+        </form>
+      </div>
+      <div class="find_wrap">
+        <a href="#none" class="find_btn">아이디 / 비밀번호 찾기</a>
+        <a href="join.html">회원가입</a>
+      </div>
+
+    </div>
+  </section>
+  <aside>
+    <div class="quick_wrap">
+      <div class="charge">
+        <a href="#none;">충전하기</a>
+      </div>
+      <div class="customer">
+        <p class="customer_font">
+          고객센터
+        </p>
+        <img src="img/customer.png" alt="고객센터" />
+        <p class="customer_font font_28">
+          1566-6639
+        </p>
+        <p>
+          평일(월~금)<br/>09:00 ~ 18:00<br/>토/일/공휴일 휴무<br/>점심시간<br/>12:30 ~ 13:30
+        </p>
+      </div>
+      <div class="quick_button">
+        <div class="quick_b01">
+          <p>
+            <a href="client.html">클라이언트<br/>다운로드</a>
+          </p>
+        </div>
+        <div class="quick_b02">
+          <p>
+            <a href="tax.html">세금계산서</a>
+          </p>
+        </div>
+        <div class="quick_b03">
+          <p>
+            <a href="control.html">원격지원</a>
+          </p>
+        </div>
+        <div class="quick_b04">
+          <p>
+            <a href="#none;" onclick="layer_order();">견적문의</a>
+          </p>
+        </div>
+        <div class="quick_b05">
+          <p>
+            <a href="onetoone.html">1:1 문의</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="m_quick_wrap">
+      <div class="m_quick">
+        <div class="m_customer">
+          <span><img src="img/customer.png" alt="고객센터"></span>
+          <p class="customer_num">
+            고객센터  1566-6639
+          </p>
+          <p class="customer_time">
+            월~금 09:00 ~ 18:00 (토/일/공휴일 휴무)
+          </p>
+        </div>
+        <div class="m_quickmenu">
+          <div>
+            <span>
+              <a href="client.html">클라이언트 다운로드</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="tax.html">세금계산서</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="control.html">원격지원</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="#none;" onclick="layer_order();">견적문의</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="onetoone.html">1:1문의</a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+  <footer>
+    <div class="footer_wrap">
+      <div class="footer_logo">
+        <img src="img/logo_white.png" alt="로고" />
+      </div>
+      <div class="footer_text">
+        <div class="claus">
+          <ul class="footer_line">
+            <li>
+              <a href="#none;" onclick="layer_clause01();">이용약관</a>
+            </li>
+            <li>
+              <a href="#none;">개인정보취급방침</a>
+            </li>
+            <li>
+              <a href="#none;">스팸정책</a>
+            </li>
+            <li>
+              <a href="#none;">이메일 무단수집거부</a>
+            </li>
+            <li>
+              <a href="#none;">스팸방지 이용약관</a>
+            </li>
+          </ul>
+        </div>
+        <div class="claus">
+          <ul>
+            <li>
+              주식회사 에스엠티엔티
+            </li>
+            <li>
+              서울시 강동구 성내로 36 6층 (예원빌딩)
+            </li>
+            <li>
+              고객센터 1566-6639
+            </li>
+            <li>
+              팩스 02-477-9035
+            </li>
+            <li>
+              이메일 master@smtnt.com
+            </li>
+            <li>
+              대표 김문식
+            </li>
+            <li>
+              사업자등록번호 212-81-75893
+            </li>
+            <li>
+              통신판매업신고번호 25-2245호
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="test_result clause_popup">
+      <div class="popup_tit">
+        이용약관
+        <span class="b-close">&times;</span>
+      </div>
+      <div class="popup_contents">
+        <div class="clause_wrap">
+
+
+  <p>
+제 1 장 총칙<br><br>
+제 1 조 [목적]<br>
+이 약관은 주식회사에스엠티앤티(이하 “회사”라 합니다)이 제공하는 원샷 SMS 서비스(영문명 :One-Shot Short Message Service, 이하 “서비스”라 합니다)의 이용조건 및 절차에 관한 사항과 기타 필요한 사항을 전기통신사업법 및 동법 시행령이 정하는 대로 준수하고 규정함을 목적으로 합니다.<br><br>
+제 2 조 [약관의 효력과 변경] <br>
+1. 이 약관은 이용자에게 공시함으로써 효력을 발생합니다.<br>
+2. 회사는 영업 및 운영상 중요 사유가 있을 경우 등 합리적인 사유가 발생할 경우에는 이 약관을 변경할 수 있으며, 약관이 변경된 경우 이를 즉시 공시합니다. 변경된 약관은 전항과 같은 방법으로 효력을 발생합니다.
+단, 요금 등 이용자의 권리 또는 의무에 관한 중요한 규정의 변경은 최소 7일 전에 공시합니다.<br><br>
+제 3 조 [약관 외 준칙] <br>
+이 약관에 명시되지 않은 사항이 관계 법령에 규정되어 있을 경우에는 그 규정에 따릅니다.<br><br>
+제 4 조 [용어의 정의] <br>
+이 약관에서 사용하는 용어의 정의는 다음과 같습니다.<br>
+1. 회원(이용자) : 회사와 서비스 이용 계약을 체결하고 이용할 아이디(ID)를 부여 받은 이용고객<br>
+2. 아이디(ID) : 이용자 식별과 이용자의 서비스 이용을 위하여 이용자가 선정하고 회사가 승인하는 문자와 숫자의 조합<br>
+3. 비밀번호 : 이용자가 부여 받은 아이디(ID)와 일치된 신청자임을 확인하고, 이용자의 비밀 보호를 위해 정한 문자와 숫자의 조합<br>
+4. 해지 : 이용자가 서비스 개통 후 이용계약을 해약하는 것을 말함<br>
+5. 이용중지 : 회사가 정한 일정한 요건에 따라 일정기간 동안 서비스 이용을 보류하는 것<br>
+6. 개통일 : 이용자가 서비스를 신청한 후 회사가 이용자에게 서비스를 이용할 수 있도록 필요한 조치를 완료한 일자<br>
+7. 변경일 : 이용자가 서비스 내용에 대한 변경을 요청한 후 회사가 이용자의 요청사항을 조치하여 완료한 일자<br>
+8. 기본료 : 회사가 제공하는 서비스를 받기 위해 이용자가 매월 회사에 기본적으로 지불해야 하는 비용<br>
+9. 추가 사용료 : 회사가 제공하는 서비스를 이용자가 사용함에 따라 발생하는 사용료 중“기본료”를 초과하는 비용<br>
+10. 스팸 : 정보통신망을 통해 회원이 원하지 않는데도 불구하고 일방적으로 전송 또는 게시되는 영리목적의 광고성 정보<br>
+11. 불법스팸 : 정보통신망이용촉진 및 정보보호등에관한법률을 위반하여 전송 또는 게시되는 영리목적의 광고성 정보<br>
+12. 스팸메시지 : 수신자의 사전 동의를 받지 않은 상업적 광고, 음란한 내용 등 정보통신망이용촉진 및 정보보호 등에 관한 법률에 규정된 모든 메시지<br><br>
+제 2 장 서비스의 이용계약<br><br>
+제 5 조 [이용계약의 성립] <br>
+1. 이용 계약은 이용자의 이용 신청에 대한 회사의 이용 승낙과 이용자의 약관 내용에 대한 동의로 성립됩니다.<br>
+2. 이용자의 이용신청에 대하여 회사가 이를 승낙한 경우, 회사는 회원 ID와 기타 회사가 필요하다고 인정하는 내용을 이용자에게 통지합니다.<br><br>
+제 6 조 [이용 신청] <br>
+1. 서비스 이용을 원하는 고객에게 회사는 이 약관의 내용을 공지하고, 고객의 동의를 받아서 가입 처리를 합니다.<br>
+2. 이용자는 다음 각 호의 서류를 직접 또는 우편이나 기타 회사가 인정하는 방식으로 회사에 제출하여야 합니다.<br>
+　① 사업자 등록증 사본 1부(법인이 아닌 단체 혹은 개인이 서비스를 신청하고자 할 경우 해당 대표자의 주민등록증 사본 1부)<br>
+　② 법인 인감 증명서 사본 1부(법인이 아닌 단체 혹은 개인일 경우 제외)<br>
+　③. SMS/URL 서비스 계약서<br>
+3. 회사는 이용자의 업종, 이용형태 등에 따라 별도의 동의서를 징수하거나 부속계약서를 채결할 수 있습니다.<br><br>
+제 7 조 [이용 신청의 승낙] <br>
+1. 회사는 이용 신청자에 대하여 업무 수행상 또는 기술상 지장이 없는 경우 접수순서에 따라 서비스 이용을 승낙합니다.<br>
+2. 회원가입을 희망하는 자는 회사에 대하여 그 서비스의 이용을 원한다는 가입신청서를 작성함과 동시에 회사가 요구하는 소정의 정보를 제공해야 합니다.<br>
+3. 회사는 다음 각 호에서 정하는 사유가 없는 한 신청에 대하여 승낙합니다. 승낙은 회사가 신청자에게 이용자 ID, 서비스 이용개시의 기타 회사가 정한 시한을 통보함으로써 이루어집니다.<br>
+&nbsp;① 다른 이용자의 명의를 도용하거나 도용하여 차명으로 신청하였을 경우<br>
+&nbsp;②. 이용계약신청서의 내용을 허위로 기재하였거나 첨부서류가 필요할 시 허위서류를 첨부하여 신청하였을 경우<br>
+&nbsp;③ 이용자가 회사와 계약한 서비스 이외의 비정상적인 방법으로의 이용 및 불법적으로의 이용이 예상될 경우<br>
+&nbsp;④ 관계법령에 위배되거나 사회의 안녕 질서 혹은 미풍양속을 저해 할 수 있는 목적으로 신청하였을 경우<br>
+&nbsp;⑤ ‘제13조’에 의하여 회사로부터 ‘회원’ 자격을 상실한 적이 있는 경우. 다만, 동 자격 상실 이후 1년 이상 경과한 자는 예외로 합니다.<br>
+4. 만약 회원가입이 이루어졌다 하여도 상기 각 호에서 정하는 사항에 해당하는 행위를 하였을 경우, 사전 통지 없이 임의로 이용 계약을 해지하거나 또는 기간을 정하여 서비스 이용을 중지할 수 있습니다.<br>
+5. 회사는 이용신청이 불 승낙되거나 승낙을 제한하는 경우 이용신청자에게 즉시 통보합니다.<br><br>
+제 8 조 [서비스의 이용 및 제한]<br>
+1. 서비스 이용은 회사의 업무상 또는 기술상 특별한 지장이 없는 한 연중무휴, 1일 24시간을 원칙으로 합니다.<br>
+2. 제1항의 서비스 이용시간은 시스템 정기점검 등의 필요로 회사가 정한 날과 시간은 예외로 합니다. 또한, 천재지변이나 불의의 사고 시에는 제외되나, 사후에 이유를 회원에게 통지하여야 합니다.<br>
+3. 이용자에게 통보된 이용자ID 및 비밀번호 등의 관리 및 이용은 이용자의 책임으로 합니다. 그리고 이용자의 부주의로 이용상의 과실 또는 제3자에 의한 부정사용 등에 대한 모든 책임은 이용자에게 있습니다.<br><br>
+제 3 장 의무<br><br>
+제 9 조 [회사의 의무] <br>
+1. 회사는 법령과 이 약관이 금지하는 행위를 하지 않으며 이 약관에서 정하는 바에 따라 계속적, 안정적으로 서비스를 제공할 의무가 있습니다.<br>
+2. 회사는 이용자가 안전하게 서비스를 이용할 수 있도록 이용자의 정보(신용정보포함)의 보호, 관리를 위해 필요한 조치를 취합니다.<br>
+3. 회사는 이용계약의 체결, 계약사항의 변경 및 해지 등 회원과의 계약관계절차 및 내용 등에 있어 회원에게 편의를 제공하도록 노력합니다.<br>
+4. 회사는 회원으로부터 소정의 절차에 의해 제기되는 의견에 대해서는 적절한 절차를 거쳐 처리하며, 처리 시 일정 기간이 소요될 경우 회원에게 그 사유와 처리 일정을 알려주어야 합니다.<br>
+5. 회사는 회원의 정보를 철저히 보안 유지하며, 이용자의 승낙 없이 제3자에게 누설, 배포하지 않는 것을 원칙으로 합니다. 단, 아래 사항에 해당하는 경우는 예외입니다.<br>
+&nbsp;① 전기통신기본법 등 법률의 규정에 의해 국가기관의 요구가 있는 경우<br>
+&nbsp;② 범죄에 대한 수사상의 목적이 있거나 정보통신윤리위원회의 요청이 있는 경우<br>
+&nbsp;③ 기타 관계법령에서 정한 절차에 따른 요청이 있는 경우<br>
+6. 회사는 업무와 관련하여 회원 전체 또는 일부의 정보를 본래의 목적인 유무선연동 서비스 및 광고 활동을 위한 자료로 활용할 수 있으나 규정된 이외의 목적으로는 사용하여서는 안됩니다.<br>
+7. 회사는 서비스제공을 위한 시스템에 장애가 발생하거나 또는 그 시스템이 고장발생 시에는 이를 최대한 신속히 수리 또는 복구합니다. 다만, 천재지변, 비상사태 또는 그밖에 부득이한 경우에는 그 서비스를 일시 중단하거나 중지할 수 있습니다.<br>
+8. 회사는 스팸메세지ㆍ문자피싱메세지ㆍ발신번호조작 등으로 인지되는 문자메시지에 대해서 차단을 할 수 있습니다.<br>
+9. 회사는 이용자가 본인 명의가 아닌 타인의 전화번호를 부정하게 사용하는 경우에 서비스의 전부 또는 일부의 이용을 제한할 수 있습니다. 단, 회사는 전단의 서비스 차단 후 지체 없이 당해 차단 사실을 이용자에게 통지합니다.<br>
+10. 회사는 차단 된 문자 서비스에 관한 자료(변작된 발신번호, 차단시각, 전송자명 등)를 1년간 보관.관리하고 이를 한국인터넷진흥원 등 관계기관에 제출할 수 있습니다.<br>
+11. 회사는 이용고객의 회원가입 시 타인의 명의를 도용한 부정가입을 방지하기 위해 본인인증 서비스 사업자가 제공하는 인증방법 또는 대면인증을 통해 본인인증서비스를 제공ㆍ운영 합니다.<br>
+12. 회사는 이용자가 발신번호 사전등록 및 본인인증절차를 거친 후 서비스를 제공합니다.<br><br>
+제 10 조 [회원의 의무]<br>
+1. 회원은 이 약관 및 전기통신관련법령, 정보통신망이용촉진 관련법령, 정보보호 등에 관계 법률에서 규정한 모든 사항과 서비스 이용안내 및 주의사항 등을 준수하여야 합니다.<br>
+2. 회원은 등록 양식에서 요구되는 내용들에 대해 진실되고 정확하며, 현재의 사실과 일치되는 완전한 정보를 제공하고 유지합니다.<br>
+3. 회원은 자신의 ID와 비밀번호에 관한 모든 관리의 책임을 가지고 있으며, 그에 대한 회원의 관리 소홀로 인하여 발생하는 모든 결과에 대하여는 회원에게 책임이 있습니다.<br>
+4. 회원은 자신의 ID 및 비밀번호를 제3자에게 이용하게 해서는 안되며, ID 및 비밀번호를 도난 당하거나 제3자가 사용하고 있음을 인지한 경우와 부정하게 사용된 경우는 바로 회사에 그 사실을 통보해야 합니다.<br>
+5. 이용자는 서비스 이용에 대한 대가로서 이용계약 시에 정한 요금 등을 요금납입책임자와 연대하여 납입할 의무가 있습니다.<br>
+6. 이용자는 공공의 안녕질서 또는 미풍양속을 해하는 다음 각 호의 통신을 하여서는 안됩니다.<br>
+&nbsp;① 범죄행위를 목적으로 하거나 범죄행위를 교사하는 내용<br>
+&nbsp;② 반국가적 행위의 수행을 목적으로 하는 내용<br>
+&nbsp;③ 선량한 풍속, 기타 사회질서를 해하는 내용<br>
+7. 회원은 스팸 또는 불법스팸을 전송함으로써 발생하는 모든 민/형사상의 책임을 부담합니다.<br>
+8. 이용자는 회원가입 시 부정가입 방지를 위해 회사가 제공하는 본인인증방법으로 본인인증을 거친 후 서비스를 이용하여야 합니다.<br><br>
+제 4 장 서비스 제공 및 이용<br><br>
+제 11 조 [서비스의 제공 및 변경]<br>
+1. 회사는 회원에게 아래와 같은 서비스를 제공합니다.<br>
+&nbsp;① 서비스 명 : 원샷 SMS(Short Message Service) 서비스<br>
+&nbsp;② 서비스 내용 : 이동전화 단문 서비스의 통신 기능을 활용하여 휴대폰으로 단문메시지를 전송해 주는 서비스<br>
+&nbsp;③ 기타 회사가 자체 개발하거나 부가하여 제공하는 일체의 서비스<br>
+2. 회사는 제1항에서 정한 서비스를 변경하여 제공할 수 있으며, 그 변경될 서비스의 내용 및 제공일자를 제 12 조에 정한 방법으로 회원에게 통지합니다.<br>
+제 12 조 [정보의 제공 및 통지] 회사는 회원이 서비스 이용 중 필요하다고 인정되는 다양한 정보를 공지사항 혹은 문자메시지, 기타 방법 등으로 회원에게 제공할 수 있습니다.<br><br>
+제 5 장 스팸메시지 전송 동의<br>
+회원는 회사의 SMS ASP 서비스를 제공받음에 있어, “SPAM SMS”를 전송할 수 없으며, 이를 위반하는 경우 “SPAM SMS” 전송 행위에 따른 모든 민?형사상의 책임을 부담해야 한다. 여기서 “SPAM SMS”란,<br><br>
+
+– 「정보통신망이용촉진및정보보호등에관한법률」을 위반한 SMS<br>
+– 수신 동의를 하지 않은 고객에게 전송하는 영리목적의 광고성 SMS<br>
+– 서비스 이용금지시간(당일 21시 ~ 익일 09시)에 전송하는 영리목적의 광고성 SMS<br>
+– 동의 철회를 접수 받은 무료전화번호가 기재되지 않은 SMS<br><br>
+
+또한 회원은 회원의 고객 또는 제 3자가 SMS의 수신에 대한 동의 및 동의 철회 의사를 회원에게 통지하였으나, 이에 대하여 법적인 문제가 발생하였을 경우, 회원은 이를 증명할 수 있도록 고객 및 제 3자의 의사를 확인할 수 있는 자료를 보관, 관리해야 한다.<br>
+또한 “SPAM SMS”는 반드시 수신동의를 한 대상자들에 한하여 만 전송을 해야 하며, 대한민국 정보통신부의 정책 혹은 정보통신망법에 의거, 반드시 전송되는 메시지 내용에 “(광고)” 또는 “(성인광고)”라는 최초 문구가 있어야 하며, 무료수신거부 전화번호를 기재해야 한다. 당일 21시 ~ 익일 09시에는 “SPAM SMS” 전송을 하지 않으며, 수신거부를 한 대상자에게는 재발송을 하지 않고, 이를 어김으로 생기는 모든 민?형사상의 책임은 회원에 있음을 동의합니다.<br><br>
+제 6 장 계약 해지 및 서비스 이용 제한<br><br>
+제 13 조 계약 해지 및 이용 제한<br>
+1. 회원이 이용 계약을 해지하고자 하는 때에는 해지 7일전 회원이 해지 신청서를 주식회사에스엠티앤티 담당자 앞으로 보내 요청해야 합니다.<br>
+2. 회원이 회사의 핸드폰 문자메시지 망(SMS망) 등의 유무선 통신망을 이용하여 스팸(SPAM)성 메시지를 전송하여 제3자에게 정신적 물질적 피해를 입히는 경우, 회원은 그 행위에 대한 모든 법적 책임을 감수합니다.<br>
+3. 회원은 회사가 서비스 계약된 모든 국내 이동통신사(SKT, KTF, LGT)의 기업 SMS 정책과 대한민국 국가정책 뿐 아니라, 전세계 이동통신사간의 SMS 전송 규약을 준수한다.<br>
+4. 회원은 여러 정당한 방법으로 사이버머니를 확보할 수 있으며, 확보된 사이버머니는 현금으로 환불치 아니한다.<br>
+5. 회원의 이용계약해지 시는 사이버머니도 같이 소멸시킵니다.<br>
+6. 회사는 회원이 다음 사항에 해당하는 행위를 하였을 경우, 사전 통지 없이 이용 계약을 해지하거나 또는 기간을 정하여 서비스 이용을 중지할 수 있습니다.<br>
+&nbsp;① 공공 질서 및 미풍양속에 반하는 경우<br>
+&nbsp;② 범죄적 행위에 관련되는 경우<br>
+&nbsp;③ 국익 또는 사회적 공익을 저해할 목적으로 서비스 이용을 계획 또는 실행할 경우<br>
+&nbsp;④ 타인의 ID 및 비밀번호를 도용하거나 타인의 명예를 손상, 불이익을 주는 경우<br>
+&nbsp;⑤ 같은 사용자가 다른 ID로 이중 등록을 한 경우<br>
+&nbsp;⑥ 서비스에 위해를 가하는 등 건전한 이용을 저해하는 경우<br>
+&nbsp;⑦ 기타 관련 법령이나 회사가 정한 이용조건에 위배되는 경우<br>
+&nbsp;⑧ 주식회사에스엠티앤티에 관한 증거 없는, 이유 없는 비방 및 욕설로 인한 회사 이미지 및 명예를 훼손하는 경우<br>
+&nbsp;⑨ 정통부에서 불법스팸 전송사실을 확인하여 이용정지 혹은 계약 해지를 요청하는 경우<br>
+&nbsp;⑩ 대량으로 스팸을 전송하여 시스템 장애를 야기했거나 야기할 우려가 있는 경우<br>
+&nbsp;⑪ 해당 광고를 수신한 자가 수신거부를 요청하였으나 지속 재전송한 경우 등<br>
+&nbsp;⑫ 서비스 신청시 악의적인 의도로 동의 없이 타인(법인)의 명의를 도용하거나 허위로 정보를 기재한 경우<br>
+&nbsp;⑬ 회사의 서비스 제공 목적 외의 용도로 서비스를 이용하거나, 제3자에게 임의로 해당 서비스를 임대한 경우<br>
+&nbsp;⑭ 이용자가 제11조[이용자의 의무] 제5항을 위반하여 발신번호를 변작하는 등 거짓으로 표시한 경우<br>
+&nbsp;⑮ 미래창조과학부장관 또는 한국인터넷진흥원 등 관련 기관이 발신번호 변작 등을 확인하여 이용 정지를 요청하는 경우<br>
+7. 계약기간 중이더라도 양 당사자 중 일방이 본 협약을 위반하여 상대방이 문서로써 그에 대한 시정을 요구한 날로부터 30일 이내에 이를 이행하지 않는 경우, 또는 당사자 일방이 파산 신청, 회사정리절차, 개시신청, 화의 신청, 합병 등으로 인해 정상적인 영업활동을 할 수 없게 된 경우에는 계약을 해지할 수 있다.<br><br>
+제 14 조 이용 제한의 해제 절차<br>
+1. 회사는 이용 제한을 하고자 하는 경우에는 그 사유, 일시 및 기간을 정하여 서면 또는 전화 등의 방법을 이용하여 해당 회원 또는 대리인에게 통지합니다.<br>
+2. 다만, 회사가 긴급하게 이용을 중지해야 할 필요가 있다고 인정하는 경우에는 전항의 과정 없이 서비스 이용을 제한할 수 있습니다.<br>
+3. 제 5 장 제 14 조 1항의 규정에 의하여 서비스 이용중지를 통지 받은 회원 또는 그 대리인은 이용 중지에 대하여 이의가 있을 경우 이의신청을 할 수 있습니다.<br>
+4. 회사는 이용중지 기간 중에 그 이용중지 사유가 해소된 것이 확인된 경우에 한하여 이용중지 조치를 즉시 해제합니다.<br><br>
+제 7 장 법적 분쟁<br><br>
+제 15 조 비밀유지 및 권리 의무 양도 금지<br>
+1. 본 협약 체결 및 이행으로 취득한 상대방의 업무상 비밀에 대해서는 계약 종료 이후에도 상대방의 사전 서면 동의 없이는 제3자에게 유출하거나 타 목적에 사용해서는 안되며, 상대방이 요구하는 비밀 사항을 철저히 준수해야 한다. 또한, 본 협약의 모든 권리와 의무는 상대방의 서면 동의 없이는 제3자에게 양도될 수 없다.<br><br>
+제 16 조 손해 배상<br>
+1. 회사는 회사의 귀책사유가 없는 한, 서비스 이용과 관련하여 회원에게 발생한 어떠한 손해에 대하여도 책임을 지지 않습니다.<br>
+2. 본 약관의 규정을 위반함으로 인하여 회사에 손해가 발생하게 되는 경우, 이 약관을 위반한 회원은 회사에 발생하는 모든 손해를 배상하여야 합니다.<br>
+3. 회원이 서비스를 이용함에 있어 행한 불법행위나 본 약관 위반행위로 인하여 회사가 당해 회원 이외의 제3자로부터 손해배상 청구 또는 소송을 비롯한 각종 이의제기를 받는 경우 당해 회원은 자신의 책임과 비용으로 회사를 면책 시켜야 하며, 회사가 면책되지 못한 경우 당해 회원은 그로 인하여 회사에 발생한 모든 손해를 배상하여야 합니다.<br><br>
+제 17 조 면책 사항<br>
+1. 회사는 천재지변, 국가차원의 전쟁, 폭동, 전국적인 인터넷 마비사태 등의 불가항력적인 요인으로 인하여 서비스를 제공할 수 없는 경우에는 서비스 제공에 관한 책임이 면제됩니다.<br>
+2. 회사는 회원의 귀책사유로 인한 서비스의 이용장애에 대하여 책임을 지지 않습니다.<br>
+3. 회사는 회원이 서비스를 이용하여 기대하는 수익을 상실한 것에 대하여 책임을 지지 않으며 그 밖에 서비스를 통하여 얻은 자료로 인한 손해 등에 대하여도 책임을 지지 않습니다. 회사는 회원이 홈페이지에 게재한 정보·자료·사실의 신뢰도 및 정확성 등 내용에 대하여는 책임을 지지 않습니다.<br>
+4. 회사는 회원 상호간 또는 회원과 제3자 상호간에 서비스를 매개로 발생한 분쟁에 대해서는 개입할 의무가 없으며 이로 인한 손해를 배상할 책임도 없습니다.<br>
+5. 국제SMS서비스는 각 국가별 전쟁, 폭동, 통신두절, 이동통신사 서비스 불량 등의 사유로 서비스가 원활치 못한 경우에 책임이 면책됩니다.<br><br>
+제 18 조 관할 법원<br>
+1. 서비스 이용과 관련하여 회사와 회원 사이에 분쟁이 발생한 경우, 쌍방간에 분쟁의 해결을 위해 성실히 협의한 후가 아니면 제소할 수 없습니다.<br>
+2. 본 조 제1항의 협의에서도 분쟁이 해결되지 않을 경우 양 당사자는 소를 제기할 수 있으며, 서울지방법원을 관할법원으로 합니다.<br><br>
+제 84조 의 2 전화번호의 거짓표시 금지 및 이용자 보호<br>
+1. 누구든지 다른 사람을 속여 재산상 이익을 취하거나 폭언·협박·희롱 등의 위해를 입힐 목적으로 전화(문자메시지를 포함한다. 이하 이 조에서 같다)를 하면서 송신인의 전화번호를 변작하는 등 거짓으로 표시하여서는 아니 된다.<br>
+2. 누구든지 영리를 목적으로 송신인의 전화번호를 변작하는 등 거짓으로 표시할 수 있는 서비스를 제공하여서는 아니 된다. 다만, 공익을 목적으로 하거나 수신인에게 편의를 제공하는 등 정당한 사유가 있는 경우에는 그러하지 아니하다.<br>
+3. 전기통신사업자는 거짓으로 표시된 전화번호로 인한 이용자의 피해를 예방하기 위하여 다음 각 호의 조치를 하여야 한다. 다만, 제2항 단서에 따른 정당한 사유가 있는 경우는 제외한다.<br>
+&nbsp;① 변작 등 거짓으로 표시된 전화번호의 전화 발신을 차단하거나 송신인의 정상적인 전화번호로 정정하여 수신인에게 송출하기 위한 조치<br>
+&nbsp; 국외에서 국내로 발신된 전화에 대한 국외발신 안내를 위한 조치<br>
+&nbsp;③ 변작 등 거짓으로 표시한 전화번호를 송신한 자의 해당 회선에 대한 전기통신역무 제공의 중지를 위한 조치<br>
+&nbsp;④ 그 밖에 이용자 보호를 위하여 미래창조과학부장관이 정하는 사항<br><br>
+4. 미래창조과학부장관은 제3항에 따른 조치의 이행 여부를 확인하거나 이용자의 피해가 확산되는 것을 방지하기 위하여 전기통신사업자에게 다음 각호에 해당하는 자료의 열람·제출을 요청하거나 필요한 검사를 할 수 있다.
+&nbsp;⑤ 변작 등 거짓으로 표시된 전화번호의 전화 발신을 차단한 경우 해당 전화번호, 차단시각, 발신 사업자명
+&nbsp;⑥ 수신자가 변작 등 거짓으로 표시된 전화번호에 대하여 신고한 경우 발신 사업자명
+&nbsp;⑦ 그 밖에 제3항 각 호의 조치 이행 여부를 확인할 수 있는 관계 자료
+5. 미래창조과학부장관은 제3항에 따른 조치의 이행 여부를 확인하고 제4항에 따른 조치를 시행하기 위하여 대통령령으로 정하는 바에 따라 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」제52조에 따른 한국인터넷진흥원에 업무를 위탁하고 이에 소요되는 비용을 지원할 수 있다.<br>
+6. 미래창조과학부장관은 제2항 단서에 따른 정당한 사유, 제3항 각 호에 따른 조치 및 제4항의 이행을 위한 구체적인 절차·방법을 정하여 고시할 수 있다.<br>
+7. 제4항에 따른 자료의 열람·제출 및 검사에 대하여는 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」제64조, 제64조의2 및 제69조를 준용한다.<br><br>
+발신번호 사전 등록제<br>
+&nbsp;&nbsp;전기통신 사업법 제 84조에 의거 거짓으로 표시된 전화번호로 인한 이용자의 피해 예방을 위해서<br>
+&nbsp;&nbsp;문자 메시지는 사전 인증된 발신(회신)번호만 발송 해야 합니다.<br>
+사전 등록 가능한 발신(회신) 번호<br>
+&nbsp;&nbsp;개인/법인이 소유한 전화번호(휴대폰, 유선전화, 인터넷전화, 전국대표번호 등)<br>
+위반 시 행정 처분<br>
+&nbsp;&nbsp;웹방식 - 회원계정 잠금<br>
+&nbsp;&nbsp;시설문자 발송장비 - (최초)변작 번호를 발신번호로 하는 문자 발신 차단, (이후)서비스 중지<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;서비스 사업자 대상으로 3천만원 이하의 과태료<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실제 메시지 발신자와 서비스 제공 사업자를 대상으로 3년 이하의 징역 또는 1억원 이하의 벌금<br>
+(시행일)이 약관은 2016년 7월 16일부터 적용됩니다.<br>
+2006년 7월 25일부터 시행되던 종전의 약관은 본 약관으로 대체합니다.<br>
+본 약관의 적용일자 이전 가입자 또한 본 약관의 적용을 받습니다.
+</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
