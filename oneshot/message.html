@@ -87,6 +87,18 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script> //주소록팝업 라디오탭
+$(document).ready(function(){
+  $(".popadd_tab").not('.popst').hide();
+    var radioContent = $(".popadd_tab");
+  $(".popradio_tab input[type='radio']").click(function(){
+    radioContent.hide();
+    radioContent.eq($(".popradio_tab input[type='radio']").index(this)).show();
+  });
+});
+</script>
+
 <script>//문자창 클릭
   $(document).ready(function(){
     $("textarea").click(function(){
@@ -878,6 +890,9 @@ $(document).ready(function() {
               <p>
                 - 엑셀파일만 가능합니다.
               </p>
+              <p>
+                - <a href="#none;">샘플파일 다운로드</a>
+              </p>
             </div>
           </div>
         </div>
@@ -1525,384 +1540,761 @@ $(document).ready(function() {
         </div>
         <div class="message_box add_wrap">
           <div class="add_all_list">
-            <div class="add_list_btn">
-              <button class="grey_btn">전체보기</button>
-              <div class="add_search_wrap">
-                <div class="search_wrap">
-                  <input type="text" placeholder="검색어를 입력해주세요" />
-                  <button><img src="img/search_btn.png" alt="검색" /></button>
-                </div>
-                <div class="add_select">
-                  <span>
-                    <select>
-                      <option>
-                        그룹명 오름차순
-                      </option>
-                      <option>
-                        그룹명 내림차순
-                      </option>
-                      <option>
-                        등록일 과거순
-                      </option>
-                      <option>
-                        등록일 최신순
-                      </option>
-                      <option>
-                        인원 많은순
-                      </option>
-                      <option>
-                        인원 적은순
-                      </option>
-                    </select>
-                    <i class="down_icon"></i>
-                  </span>
+            <div class="m_sel popup_sel">
+              <div class="sel_radio popradio_tab">
+                <label><input type="radio" name="receiver" value="1" checked><span>그룹보기</span></label>
+              </div>
+              <div class="sel_radio popradio_tab">
+                <label><input type="radio" name="receiver" value="2"><span>전체보기</span></label>
+              </div>
+            </div>
+            <div class="popadd_tab popst">
+              <div class="add_list_btn">
+                <div class="add_search_wrap">
+                  <div class="search_wrap">
+                    <input type="text" placeholder="검색어를 입력해주세요" />
+                    <button><img src="img/search_btn.png" alt="검색" /></button>
+                  </div>
+                  <div class="add_select">
+                    <span>
+                      <select>
+                        <option>
+                          그룹명 오름차순
+                        </option>
+                        <option>
+                          그룹명 내림차순
+                        </option>
+                        <option>
+                          등록일 과거순
+                        </option>
+                        <option>
+                          등록일 최신순
+                        </option>
+                        <option>
+                          인원 많은순
+                        </option>
+                        <option>
+                          인원 적은순
+                        </option>
+                      </select>
+                      <i class="down_icon"></i>
+                    </span>
+                  </div>
                 </div>
               </div>
+              <div class="table_wrap">
+                <div class="add_list_table">
+                  <table>
+                    <colgroup>
+                      <col style="width:5%" />
+                      <col style="width:10%" />
+                      <col style="width:15%" />
+                      <col style="width:30%" />
+                      <col style="width:10%" />
+                      <col style="width:30%" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>
+                          <input type="checkbox" />
+                        </th>
+                        <th>
+                          No.
+                        </th>
+                        <th>
+                          등록일
+                        </th>
+                        <th>
+                          그룹명
+                        </th>
+                        <th>
+                          인원
+                        </th>
+                        <th>
+                          그룹메모
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <input type="checkbox" />
+                        </td>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          2020-12-01
+                        </td>
+                        <td>
+                          <a href="#none;" class="group_name">그룹1</a>
+                        </td>
+                        <td>
+                          20
+                        </td>
+                        <td>
+                          매월 5일 발송
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
 
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                          <a href="#none;" class="group_name">그룹2</a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
-            <div class="table_wrap">
-              <div class="add_list_table">
-                <table>
-                  <colgroup>
-                    <col style="width:5%" />
-                    <col style="width:10%" />
-                    <col style="width:15%" />
-                    <col style="width:30%" />
-                    <col style="width:10%" />
-                    <col style="width:30%" />
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th>
-                        <input type="checkbox" />
-                      </th>
-                      <th>
-                        No.
-                      </th>
-                      <th>
-                        등록일
-                      </th>
-                      <th>
-                        그룹명
-                      </th>
-                      <th>
-                        인원
-                      </th>
-                      <th>
-                        그룹메모
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <input type="checkbox" />
-                      </td>
-                      <td>
-                        1
-                      </td>
-                      <td>
-                        2020-12-01
-                      </td>
-                      <td>
-                        <a href="#none;" class="group_name">그룹1</a>
-                      </td>
-                      <td>
-                        20
-                      </td>
-                      <td>
-                        매월 5일 발송
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-                        <a href="#none;" class="group_name">그룹2</a>
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+            <div class="popadd_tab">
+              <div class="add_list_btn">
+                <div class="add_search_wrap">
+                  <div class="search_wrap">
+                    <input type="text" placeholder="검색어를 입력해주세요" />
+                    <button><img src="img/search_btn.png" alt="검색" /></button>
+                  </div>
+                  <div class="add_select">
+                    <span>
+                      <select>
+                        <option>
+                          이름순
+                        </option>
+                        <option>
+                          그룹명 오름차순
+                        </option>
+                        <option>
+                          그룹명 내림차순
+                        </option>
+                        <option>
+                          등록일 과거순
+                        </option>
+                        <option>
+                          등록일 최신순
+                        </option>
+                      </select>
+                      <i class="down_icon"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="table_wrap">
+                <div class="add_list_table">
+                  <table>
+                    <colgroup>
+                      <col style="width:5%" />
+                      <col style="width:10%" />
+                      <col style="width:15%" />
+                      <col style="width:15%" />
+                      <col style="width:20%" />
+                      <col style="width:35%" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>
+                          <input type="checkbox" />
+                        </th>
+                        <th>
+                          No.
+                        </th>
+                        <th>
+                          등록일
+                        </th>
+                        <th>
+                          이름
+                        </th>
+                        <th>
+                          전화번호
+                        </th>
+                        <th>
+                          그룹명
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <input type="checkbox" />
+                        </td>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          2020-12-01
+                        </td>
+                        <td>
+                          홍길동
+                        </td>
+                        <td>
+                          01012345678
+                        </td>
+                        <td>
+                          매월 5일 발송
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                          홍길동
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
             <div class="addplus_btn">
               <button class="b-close">발송목록 추가</button>
             </div>
           </div>
-
         </div>
       </div>
     </div>

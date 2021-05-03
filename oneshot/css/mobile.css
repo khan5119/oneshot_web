@@ -93,10 +93,6 @@
     width: 33%;
     display: inline-block;
   }
-  .contents_wrap ul {
-    display: block;
-    justify-content: center;
-  }
 
 }
 

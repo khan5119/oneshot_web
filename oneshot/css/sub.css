@@ -707,6 +707,7 @@ span.double_span>select {
 .full_textbox>span {
   position: relative;
   font-size: 16px;
+  line-height: 27px;
 }
 .full_textbox>span .down_icon {
   top:8px;
@@ -726,6 +727,9 @@ span.double_span>select {
 }
 .selbox_detail p {
   margin-top: 5px;
+}
+.selbox_detail p>a {
+  border-bottom: 1px solid #444;
 }
 .selbox_tit>div .selbox_file {
   padding: 0;
@@ -758,6 +762,7 @@ span.double_span>select {
 .add_popup .add_list_wrap .add_list_table {
   height: 406px;
 }
+
 .addplus_btn {
   margin-top: 30px;
   text-align: center;
@@ -768,11 +773,19 @@ span.double_span>select {
   background: #fce5e5;
   border-radius: 10px;
 }
-
 .add_popup .add_select {
   float:right;
-  margin-top: 7px;
+  margin-top: 6px;
 }
+.add_all_list {
+  position: relative;
+}
+.popup_sel {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 
 
 /*파일샷*/
@@ -2365,6 +2378,8 @@ span.double_span>select {
   margin:0 auto;
   display: flex;
   transition: 0.5s;
+  justify-content: space-between;
+
 }
 .kakao_box {
   border: 1px solid #888;
@@ -2379,6 +2394,9 @@ span.double_span>select {
 }
 .kakao_box .detail_text {
   margin-top: 10px!important;
+}
+.kakao_box .detail_text strong {
+  display: inline-block;margin-bottom: 5px;
 }
 .phone_kakao {
   margin-top: 60px;
@@ -2564,6 +2582,9 @@ span.double_span>select {
 }
 .tem_pro .four_btn>span:last-child {
   width: calc(50% - 4px);
+}
+.tem_pro .four_btn>span>strong {
+  color: #e20001;
 }
 .tem_tem .four_btn>span:last-child {
   width: calc(75% - 4px);
