@@ -576,7 +576,7 @@ span.double_span>select {
 /*문자_팝업*/
 .reply_popup {
   width: 400px;
-  height: 210px;
+  height: 230px;
   background: #fff;
   padding: 20px;
   display: none;
@@ -616,6 +616,7 @@ span.double_span>select {
 }
 .regi_num {
   margin-bottom: 10px;
+  line-height: 30px;
 }
 .regi_num span:first-child {
   width: 16%;
@@ -626,9 +627,11 @@ span.double_span>select {
 }
 .regi_num span input{
   border: 1px solid #ddd;
-  width: 120px;
+  width: 160px;
   box-sizing: border-box;
   margin-left: 10px;
+  padding: 5px;
+  margin-right: 5px;
 }
 .popup_contents>div>button {
   display: block;
@@ -667,7 +670,6 @@ span.double_span>select {
 }
 .test_result .regi_num span:nth-child(1) {
   width: 70px;
-  line-height: 22px;
 }
 .test_result .regi_num span:nth-child(2) {
   width: 120px;
@@ -775,7 +777,7 @@ span.double_span>select {
 }
 .add_popup .add_select {
   float:right;
-  margin-top: 6px;
+  margin-top: 7px;
 }
 .add_all_list {
   position: relative;
@@ -1361,13 +1363,13 @@ span.double_span>select {
 }
 .add_select {
   display: inline-block;
-  margin: 6.8px 0;
+  margin: 6px 0;
   position: relative;
   line-height: normal;
 }
 .add_select span{
   border:1px solid #ddd;
-  padding:5.5px 0px 5.5px 0px;
+  padding:5px 0px 5px 0px;
   box-sizing: border-box;
 }
 .table_wrap {

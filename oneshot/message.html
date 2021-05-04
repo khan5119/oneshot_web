@@ -78,6 +78,7 @@ function layer_add() {
 
 <script>//받는사람 라디오탭
 $(document).ready(function(){
+  document.getElementById('checked').checked = true;
   $(".tab_selbox").not('.first').hide();
     var radioContent = $(".tab_selbox");
   $(".radio_tab input[type='radio']").click(function(){
@@ -86,7 +87,6 @@ $(document).ready(function(){
   });
 });
 </script>
-
 
 <script> //주소록팝업 라디오탭
 $(document).ready(function(){
@@ -506,12 +506,12 @@ $(document).ready(function() {
         <div class="sub_box">
           <div class="m_sel">
             <div class="sel_radio">
-              <label><input type="radio" name="send" value="1" checked><span>일반 광고문자</span></label>
+              <label><input type="radio" name="send" value="" checked /><span>일반 광고문자</span></label>
               <button class="grey_rbtn">광고문구 넣기</button>
               <!--클릭시 문자발송창에 080 문구-->
             </div>
             <div class="sel_radio">
-              <label><input type="radio" name="send" value="2"><span>선거 홍보문자</span></label>
+              <label><input type="radio" name="send" value=""><span>선거 홍보문자</span></label>
               <button class="grey_rbtn">선거문구 넣기</button>
               <!--클릭시 문자발송창에 선거 문구-->
             </div>
@@ -709,16 +709,16 @@ $(document).ready(function() {
         <div class="sub_box">
           <div class="m_sel">
             <div class="sel_radio radio_tab">
-              <label><input type="radio" name="receiver" value="1" checked><span>직접입력</span></label>
+              <label><input type="radio"  name="receiver" value="" id="checked" checked /><span>직접입력</span></label>
             </div>
             <div class="sel_radio radio_tab">
-              <label><input type="radio" name="receiver" value="2"><span>복사해서 붙여넣기</span></label>
+              <label><input type="radio" name="receiver" value=""><span>복사해서 붙여넣기</span></label>
             </div>
             <div class="sel_radio radio_tab" onclick="layer_add();">
-              <label><input type="radio" name="receiver" value="3"><span>주소록 불러오기</span></label>
+              <label><input type="radio" name="receiver" value=""><span>주소록 불러오기</span></label>
             </div>
             <div class="sel_radio radio_tab">
-              <label><input type="radio" name="receiver" value="4"><span>파일 불러오기</span></label>
+              <label><input type="radio" name="receiver" value=""><span>파일 불러오기</span></label>
             </div>
           </div>
         </div>
@@ -1542,10 +1542,10 @@ $(document).ready(function() {
           <div class="add_all_list">
             <div class="m_sel popup_sel">
               <div class="sel_radio popradio_tab">
-                <label><input type="radio" name="receiver" value="1" checked><span>그룹보기</span></label>
+                <label><input type="radio" name="receiver" value="group"  checked /><span>그룹보기</span></label>
               </div>
               <div class="sel_radio popradio_tab">
-                <label><input type="radio" name="receiver" value="2"><span>전체보기</span></label>
+                <label><input type="radio" name="receiver" value="all"><span>전체보기</span></label>
               </div>
             </div>
             <div class="popadd_tab popst">

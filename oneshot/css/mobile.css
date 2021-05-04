@@ -286,7 +286,7 @@
     display: none!important;
   }
   .text_box .text_wrap {
-    height: 730px;
+    height: 690px;
   }
   .test_btn_wrap .test_detail p {
     font-size: 14px;
@@ -391,7 +391,9 @@
   .kakao_text {
     height: 585px;
   }
-
+ .popup_sel {
+   position: inherit;
+ }
 
 
 
@@ -475,7 +477,7 @@
     margin-top: 0;
   }
   .function_pop>div {
-    top:calc(60vh + 105px);
+    top:calc(60vh + 65px);
     width: calc(100% - 20px);
     right: auto;
   }
@@ -483,7 +485,7 @@
     top:calc(60vh + 315px);
   }
   .my_box, .pic_box {
-    top:calc(60vh + 185px)!important;
+    top:calc(60vh + 135px)!important;
   }
   .url_wrap>div {
     width: 100%;
@@ -960,10 +962,30 @@
   .date_check>button {
     margin: 5px 0;
   }
-
+  .reply_popup {
+    height: auto;
+  }
+  .regi_num>span {
+    display: block;
+    width: 100%!important;
+    text-align: center;
+  }
+  .regi_num>span>input {
+    width: 100%;
+    margin:0;
+  }
+  .regi_num .grey_btn {
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px 0;
+  }
 
 
 }
+
+
+
+
 @media only screen and ( max-width:360px ) {
   .full_btn>button {
     width: calc(50% - 2.5px);
