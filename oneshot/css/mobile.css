@@ -156,10 +156,14 @@
   .sub_tab_wrap {
     display: none;
   }
+  .contents_wrap ul {
+    display: inline-block;
+  }
 
   .contents_wrap ul li {
     width: 50%;
     transition: all 0.5s;
+    display: inline-block;
   }
   .service_box .service_contents {
     width: 100%!important;
