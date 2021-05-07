@@ -91,14 +91,16 @@ select::-ms-expand { display: none; }
 .grey_rbtn {
   margin:0 10px;
   background: #ddd;
-  padding: 5px 10px;
+  padding: 0px 10px;
   border-radius: 5px;
+  height: 30px;
 }
 .pink_rbtn {
   margin:0 10px;
   background: #fce5e5;
-  padding: 5px 10px;
+  padding: 0px 10px;
   border-radius: 5px;
+  height: 30px;
 }
 .text_box {
   width: 36%;
@@ -573,10 +575,13 @@ span.double_span>select {
 .file_plus .pic_btn button {
   font-size: 15px;
 }
+
+
+
 /*문자_팝업*/
 .reply_popup {
-  width: 400px;
-  height: 230px;
+  width: 460px;
+  height: 260px;
   background: #fff;
   padding: 20px;
   display: none;
@@ -595,24 +600,17 @@ span.double_span>select {
   line-height: 24px;
   cursor: pointer;
 }
-.popup_contents {
+.join_tab .join_text span {
+  width: calc(100% - 30px);
+}
+.reply_regi .company_info .join_text span>input {
+  width: calc(100% - 100px);
+}
+.reply_regi .company_info .join_text button {
+  top: 11px;
+}
+.reply_regi .send_btn>p {
   margin-top: 20px;
-}
-
-.popup_contents>div ul:first-child {
-  border-bottom: 1px solid #ddd;
-}
-.popup_contents ul {
-  overflow: hidden;
-  padding: 5px 0;
-}
-.popup_contents ul li {
-  float: left;
-  width: 20%;
-  text-align: center;
-}
-.popup_contents ul li:first-child {
-  width: 40%;
 }
 .regi_num {
   margin-bottom: 10px;
@@ -632,15 +630,6 @@ span.double_span>select {
   margin-left: 10px;
   padding: 5px;
   margin-right: 5px;
-}
-.popup_contents>div>button {
-  display: block;
-  margin: 20px auto 0;
-
-}
-.popup_contents>div p {
-  margin-top: 20px;
-  text-align: center;
 }
 .save_sms {
   position: relative;
@@ -709,7 +698,7 @@ span.double_span>select {
 .full_textbox>span {
   position: relative;
   font-size: 16px;
-  line-height: 27px;
+  line-height: 26px;
 }
 .full_textbox>span .down_icon {
   top:8px;
@@ -775,9 +764,12 @@ span.double_span>select {
   background: #fce5e5;
   border-radius: 10px;
 }
+.add_popup {
+  position: relative;
+}
 .add_popup .add_select {
   float:right;
-  margin-top: 7px;
+  margin-top: 6px;
 }
 .add_all_list {
   position: relative;
@@ -787,7 +779,19 @@ span.double_span>select {
   left: 0;
   top: 0;
 }
-
+.group_call {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: -2px;
+  z-index: 99;
+  width: 100%;
+  background: #fff;
+}
+.group_return {
+  display: inline-block;
+  margin-top: 6px;
+}
 
 
 /*파일샷*/
@@ -1201,7 +1205,7 @@ span.double_span>select {
 }
 .add_wrap {
   position: relative;
-  padding-top: 0!important;
+  padding: 0!important;
 }
 .add_tab .add_group_wrap {
   width: calc(100% - 200px);
@@ -1358,9 +1362,6 @@ span.double_span>select {
 .search_wrap button img {
   height: 20px;
 }
-.sel_right {
-  float: right;
-}
 .add_select {
   display: inline-block;
   margin: 6px 0;
@@ -1374,7 +1375,14 @@ span.double_span>select {
 }
 .table_wrap {
   overflow-x: auto;
+  overflow-y: scroll;
   width: 100%;
+  height: 480px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+.return_pop {
+  overflow-y: inherit;
 }
 .add_list_table {
   position: relative;
@@ -1382,8 +1390,7 @@ span.double_span>select {
 }
 .add_list_table table {
   width: 100%;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
+
 }
 .add_list_table table th {
   text-align: center;
@@ -1400,47 +1407,6 @@ span.double_span>select {
 }
 .add_list_table table tbody tr:nth-child(even) {
   background: #fafafa;
-}
-
-.add_listnum {
-  text-align: center;
-  font-size: 16px;
-  position: absolute;
-  left: 50%;
-  bottom: 3px;
-  transform: translate(-50%);
-  width: auto;
-}
-.add_listnum>div {
-  display: inline-block;
-}
-.add_listnum>div>span {
-  cursor: pointer;
-}
-.add_listnum .add_num span {
-  margin:0 10px;
-  color: #a5a5a5;
-}
-.add_listnum .add_num span.on {
-  border-bottom: 1px solid #191919;
-  color: #191919;
-}
-.add_listnum .numpre_prev, .num_prev, .numne_next, .num_next {
-  background: url(../img/num_arrow.png) no-repeat;
-  text-indent: -9999px;
-  width: 12px;
-  height: 12px;
-  margin: 5px 5px 0;
-  cursor: pointer;
-}
-.add_listnum .num_prev {
-  background-position: -12px;
-}
-.add_listnum .num_next {
-  background-position: -24px;
-}
-.add_listnum .numne_next {
-  background-position: -36px;
 }
 .grey_btn {
   background: #ddd;
@@ -1484,7 +1450,7 @@ span.double_span>select {
   padding: 0px 2px;
 }
 .group_detail {
-  height: 670px!important;
+  height: 640px!important;
 }
 .group_detail .add_select {
   float: right;
@@ -1972,13 +1938,12 @@ span.double_span>select {
   margin-bottom: 0;
 }
 
-.join_tab .join_text span {
+.join_tab .join_text span:first-child {
   margin-left: 15px;
 }
 .join_tab .join_text span>input {
   border: 1px solid #ddd;
   width: 50%;
-  min-width: 320px;
   padding: 0 10px;
   height: 30px;
   box-sizing: border-box;
@@ -1986,6 +1951,11 @@ span.double_span>select {
 .member_join {
   display: none;
 }
+.member_busi .join_write:nth-child(2) {
+  margin-top: 30px;
+}
+
+
 
 /*발송내역*/
 .date_check {
@@ -2028,8 +1998,14 @@ span.double_span>select {
   margin-top: 20px;
 }
 .send_num ul li{
-  width: 32%;
+  width: 20%;
   text-align: center;
+}
+.send_num ul li>div {
+  margin-left: 10px;
+}
+.send_num ul li:first-child>div {
+  margin-left: 0;
 }
 
 .send_num ul li table {
@@ -2053,20 +2029,36 @@ span.double_span>select {
   line-height: 36px;
   border: 1px solid #ddd;
 }
-
+.send_list_table table tr td {
+  position: relative;
+}
 .send_list_table table tr td span {
   text-overflow: ellipsis;
   overflow: hidden;
-  height: 22px;
   word-wrap: break-word;
   display: -webkit-box;
   -webkit-line-clamp:1;
   -webkit-box-orient:vertical;
 
 }
+.send_list_table table tr td span:hover {
+  overflow: visible;
+  background: #fff;
+  border: 1px solid #aaa;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  line-height: 24px;
+}
 .send_detail {
   width: 980px;
-  height: 600px;
+  height: 560px;
   background: #fff;
   padding: 20px;
   display: none;
@@ -2074,6 +2066,10 @@ span.double_span>select {
 .send_detail .send_list_table {
   margin-top: 20px;
 }
+.group_detail .send_list_table {
+  margin-top: 0px;
+}
+
 .send_detail .send_list_table .add_select {
   float: none;
 }
@@ -2086,15 +2082,47 @@ span.double_span>select {
 .send_detail .send_list_table .add_list_btn>span {
   line-height: 30px;
 }
-.send_detail .send_list_table table tr td span {
-  width: 250px;
-}
-.send_detail .add_listnum {
-  bottom: -34px;
-}
-
 .send_detail .search_wrap {
   margin-right: 0;
+}
+
+.send_revise {
+  width: 600px;
+}
+.send_revise .add_select span {
+  padding: 2.5px 0;
+}
+.send_revise .join_tab .join_text {
+  padding-top: 6px;
+}
+.send_revise .four_btn>span {
+  width: 40%;
+}
+.send_revise .join_text .four_btn .down_icon {
+  top: 10px;
+}
+.send_revise .company_info .join_text span>input {
+  width: 100%;
+}
+.send_revise .four_btn .reserv_time {
+  width: calc(30% - 13.5px);
+}
+.send_revise .join_tab .join_text span>input {
+  min-width: 0;
+}
+.send_revise .join_text>div {
+  margin: 0;
+  width: calc(100% - 15px);
+}
+.send_revise .join_text .down_icon {
+  top: 5px;
+  right: 12px;
+}
+.send_revise .join_text .add_select {
+  margin-top: 5px;
+}
+.send_revise .add_select span select {
+  width: calc(100% - 17px);
 }
 
 
@@ -2278,7 +2306,7 @@ span.double_span>select {
 }
 .company_detail {
   width: 600px;
-  height: 620px;
+  height: 570px;
 }
 .company_info {
   margin-top: 20px;
@@ -2311,12 +2339,15 @@ span.double_span>select {
   width: 600px;
   height: 210px;
 }
-.add_number, .modify_number {
+.add_number, .modify_number, .add_groupnum {
   width: 600px;
-  height: 340px;
+  height: 300px;
   background: #fff;
   padding: 20px;
   display: none;
+}
+.add_groupnum {
+  height: 340px;
 }
 .send_btn .ok_btn {
   background: #e20001;
@@ -2522,9 +2553,6 @@ span.double_span>select {
 .kakao_search {
   float: none;
 }
-.kakao_table {
-  padding-bottom: 40px;
-}
 .id_text {
   line-height: 30px;
   margin-left: 5px;
@@ -2559,19 +2587,20 @@ span.double_span>select {
   transition: all 0.5s;
 }
 .template_wrap {
-  overflow-y: auto;
   height: 330px;
+}
+.add_all_list {
   position: relative;
+}
+.add_list_table .cover_table {
+  height: auto;
+  width: calc(100% - 17px);
+  position: absolute;
+  left: 0;
+  top: 0px;
   border: 1px solid #ddd;
   box-sizing: border-box;
-}
-.template_wrap table {
-  border: none;
-}
-
-.template_wrap thead th {
-  position: sticky;
-  top: 0;
+  border-bottom: none;
 }
 .template_box input {
   background: none!important;
@@ -2713,4 +2742,53 @@ span.double_span>select {
 }
 .fail_message {
   display: none;
+}
+
+
+/*페이징*/
+.add_listnum {
+  text-align: center;
+  font-size: 16px;
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  transform: translate(-50%);
+  width: auto;
+}
+.add_listnum>div {
+  display: inline-block;
+}
+.add_listnum>div>span {
+  cursor: pointer;
+}
+.add_listnum .add_num span {
+  margin:0 10px;
+  color: #a5a5a5;
+}
+.add_listnum .add_num span.on {
+  border-bottom: 1px solid #191919;
+  color: #191919;
+}
+.add_listnum .numpre_prev, .num_prev, .numne_next, .num_next {
+  background: url(../img/num_arrow.png) no-repeat;
+  text-indent: -9999px;
+  width: 12px;
+  height: 12px;
+  margin: 5px 5px 0;
+  cursor: pointer;
+}
+.add_listnum .num_prev {
+  background-position: -12px;
+}
+.add_listnum .num_next {
+  background-position: -24px;
+}
+.add_listnum .numne_next {
+  background-position: -36px;
+}
+.gift_listnum {
+  position: inherit;
+  left: auto;
+  transform: none;
+  margin-top: 20px;
 }

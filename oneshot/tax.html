@@ -116,6 +116,17 @@ $(document).ready(function() {
 });
 </script>
 
+<script>//테이블 스크롤 연동
+$(document).ready(function(){
+    $(".table_wrap").scroll(function () {
+      $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
+  });
+  $(".table_popwrap").scroll(function () {
+    $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
+  });
+});
+</script>
+
 </head>
 
 <body>
@@ -244,9 +255,6 @@ $(document).ready(function() {
             <div>
               <a href="ka_friend.html">친구톡 보내기</a>
             </div>
-            <div>
-              <a href="ka_result.html">발송결과</a>
-            </div>
           </div>
           <div class="momenu_right">
             <div>
@@ -254,9 +262,6 @@ $(document).ready(function() {
             </div>
             <div>
               <a href="statistics.html">발송통계</a>
-            </div>
-            <div>
-              <a href="point.html">포인트 사용내역</a>
             </div>
           </div>
           <div class="momenu_right">
@@ -300,7 +305,7 @@ $(document).ready(function() {
               <a href="charge.html">충전하기</a>
             </div>
             <div>
-              <a href="chargelist.html">충전내역</a>
+              <a href="point.html">포인트내역</a>
             </div>
           </div>
         </div>
@@ -328,7 +333,7 @@ $(document).ready(function() {
           <a href="#none;">기프티샷</a>
         </li>
         <li>
-          <a href="#none;">고객지원</a>
+          <a href="#none;" class="on">고객지원</a>
         </li>
         <li>
           <a href="#none;">충전하기</a>
@@ -354,12 +359,10 @@ $(document).ready(function() {
             <a href="ka_template.html">템플릿 관리</a>
             <a href="ka_notice.html">알림톡 보내기</a>
             <a href="ka_friend.html">친구톡 보내기</a>
-            <a href="ka_result.html">발송결과</a>
           </li>
           <li>
             <a href="result.html">발송내역</a>
             <a href="statistics.html">발송통계</a>
-            <a href="point.html">포인트 사용내역</a>
           </li>
           <li>
             <a href="address.html">주소록 관리</a>
@@ -379,7 +382,7 @@ $(document).ready(function() {
           </li>
           <li>
             <a href="charge.html">충전하기</a>
-            <a href="chargelist.html">충전내역</a>
+            <a href="point.html">포인트내역</a>
           </li>
         </ul>
       </div>
@@ -462,360 +465,375 @@ $(document).ready(function() {
             </div>
           </div>
           <div class="add_list_table">
-            <table>
-              <colgroup>
-                <col style="width:20%" />
-                <col style="width:15%" />
-                <col style="width:20%" />
-                <col style="width:20%" />
-                <col style="width:15%" />
-                <col style="width:10%" />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>
-                    날짜
-                  </th>
-                  <th>
-                    결제구분
-                  </th>
-                  <th>
-                    금액
-                  </th>
-                  <th>
-                    포인트
-                  </th>
-                  <th>
-                    처리상태
-                  </th>
-                  <th>
-                    요청
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    2021-03-16 09:24
-                  </td>
-                  <td>
-                    무통장입금
-                  </td>
-                  <td>
-                    500,000
-                  </td>
-                  <td>
-                    56,444,555
-                  </td>
-                  <td>
-                    결제완료
-                  </td>
-                  <td>
-                    <!--세금계산서 발행전에만 버튼 표시 발행 이후에는 버튼 숨기기-->
-                    <button class="grey_btn"  onclick="alert('세금계산서 발행이 완료되었습니다.');">발행</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    2021-03-16 09:24
-                  </td>
-                  <td>
-                    무통장입금
-                  </td>
-                  <td>
-                    500,000
-                  </td>
-                  <td>
-                    56,444,555
-                  </td>
-                  <td>
-                    발행완료
-                  </td>
-                  <td>
-                    <button class="grey_btn" onclick="alert('세금계산서 발행이 완료되었습니다.');">발행</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
+            <div class="table_wrap">
+              <table>
+                <colgroup>
+                  <col style="width:20%" />
+                  <col style="width:15%" />
+                  <col style="width:20%" />
+                  <col style="width:20%" />
+                  <col style="width:15%" />
+                  <col style="width:10%" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>
+                      날짜
+                    </th>
+                    <th>
+                      결제구분
+                    </th>
+                    <th>
+                      금액
+                    </th>
+                    <th>
+                      포인트
+                    </th>
+                    <th>
+                      처리상태
+                    </th>
+                    <th>
+                      요청
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      2021-03-16 09:24
+                    </td>
+                    <td>
+                      무통장입금
+                    </td>
+                    <td>
+                      500,000
+                    </td>
+                    <td>
+                      56,444,555
+                    </td>
+                    <td>
+                      결제완료
+                    </td>
+                    <td>
+                      <!--세금계산서 발행전에만 버튼 표시 발행 이후에는 버튼 숨기기-->
+                      <button class="grey_btn"  onclick="alert('세금계산서 발행이 완료되었습니다.');">발행</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      2021-03-16 09:24
+                    </td>
+                    <td>
+                      무통장입금
+                    </td>
+                    <td>
+                      500,000
+                    </td>
+                    <td>
+                      56,444,555
+                    </td>
+                    <td>
+                      발행완료
+                    </td>
+                    <td>
+                      <button class="grey_btn" onclick="alert('세금계산서 발행이 완료되었습니다.');">발행</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
 
-                  </td>
-                  <td>
+                    </td>
+                    <td>
 
-                  </td>
-                  <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
 
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
+                    </td>
+                    <td>
 
-                  </td>
-                  <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
 
-                  </td>
-                  <td>
+                    </td>
+                    <td>
 
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
 
-                  </td>
-                  <td>
+                    </td>
+                    <td>
 
-                  </td>
-                  <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
 
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
+                    </td>
+                    <td>
 
-                  </td>
-                  <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
 
-                  </td>
-                  <td>
+                    </td>
+                    <td>
 
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
 
-                  </td>
-                  <td>
+                    </td>
+                    <td>
 
-                  </td>
-                  <td>
-
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    &nbsp;
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                  <td>
-
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="add_listnum gift_listnum">
-              <div class="numpre_prev">
-                <span>pre</span>
-              </div>
-              <div class="num_prev">
-                <span>prev</span>
-              </div>
-              <div class="add_num">
-                <span class="on">1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-              </div>
-              <div class="num_next">
-                <span>next</span>
-              </div>
-              <div class="numne_next">
-                <span>ne</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="cover_table">
+                <table>
+                  <colgroup>
+                    <col style="width:20%" />
+                    <col style="width:15%" />
+                    <col style="width:20%" />
+                    <col style="width:20%" />
+                    <col style="width:15%" />
+                    <col style="width:10%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>
+                        날짜
+                      </th>
+                      <th>
+                        결제구분
+                      </th>
+                      <th>
+                        금액
+                      </th>
+                      <th>
+                        포인트
+                      </th>
+                      <th>
+                        처리상태
+                      </th>
+                      <th>
+                        요청
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
               </div>
             </div>
           </div>
@@ -873,21 +891,13 @@ $(document).ready(function() {
               </div>
             </div>
             <div class="join_tab">
-              <div class="join_tit">
-                FAX번호
-              </div>
-              <div class="join_text">
-                <span><input type="text"  /></span>
-              </div>
-            </div>
-            <div class="join_tab">
               <div class="join_tit join_height">
                 주소
               </div>
               <div class="join_text">
                 <span><input type="text" class="short_info" /></span>
                 <button class="grey_rbtn">우편번호 검색</button>
-                <span><input type="text" placeholder="상세주소를 입력하세요." /></span>
+                <span style="margin-left:15px;"><input type="text" placeholder="상세주소를 입력하세요." /></span>
               </div>
             </div>
             <div class="join_tab">

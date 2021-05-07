@@ -14,7 +14,12 @@
 
 <script>//레이어팝업
 function layer_senddetail() {
- $(".send_detail").bPopup({
+ $(".reserve_detail").bPopup({
+ 		modalClose : false
+	});
+}
+function layer_revise() {
+ $(".send_revise").bPopup({
  		modalClose : false
 	});
 }
@@ -116,6 +121,18 @@ $(document).ready(function() {
   });
 });
 </script>
+
+<script>//테이블 스크롤 연동
+$(document).ready(function(){
+  $(".table_wrap").scroll(function () {
+    $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
+  });
+  $(".table_popwrap").scroll(function () {
+    $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
+  });
+});
+</script>
+
 
 </head>
 
@@ -246,9 +263,6 @@ $(document).ready(function() {
             <div>
               <a href="ka_friend.html">친구톡 보내기</a>
             </div>
-            <div>
-              <a href="ka_result.html">발송결과</a>
-            </div>
           </div>
           <div class="momenu_right">
             <div>
@@ -256,9 +270,6 @@ $(document).ready(function() {
             </div>
             <div>
               <a href="statistics.html">발송통계</a>
-            </div>
-            <div>
-              <a href="point.html">포인트 사용내역</a>
             </div>
           </div>
           <div class="momenu_right">
@@ -302,7 +313,7 @@ $(document).ready(function() {
               <a href="charge.html">충전하기</a>
             </div>
             <div>
-              <a href="chargelist.html">충전내역</a>
+              <a href="point.html">포인트내역</a>
             </div>
           </div>
         </div>
@@ -315,7 +326,7 @@ $(document).ready(function() {
           <a href="#none;">회사소개</a>
         </li>
         <li>
-          <a href="#none;">문자보내기</a>
+          <a href="#none;" class="on">문자보내기</a>
         </li>
         <li>
           <a href="#none;">카카오톡</a>
@@ -356,12 +367,10 @@ $(document).ready(function() {
             <a href="ka_template.html">템플릿 관리</a>
             <a href="ka_notice.html">알림톡 보내기</a>
             <a href="ka_friend.html">친구톡 보내기</a>
-            <a href="ka_result.html">발송결과</a>
           </li>
           <li>
             <a href="result.html">발송내역</a>
             <a href="statistics.html">발송통계</a>
-            <a href="point.html">포인트 사용내역</a>
           </li>
           <li>
             <a href="address.html">주소록 관리</a>
@@ -381,7 +390,7 @@ $(document).ready(function() {
           </li>
           <li>
             <a href="charge.html">충전하기</a>
-            <a href="chargelist.html">충전내역</a>
+            <a href="point.html">포인트내역</a>
           </li>
         </ul>
       </div>
@@ -430,7 +439,6 @@ $(document).ready(function() {
                 <a href="#none;">2020-01-31</a>
                 <button class="pink_btn">조회</button>
               </div>
-
             </div>
           </div>
           <div class="add_list_table send_list_table">
@@ -438,12 +446,13 @@ $(document).ready(function() {
               <table>
                 <colgroup>
                   <col style="width:5%" />
-                  <col style="width:15%" />
-                  <col style="width:15%" />
+                  <col style="width:14%" />
+                  <col style="width:14%" />
                   <col style="width:10%" />
                   <col style="width:5%" />
                   <col style="width:10%" />
-                  <col style="width:30%" />
+                  <col style="width:24%" />
+                  <col style="width:8%" />
                   <col style="width:10%" />
                 </colgroup>
                 <thead>
@@ -452,7 +461,7 @@ $(document).ready(function() {
                       <input type="checkbox" />
                     </th>
                     <th>
-                      예약시간
+                      등록시간
                     </th>
                     <th>
                       발송예정시간
@@ -468,6 +477,9 @@ $(document).ready(function() {
                     </th>
                     <th>
                       내용
+                    </th>
+                    <th>
+                      수정
                     </th>
                     <th>
                       상세보기
@@ -495,7 +507,68 @@ $(document).ready(function() {
                       1124
                     </td>
                     <td>
-                      <span>안녕하세요요 메시지입니다 반갑습니다 안녕하세요요 메시지입니다 반갑습니다</span>
+                      <span>안녕하세요요 메시지입니다 반갑습니다 안녕하세요요 메시지입니다 반갑습니다안녕하세요요 메시지입니다 반갑습니다 안녕하세요요 메시지입니다 반갑습니다</span>
+                    </td>
+                    <td>
+                      <button class="pink_btn" onclick="layer_revise();">수정</button>
+                    </td>
+                    <td>
+                      <button class="grey_btn" onclick="layer_senddetail();">상세보기</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      01022222222
+                    </td>
+                    <td>
+                      LMS
+                    </td>
+                    <td>
+                      1124
+                    </td>
+                    <td>
+                      <span>안녕하세요요 메시지입니다 반갑습니다 안녕하세요요 메시지입니다 반갑습니다안녕하세요요 메시지입니다 반갑습니다 안녕하세요요 메시지입니다 반갑습니다안녕하세요요 메시지입니다 반갑습니다 안녕하세요요 메시지입니다 반갑습니다안녕하세요요 메시지입니다 반갑습니다 안녕하세요요 메시지입니다 반갑습니다</span>
+                    </td>
+                    <td>
+                      <button class="pink_btn" onclick="layer_revise();">수정</button>
+                    </td>
+                    <td>
+                      <button class="grey_btn" onclick="layer_senddetail();">상세보기</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      01022222222
+                    </td>
+                    <td>
+                      LMS
+                    </td>
+                    <td>
+                      1124
+                    </td>
+                    <td>
+                      <span>안녕하세요요 메시지입니다 반갑습니다 안녕하세요요 메시지입니다 반갑습니다안녕하세요요 메시지입니다 반갑습니다 안녕하세요요 메시지입니다 반갑습니다</span>
+                    </td>
+                    <td>
+                      <button class="pink_btn" onclick="layer_revise();">수정</button>
                     </td>
                     <td>
                       <button class="grey_btn" onclick="layer_senddetail();">상세보기</button>
@@ -526,29 +599,6 @@ $(document).ready(function() {
                     <td>
 
                     </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      &nbsp;
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
                     <td>
 
                     </td>
@@ -559,29 +609,6 @@ $(document).ready(function() {
                     </td>
                     <td>
 
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      &nbsp;
                     </td>
                     <td>
 
@@ -630,29 +657,6 @@ $(document).ready(function() {
                     <td>
 
                     </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      &nbsp;
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
                     <td>
 
                     </td>
@@ -663,29 +667,6 @@ $(document).ready(function() {
                     </td>
                     <td>
 
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      &nbsp;
                     </td>
                     <td>
 
@@ -734,29 +715,6 @@ $(document).ready(function() {
                     <td>
 
                     </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      &nbsp;
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
                     <td>
 
                     </td>
@@ -767,29 +725,6 @@ $(document).ready(function() {
                     </td>
                     <td>
 
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      &nbsp;
                     </td>
                     <td>
 
@@ -838,10 +773,132 @@ $(document).ready(function() {
                     <td>
 
                     </td>
+                    <td>
+
+                    </td>
                   </tr>
                   <tr>
                     <td>
                       &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &nbsp;
+                    </td>
+                    <td>
+
                     </td>
                     <td>
 
@@ -867,77 +924,81 @@ $(document).ready(function() {
                   </tr>
                 </tbody>
               </table>
+              <div class="cover_table">
+                <table>
+                  <colgroup>
+                    <col style="width:5%" />
+                    <col style="width:14%" />
+                    <col style="width:14%" />
+                    <col style="width:10%" />
+                    <col style="width:5%" />
+                    <col style="width:10%" />
+                    <col style="width:24%" />
+                    <col style="width:8%" />
+                    <col style="width:10%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>
+                        <input type="checkbox" />
+                      </th>
+                      <th>
+                        등록시간
+                      </th>
+                      <th>
+                        발송예정시간
+                      </th>
+                      <th>
+                        회신번호
+                      </th>
+                      <th>
+                        구분
+                      </th>
+                      <th>
+                        발송건수
+                      </th>
+                      <th>
+                        내용
+                      </th>
+                      <th>
+                        수정
+                      </th>
+                      <th>
+                        상세보기
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
             </div>
             <div class="add_list_btn">
               <button onclick="alert('선택한 항목을 모두 삭제하시겠습니까?');">삭제</button>
             </div>
-            <div class="add_listnum">
-              <div class="numpre_prev">
-                <span>pre</span>
-              </div>
-              <div class="num_prev">
-                <span>prev</span>
-              </div>
-              <div class="add_num">
-                <span class="on">1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-              </div>
-              <div class="num_next">
-                <span>next</span>
-              </div>
-              <div class="numne_next">
-                <span>ne</span>
-              </div>
-            </div>
           </div>
         </div>
-        <div class="send_detail">
+        <div class="send_detail reserve_detail">
           <div class="popup_tit">
             상세보기
             <span class="b-close">&times;</span>
           </div>
-          <div class="add_list_table send_list_table">
-            <div class="add_list_btn">
-              <div class="add_select">
-                <span>
-                  <select>
-                    <option>
-                      전체
-                    </option>
-                    <option>
-                      성공
-                    </option>
-                    <option>
-                      실패
-                    </option>
-                    <option>
-                      대기
-                    </option>
-                  </select>
-                  <i class="down_icon"></i>
-                </span>
+          <div class="add_list_btn">
+            <div class="add_search_wrap">
+              <div class="search_wrap">
+                <input type="text" >
+                <button><img src="img/search_btn.png" alt="검색"></button>
               </div>
-              <div class="add_search_wrap">
-                <div class="search_wrap">
-                  <input type="text" >
-                  <button><img src="img/search_btn.png" alt="검색"></button>
-                </div>
-              </div>
-
             </div>
-            <div class="table_wrap">
+
+          </div>
+          <div class="add_list_table">
+            <div class="table_wrap table_popwrap">
               <table>
                 <colgroup>
                   <col style="width:16%" />
                   <col style="width:16%" />
                   <col style="width:14%" />
                   <col style="width:14%" />
-                  <col style="width:7%" />
-                  <col style="width:7%" />
-                  <col style="width:26%" />
+                  <col style="width:40%" />
                 </colgroup>
                 <thead>
                   <tr>
@@ -945,7 +1006,7 @@ $(document).ready(function() {
                       등록시간
                     </th>
                     <th>
-                      전송시간
+                      발송예정시간
                     </th>
                     <th>
                       휴대폰번호
@@ -954,15 +1015,8 @@ $(document).ready(function() {
                       회신번호
                     </th>
                     <th>
-                      결과
-                    </th>
-                    <th>
-                      통신사
-                    </th>
-                    <th>
                       내용
                     </th>
-
                   </tr>
                 </thead>
                 <tbody>
@@ -980,10 +1034,21 @@ $(document).ready(function() {
                       01012345678
                     </td>
                     <td>
-                      성공
+                      <span>안녕하세요요</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      2020-12-01 23:58
                     </td>
                     <td>
-                      SKT
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      01012345124
+                    </td>
+                    <td>
+                      01012345678
                     </td>
                     <td>
                       <span>안녕하세요요</span>
@@ -1003,10 +1068,38 @@ $(document).ready(function() {
                       01012345678
                     </td>
                     <td>
-                      성공
+                      <span>안녕하세요요</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      2020-12-01 23:58
                     </td>
                     <td>
-                      SKT
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      01012345124
+                    </td>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      <span>안녕하세요요안녕하세요요안녕하세요요안녕하세요요안녕하세요요안녕하세요요안녕하세요요안녕하세요요안녕하세요요</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      01012345124
+                    </td>
+                    <td>
+                      01012345678
                     </td>
                     <td>
                       <span>안녕하세요요</span>
@@ -1026,12 +1119,6 @@ $(document).ready(function() {
                       01012345678
                     </td>
                     <td>
-                      성공
-                    </td>
-                    <td>
-                      SKT
-                    </td>
-                    <td>
                       <span>안녕하세요요</span>
                     </td>
                   </tr>
@@ -1047,81 +1134,6 @@ $(document).ready(function() {
                     </td>
                     <td>
                       01012345678
-                    </td>
-                    <td>
-                      성공
-                    </td>
-                    <td>
-                      SKT
-                    </td>
-                    <td>
-                      <span>안녕하세요요</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      2020-12-01 23:58
-                    </td>
-                    <td>
-                      2020-12-01 23:58
-                    </td>
-                    <td>
-                      01012345124
-                    </td>
-                    <td>
-                      01012345678
-                    </td>
-                    <td>
-                      성공
-                    </td>
-                    <td>
-                      SKT
-                    </td>
-                    <td>
-                      <span>안녕하세요요</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      2020-12-01 23:58
-                    </td>
-                    <td>
-                      2020-12-01 23:58
-                    </td>
-                    <td>
-                      01012345124
-                    </td>
-                    <td>
-                      01012345678
-                    </td>
-                    <td>
-                      성공
-                    </td>
-                    <td>
-                      SKT
-                    </td>
-                    <td>
-                      <span>안녕하세요요</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      2020-12-01 23:58
-                    </td>
-                    <td>
-                      2020-12-01 23:58
-                    </td>
-                    <td>
-                      01012345124
-                    </td>
-                    <td>
-                      01012345678
-                    </td>
-                    <td>
-                      성공
-                    </td>
-                    <td>
-                      SKT
                     </td>
                     <td>
                       <span>안녕하세요요 안녕하세요요 안녕하세요요 </span>
@@ -1141,10 +1153,55 @@ $(document).ready(function() {
                       01012345678
                     </td>
                     <td>
-                      성공
+                      <span>안녕하세요요 안녕하세요요 안녕하세요요 </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      2020-12-01 23:58
                     </td>
                     <td>
-                      SKT
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      01012345124
+                    </td>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      <span>안녕하세요요 안녕하세요요 안녕하세요요 </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      01012345124
+                    </td>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      <span>안녕하세요요 안녕하세요요 안녕하세요요 </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      01012345124
+                    </td>
+                    <td>
+                      01012345678
                     </td>
                     <td>
                       <span>안녕하세요요</span>
@@ -1164,10 +1221,21 @@ $(document).ready(function() {
                       01012345678
                     </td>
                     <td>
-                      성공
+                      <span>안녕하세요요</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      2020-12-01 23:58
                     </td>
                     <td>
-                      SKT
+                      2020-12-01 23:58
+                    </td>
+                    <td>
+                      01012345124
+                    </td>
+                    <td>
+                      01012345678
                     </td>
                     <td>
                       <span>안녕하세요요</span>
@@ -1187,12 +1255,6 @@ $(document).ready(function() {
                       01012345678
                     </td>
                     <td>
-                      성공
-                    </td>
-                    <td>
-                      SKT
-                    </td>
-                    <td>
                       <span>안녕하세요요</span>
                     </td>
                   </tr>
@@ -1210,12 +1272,6 @@ $(document).ready(function() {
                       01012345678
                     </td>
                     <td>
-                      성공
-                    </td>
-                    <td>
-                      SKT
-                    </td>
-                    <td>
                       <span>안녕하세요요</span>
                     </td>
                   </tr>
@@ -1231,35 +1287,6 @@ $(document).ready(function() {
                     </td>
                     <td>
                       01012345678
-                    </td>
-                    <td>
-                      성공
-                    </td>
-                    <td>
-                      SKT
-                    </td>
-                    <td>
-                      <span>안녕하세요요</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      2020-12-01 23:58
-                    </td>
-                    <td>
-                      2020-12-01 23:58
-                    </td>
-                    <td>
-                      01012345124
-                    </td>
-                    <td>
-                      01012345678
-                    </td>
-                    <td>
-                      성공
-                    </td>
-                    <td>
-                      SKT
                     </td>
                     <td>
                       <span>안녕하세요요</span>
@@ -1267,26 +1294,141 @@ $(document).ready(function() {
                   </tr>
                 </tbody>
               </table>
+              <div class="cover_table cover_poptable">
+                <table>
+                  <colgroup>
+                    <col style="width:16%" />
+                    <col style="width:16%" />
+                    <col style="width:14%" />
+                    <col style="width:14%" />
+                    <col style="width:40%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>
+                        등록시간
+                      </th>
+                      <th>
+                        발송예정시간
+                      </th>
+                      <th>
+                        휴대폰번호
+                      </th>
+                      <th>
+                        회신번호
+                      </th>
+                      <th>
+                        내용
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
             </div>
-            <div class="add_listnum">
-              <div class="numpre_prev">
-                <span>pre</span>
+          </div>
+        </div>
+        <div class=" send_revise send_detail add_modify">
+          <div class="popup_tit">
+            예약수정
+            <span class="b-close">&times;</span>
+          </div>
+          <!--기존값 가져가기-->
+          <div class="add_list_wrap">
+            <div class="company_info">
+              <div class="join_write">
+                <div class="join_tab">
+                  <div class="join_tit">
+                    예약시간
+                  </div>
+                  <div class="join_text">
+                    <div class="four_btn">
+                      <span><input class="datesel" type="date"/></span><!--날짜 클릭시 날짜선택 팝업/임의로 보여주기-->
+                      <span class="reserv_time">
+                        <select name="time">
+                          <option value="01">01 시</option>
+                          <option value="02">02 시</option>
+                          <option value="03">03 시</option>
+                          <option value="04">04 시</option>
+                          <option value="05">05 시</option>
+                          <option value="06">06 시</option>
+                          <option value="07">07 시</option>
+                          <option value="08">08 시</option>
+                          <option value="09">09 시</option>
+                          <option value="10">10 시</option>
+                          <option value="11">11 시</option>
+                          <option value="12">12 시</option>
+                          <option value="13">13 시</option>
+                          <option value="14">14 시</option>
+                          <option value="15">15 시</option>
+                          <option value="16">16 시</option>
+                          <option value="17">17 시</option>
+                          <option value="18">18 시</option>
+                          <option value="19">19 시</option>
+                          <option value="20">20 시</option>
+                          <option value="21">21 시</option>
+                          <option value="22">22 시</option>
+                          <option value="23">23 시</option>
+                          <option value="24">24 시</option>
+                        </select>
+                        <i class="down_icon"></i>
+                      </span>
+                      <span class="reserv_time">
+                        <select name="min">
+                          <option value="00">00 분</option>
+                          <option value="01">01 분</option>
+                          <option value="02">02 분</option>
+                          <option value="03">03 분</option>
+                          <option value="04">04 분</option>
+                          <option value="05">05 분</option>
+                          <option value="06">06 분</option>
+                          <option value="07">07 분</option>
+                          <option value="08">08 분</option>
+                          <option value="09">09 분</option>
+                          <option value="10">10 분</option>
+                          <option value="11">11 분</option>
+                          <option value="12">12 분</option>
+                          <option value="13">13 분</option>
+                          <option value="14">14 분</option>
+                          <option value="15">15 분</option>
+                          <option value="16">16 분</option>
+                          <option value="17">17 분</option>
+                          <option value="18">18 분</option>
+                          <option value="19">19 분</option>
+                          <option value="20">20 분</option>
+                          <option value="21">21 분</option>
+                          <option value="22">22 분</option>
+                          <option value="23">23 분</option>
+                          <option value="24">24 분</option>
+                        </select>
+                        <i class="down_icon"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="join_tab">
+                  <div class="join_tit">
+                    회신번호
+                  </div>
+                  <div class="join_text">
+                    <div class="add_select">
+                      <span>
+                        <select>
+                          <option>
+                            07055556666
+                          </option>
+                          <option>
+                            15667845
+                          </option>
+                        </select>
+                        <i class="down_icon"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="num_prev">
-                <span>prev</span>
-              </div>
-              <div class="add_num">
-                <span class="on">1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-              </div>
-              <div class="num_next">
-                <span>next</span>
-              </div>
-              <div class="numne_next">
-                <span>ne</span>
+              <div class="send_btn">
+                <button class="ok_btn">수정</button>
+                <button class="cancle_btn b-close">취소</button>
               </div>
             </div>
           </div>

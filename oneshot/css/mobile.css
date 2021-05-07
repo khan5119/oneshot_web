@@ -63,20 +63,11 @@
   .shotimg_wrap>div {
     width: 100%;
   }
-  .add_listnum {
-    width: 100%;
-    position: static;
-    left: auto;
-    transform: translate(0);
-  }
   .charge_select>div {
     width: calc(50% - 20px);
   }
   .charge_select>div:last-child {
     margin-right: 0;
-  }
-  .send_detail .add_listnum {
-    bottom:0;
   }
   .kakao_rbox {
     height: 425px;
@@ -86,14 +77,16 @@
     height: 260px;
     transition: 0.5s;
   }
-  .kakao_table .add_listnum {
-    margin-top: 14px;
-  }
   .company_iconwrap .contents_wrap ul li {
     width: 33%;
     display: inline-block;
   }
-
+  .add_listnum {
+    width: 100%;
+    position: static;
+    left: auto;
+    transform: translate(0);
+  }
 }
 
 @media only screen and ( max-width:950px ) {
@@ -324,11 +317,13 @@
     padding-top: 15px;
   }
   .add_search_wrap {
-    margin: 10px 0;
     width: 100%;
   }
+  .kakao_search {
+    margin:10px 0;
+  }
   .search_wrap {
-    width: calc(100% - 154px);
+    width: 100%;
   }
   .gift_box .add_search_wrap {
     float: none;
@@ -342,10 +337,14 @@
   .send_detail {
     width: calc(100% - 40px);
     height: auto;
+    left: 0!important;
   }
   .group_detail {
     height: auto!important;
     left: 0!important;
+  }
+  .group_detail .add_select {
+    margin-top: 10px;
   }
   .gift_wrap .add_search_wrap {
     margin:0;
@@ -398,7 +397,20 @@
  .popup_sel {
    position: inherit;
  }
-
+ .return_pop table {
+   width: 100%;
+ }
+ .cover_table {
+   width: calc(100% - 17px)!important;
+   overflow-x: scroll;
+ }
+ .cover_table::-webkit-scrollbar {
+   display: none;
+ }
+ .sel_search {
+   width: calc(100% - 80px);
+   margin:0;
+ }
 
 
 }
@@ -575,6 +587,9 @@
   .company_info .join_tab .join_text span>input {
     width: 100%;
   }
+  .reply_regi .company_info .join_tab:first-child .join_text span>input {
+    width: calc(100% - 80px);
+  }
   .sms_service .join_tab .join_text span {
     margin-left: 0;
   }
@@ -624,9 +639,44 @@
     width: 100%;
     margin-bottom: 10px;
   }
+  .send_num ul li>div {
+    margin-left: 0;
+  }
   .kakao_text {
     height: calc(60vh - 105px);
   }
+  .send_revise .join_text>div {
+    width: 100%;
+  }
+  .send_revise .add_select span select {
+    width: calc(100% - 2px);
+  }
+  .send_revise .four_btn .reserv_time {
+    width: calc(30% - 5px);
+  }
+  .reply_popup {
+    width: calc(100% - 20px);
+  }
+  .reply_regi .company_info .join_text button {
+    top:8px;
+    right: 0;
+  }
+  .reply_popup {
+    height: 360px;
+  }
+  .join_tab .join_text .join_btn {
+    width: calc(100% - 100px);
+    display: inline-block;
+  }
+  .join_tab .join_text span {
+    width: 100%;
+    margin-left: 0!important;
+}
+  .join_tab .join_text span>input {
+    width: 100%;
+  }
+
+
 
 }
 
@@ -770,6 +820,9 @@
   }
   .send_detail .add_search_wrap {
     width: 100%;
+  }
+  .send_detail .sel_search {
+    width: calc(100% - 80px);
   }
   .gift_select {
     margin-bottom: 10px;
@@ -983,7 +1036,15 @@
     margin-top: 5px;
     padding: 5px 0;
   }
-
+  .comlogo img {
+    width: 90%;
+  }
+  .company_wrap .com_box img {
+    width: 95%;
+  }
+  .cover_table, .cover_poptable {
+    display: none;
+  }
 
 }
 

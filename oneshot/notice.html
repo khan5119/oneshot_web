@@ -118,6 +118,17 @@ $(document).ready(function() {
 });
 </script>
 
+<script>//테이블 스크롤 연동
+$(document).ready(function(){
+    $(".table_wrap").scroll(function () {
+      $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
+  });
+  $(".table_popwrap").scroll(function () {
+    $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
+  });
+});
+</script>
+
 </head>
 
 <body>
@@ -246,9 +257,6 @@ $(document).ready(function() {
             <div>
               <a href="ka_friend.html">친구톡 보내기</a>
             </div>
-            <div>
-              <a href="ka_result.html">발송결과</a>
-            </div>
           </div>
           <div class="momenu_right">
             <div>
@@ -256,9 +264,6 @@ $(document).ready(function() {
             </div>
             <div>
               <a href="statistics.html">발송통계</a>
-            </div>
-            <div>
-              <a href="point.html">포인트 사용내역</a>
             </div>
           </div>
           <div class="momenu_right">
@@ -302,7 +307,7 @@ $(document).ready(function() {
               <a href="charge.html">충전하기</a>
             </div>
             <div>
-              <a href="chargelist.html">충전내역</a>
+              <a href="point.html">포인트내역</a>
             </div>
           </div>
         </div>
@@ -330,7 +335,7 @@ $(document).ready(function() {
           <a href="#none;">기프티샷</a>
         </li>
         <li>
-          <a href="#none;">고객지원</a>
+          <a href="#none;" class="on">고객지원</a>
         </li>
         <li>
           <a href="#none;">충전하기</a>
@@ -356,12 +361,10 @@ $(document).ready(function() {
             <a href="ka_template.html">템플릿 관리</a>
             <a href="ka_notice.html">알림톡 보내기</a>
             <a href="ka_friend.html">친구톡 보내기</a>
-            <a href="ka_result.html">발송결과</a>
           </li>
           <li>
             <a href="result.html">발송내역</a>
             <a href="statistics.html">발송통계</a>
-            <a href="point.html">포인트 사용내역</a>
           </li>
           <li>
             <a href="address.html">주소록 관리</a>
@@ -381,7 +384,7 @@ $(document).ready(function() {
           </li>
           <li>
             <a href="charge.html">충전하기</a>
-            <a href="chargelist.html">충전내역</a>
+            <a href="point.html">포인트내역</a>
           </li>
         </ul>
       </div>

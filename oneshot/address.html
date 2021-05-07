@@ -53,7 +53,7 @@ function layer_copy() {   //연락처복사
 }
 
 function layer_addplus() {  //개별등록
- $(".add_number").bPopup({
+ $(".add_groupnum").bPopup({
  		modalClose : false
 	});
 }
@@ -152,6 +152,17 @@ $(document).ready(function() {
    $(".momenu_right").eq(idx).show();
 
    return false;
+  });
+});
+</script>
+
+<script>//테이블 스크롤 연동
+$(document).ready(function(){
+    $(".table_wrap").scroll(function () {
+      $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
+  });
+  $(".table_popwrap").scroll(function () {
+    $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
   });
 });
 </script>
@@ -285,9 +296,6 @@ $(document).ready(function() {
             <div>
               <a href="ka_friend.html">친구톡 보내기</a>
             </div>
-            <div>
-              <a href="ka_result.html">발송결과</a>
-            </div>
           </div>
           <div class="momenu_right">
             <div>
@@ -295,9 +303,6 @@ $(document).ready(function() {
             </div>
             <div>
               <a href="statistics.html">발송통계</a>
-            </div>
-            <div>
-              <a href="point.html">포인트 사용내역</a>
             </div>
           </div>
           <div class="momenu_right">
@@ -341,7 +346,7 @@ $(document).ready(function() {
               <a href="charge.html">충전하기</a>
             </div>
             <div>
-              <a href="chargelist.html">충전내역</a>
+              <a href="point.html">포인트내역</a>
             </div>
           </div>
         </div>
@@ -363,7 +368,7 @@ $(document).ready(function() {
           <a href="#none;">결과조회</a>
         </li>
         <li>
-          <a href="#none;">주소록관리</a>
+          <a href="#none;" class="on">주소록관리</a>
         </li>
         <li>
           <a href="#none;">기프티샷</a>
@@ -395,12 +400,10 @@ $(document).ready(function() {
             <a href="ka_template.html">템플릿 관리</a>
             <a href="ka_notice.html">알림톡 보내기</a>
             <a href="ka_friend.html">친구톡 보내기</a>
-            <a href="ka_result.html">발송결과</a>
           </li>
           <li>
             <a href="result.html">발송내역</a>
             <a href="statistics.html">발송통계</a>
-            <a href="point.html">포인트 사용내역</a>
           </li>
           <li>
             <a href="address.html">주소록 관리</a>
@@ -420,7 +423,7 @@ $(document).ready(function() {
           </li>
           <li>
             <a href="charge.html">충전하기</a>
-            <a href="chargelist.html">충전내역</a>
+            <a href="point.html">포인트내역</a>
           </li>
         </ul>
       </div>
@@ -926,6 +929,48 @@ $(document).ready(function() {
                   </tr>
                 </tbody>
               </table>
+              <div class="cover_table">
+                <table>
+                  <colgroup>
+                    <col style="width:5%" />
+                    <col style="width:5%" />
+                    <col style="width:10%" />
+                    <col style="width:25%" />
+                    <col style="width:6%" />
+                    <col style="width:37%" />
+                    <col style="width:6%" />
+                    <col style="width:6%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>
+                        <input type="checkbox" />
+                      </th>
+                      <th>
+                        No.
+                      </th>
+                      <th>
+                        등록일
+                      </th>
+                      <th>
+                        그룹명
+                      </th>
+                      <th>
+                        인원
+                      </th>
+                      <th>
+                        그룹메모
+                      </th>
+                      <th>
+                        수정
+                      </th>
+                      <th>
+                        삭제
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
             </div>
             <div class="add_list_btn">
               <div class="trisection">
@@ -934,27 +979,6 @@ $(document).ready(function() {
                 <button onclick="layer_addplus();">개별등록</button>
               </div>
               <button class="add_download downbtn_full">주소록 다운로드</button>
-            </div>
-            <div class="add_listnum">
-              <div class="numpre_prev">
-                <span>pre</span>
-              </div>
-              <div class="num_prev">
-                <span>prev</span>
-              </div>
-              <div class="add_num">
-                <span class="on">1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-              </div>
-              <div class="num_next">
-                <span>next</span>
-              </div>
-              <div class="numne_next">
-                <span>ne</span>
-              </div>
             </div>
           </div>
         </div>
@@ -1041,20 +1065,18 @@ $(document).ready(function() {
               </div>
 
             </div>
-            <div class="add_list_table">
-              <div class="table_wrap">
+            <div class="add_list_table send_list_table">
+              <div class="table_wrap table_popwrap">
                 <table>
                   <colgroup>
                     <col style="width:5%" />
-                    <col style="width:5%" />
                     <col style="width:10%" />
+                    <col style="width:12%" />
                     <col style="width:10%" />
-                    <col style="width:13%" />
                     <col style="width:15%" />
-                    <col style="width:15%" />
-                    <col style="width:15%" />
-                    <col style="width:6%" />
-                    <col style="width:6%" />
+                    <col style="width:32%" />
+                    <col style="width:8%" />
+                    <col style="width:8%" />
                   </colgroup>
                   <thead>
                     <tr>
@@ -1074,13 +1096,7 @@ $(document).ready(function() {
                         전화번호
                       </th>
                       <th>
-                        메모1
-                      </th>
-                      <th>
-                        메모2
-                      </th>
-                      <th>
-                        메모3
+                        메모
                       </th>
                       <th>
                         수정
@@ -1108,13 +1124,7 @@ $(document).ready(function() {
                         01012345678
                       </td>
                       <td>
-                        매월 5일 발송
-                      </td>
-                      <td>
-                        매월 5일 발송
-                      </td>
-                      <td>
-                        매월 5일 발송
+                        <span>매월 5일 발송 매월 5일 발송매월 5일 발송매월 5일 발송매월 5일 발송매월 5일 발송v매월 5일 발송매월 5일 발송매월 5일 발송</span>
                       </td>
                       <td>
                         <button class="grey_btn"  onclick="layer_nummodify();">수정</button>
@@ -1148,54 +1158,10 @@ $(document).ready(function() {
                       <td>
 
                       </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
                     </tr>
                     <tr>
                       <td>
                         &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
                       </td>
                       <td>
 
@@ -1244,54 +1210,10 @@ $(document).ready(function() {
                       <td>
 
                       </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
                     </tr>
                     <tr>
                       <td>
                         &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
                       </td>
                       <td>
 
@@ -1340,54 +1262,10 @@ $(document).ready(function() {
                       <td>
 
                       </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
                     </tr>
                     <tr>
                       <td>
                         &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
                       </td>
                       <td>
 
@@ -1436,54 +1314,10 @@ $(document).ready(function() {
                       <td>
 
                       </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
                     </tr>
                     <tr>
                       <td>
                         &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        &nbsp;
-                      </td>
-                      <td>
-
-                      </td>
-                      <td>
-
                       </td>
                       <td>
 
@@ -1532,6 +1366,26 @@ $(document).ready(function() {
                       <td>
 
                       </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
                       <td>
 
                       </td>
@@ -1548,6 +1402,78 @@ $(document).ready(function() {
                       </td>
                       <td>
 
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        &nbsp;
                       </td>
                       <td>
 
@@ -1573,8 +1499,49 @@ $(document).ready(function() {
                     </tr>
                   </tbody>
                 </table>
+                <div class="cover_table cover_poptable">
+                  <table>
+                    <colgroup>
+                      <col style="width:5%" />
+                      <col style="width:10%" />
+                      <col style="width:12%" />
+                      <col style="width:10%" />
+                      <col style="width:15%" />
+                      <col style="width:32%" />
+                      <col style="width:8%" />
+                      <col style="width:8%" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>
+                          <input type="checkbox" />
+                        </th>
+                        <th>
+                          No.
+                        </th>
+                        <th>
+                          등록일
+                        </th>
+                        <th>
+                          이름
+                        </th>
+                        <th>
+                          전화번호
+                        </th>
+                        <th>
+                          메모
+                        </th>
+                        <th>
+                          수정
+                        </th>
+                        <th>
+                          삭제
+                        </th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
               </div>
-
               <div class="add_list_btn">
                 <div class="trisection">
                   <button onclick="layer_add();">추가</button>
@@ -1584,28 +1551,6 @@ $(document).ready(function() {
                 </div>
 
               </div>
-              <div class="add_listnum">
-                <div class="numpre_prev">
-                  <span>pre</span>
-                </div>
-                <div class="num_prev">
-                  <span>prev</span>
-                </div>
-                <div class="add_num">
-                  <span class="on">1</span>
-                  <span>2</span>
-                  <span>3</span>
-                  <span>4</span>
-                  <span>5</span>
-                </div>
-                <div class="num_next">
-                  <span>next</span>
-                </div>
-                <div class="numne_next">
-                  <span>ne</span>
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
@@ -1680,6 +1625,80 @@ $(document).ready(function() {
         </div>
       </div>
     </div>
+    <div class="send_detail add_groupnum">
+      <div class="popup_tit">
+        <p>
+          연락처 등록
+        </p>
+        <span class="b-close">&times;</span>
+      </div>
+      <div class="add_list_wrap">
+        <div class="company_info">
+          <div class="join_write">
+            <div class="join_tab">
+              <div class="join_tit">
+                이름
+              </div>
+              <div class="join_text">
+                <span><input type="text" /></span>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit">
+                전화번호
+              </div>
+              <div class="join_text">
+                <span><input type="text" placeholder="- 를 제외한 숫자만 입력해주세요."/></span>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit">
+                그룹
+              </div>
+              <div class="join_text">
+                <span class="move_select">
+                  <select>
+                    <option>
+                      비설정
+                    </option>
+                    <option>
+                      그룹2
+                    </option>
+                    <option>
+                      그룹333
+                    </option>
+                    <option>
+                      등록일 최신순
+                    </option>
+                    <option>
+                      인원 많은순
+                    </option>
+                    <option>
+                      인원 적은순
+                    </option>
+                  </select>
+                </span>
+                <i class="down_icon"></i>
+              </div>
+            </div>
+            <div class="join_tab">
+              <div class="join_tit join_height">
+                메모
+              </div>
+              <div class="join_text">
+                <span>
+                  <textarea></textarea>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="send_btn">
+            <button class="ok_btn">추가</button>
+            <button class="cancle_btn b-close">취소</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="send_detail add_number">
       <div class="popup_tit">
         <p>
@@ -1707,27 +1726,13 @@ $(document).ready(function() {
               </div>
             </div>
             <div class="join_tab">
-              <div class="join_tit">
-                메모1
+              <div class="join_tit join_height">
+                메모
               </div>
               <div class="join_text">
-                <span><input type="text" /></span>
-              </div>
-            </div>
-            <div class="join_tab">
-              <div class="join_tit">
-                메모2
-              </div>
-              <div class="join_text">
-                <span><input type="text" /></span>
-              </div>
-            </div>
-            <div class="join_tab">
-              <div class="join_tit">
-                메모3
-              </div>
-              <div class="join_text">
-                <span><input type="text" /></span>
+                <span>
+                  <textarea></textarea>
+                </span>
               </div>
             </div>
           </div>
@@ -1766,27 +1771,13 @@ $(document).ready(function() {
               </div>
             </div>
             <div class="join_tab">
-              <div class="join_tit">
-                메모1
+              <div class="join_tit join_height">
+                메모
               </div>
               <div class="join_text">
-                <span><input type="text" /></span>
-              </div>
-            </div>
-            <div class="join_tab">
-              <div class="join_tit">
-                메모2
-              </div>
-              <div class="join_text">
-                <span><input type="text" /></span>
-              </div>
-            </div>
-            <div class="join_tab">
-              <div class="join_tit">
-                메모3
-              </div>
-              <div class="join_text">
-                <span><input type="text" /></span>
+                <span>
+                  <textarea></textarea>
+                </span>
               </div>
             </div>
           </div>
