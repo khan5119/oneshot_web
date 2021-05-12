@@ -1,167 +1,185 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>One Shot</title>
-<link href="css/reset.css" rel="stylesheet" type="text/css">
-<link href="css/main.css" rel="stylesheet" type="text/css">
-<link href="css/sub.css" rel="stylesheet" type="text/css">
-<link href="css/mobile.css" rel="stylesheet" type="text/css">
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/jquery.bxslider.min.js"></script>
-<script src="js/jquery.bpopup.min.js"></script>
-<script src="js/slick.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>One Shot</title>
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/sub.css" rel="stylesheet" type="text/css">
+  <link href="css/mobile.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/jquery.bxslider.min.js"></script>
+  <script src="js/jquery.bpopup.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
 
-<script>//실패 메시지
+  <script>
+    //실패 메시지
 
-  $(document).ready(function(){
-    $(".kakao_fail").click(function(){
-      $(".fail_message").show();
-       });
+    $(document).ready(function() {
+      $(".kakao_fail").click(function() {
+        $(".fail_message").toggle();
+
+        $('html, body').animate({
+          scrollTop: $(".fail_message").offset().top
+        }, 500);
+      });
     });
-</script>
+  </script>
 
-<script>//레이어팝업
-function layer_replysel() {
- $(".reply_sel").bPopup({
- 		modalClose : false
-	});
-}
-function layer_replyregi() {
- $(".reply_regi").bPopup({
- 		modalClose : false
-	});
-}
-function layer_test() {
- $(".test_result").bPopup({
- 		modalClose : false
-	});
-}
-function layer_add() {
- $(".add_popup").bPopup({
- 		modalClose : false
-	});
-}
-</script>
+  <script>
+    //레이어팝업
+    function layer_replysel() {
+      $(".reply_sel").bPopup({
+        modalClose: false
+      });
+    }
 
-<script>//받는사람 라디오탭
-$(document).ready(function(){
-  $(".tab_selbox").not('.first').hide();
-    var radioContent = $(".tab_selbox");
-  $(".radio_tab input[type='radio']").click(function(){
-    radioContent.hide();
-    radioContent.eq($(".radio_tab input[type='radio']").index(this)).show();
-  });
-});
-</script>
+    function layer_replyregi() {
+      $(".reply_regi").bPopup({
+        modalClose: false
+      });
+    }
 
-<!--공통 스크립트-->
-<script>//로그인 시 상단 변경
-$(document).ready(function(){
-  $(".login").click(function(){
-    $(".login_btn, .join_btn").hide();
-    $(".myinfo_wrap").show();
-    $(".myinfo_wrap").css('display','inline-block');
-  });
-  });
-</script>
+    function layer_test() {
+      $(".test_result").bPopup({
+        modalClose: false
+      });
+    }
 
-<script>//퀵메뉴
-$(function(){
-    var cssTop = parseInt($(".quick_wrap").css("top"));
-    $(window).scroll(function() {
+    function layer_add() {
+      $(".add_popup").bPopup({
+        modalClose: false
+      });
+    }
+  </script>
+
+  <script>
+    //받는사람 라디오탭
+    $(document).ready(function() {
+      $(".tab_selbox").not('.first').hide();
+      var radioContent = $(".tab_selbox");
+      $(".radio_tab input[type='radio']").click(function() {
+        radioContent.hide();
+        radioContent.eq($(".radio_tab input[type='radio']").index(this)).show();
+      });
+    });
+  </script>
+
+  <!--공통 스크립트-->
+  <script>
+    //로그인 시 상단 변경
+    $(document).ready(function() {
+      $(".login").click(function() {
+        $(".login_btn, .join_btn").hide();
+        $(".myinfo_wrap").show();
+        $(".myinfo_wrap").css('display', 'inline-block');
+      });
+    });
+  </script>
+
+  <script>
+    //퀵메뉴
+    $(function() {
+      var cssTop = parseInt($(".quick_wrap").css("top"));
+      $(window).scroll(function() {
         var position = $(window).scrollTop();
 
         var total = cssTop + position + 0;
 
-        if(total == 0){
-            total = 0;
+        if (total == 0) {
+          total = 0;
         }
 
         $(".quick_wrap").stop().animate({
-            "top" : total + "px"
+          "top": total + "px"
         }, 800);
+      });
+    })
+  </script>
+
+  <script>
+    //메인메뉴 호버
+    $(document).ready(function() {
+      $('.sub_menu_wrap li').hover(function() {
+        var index = $(".sub_menu_wrap li").index(this) + 1;
+        console.log(index);
+        $('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function() {
+        var index = $(".sub_menu_wrap li").index(this) + 1;
+        $('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#444444").css("border-bottom", "none");
+      });
+
+      $('.menu_wrap>ul>li>a').hover(function() {
+        $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function() {
+        $(this).css("color", "#444444").css("border-bottom", "none");
+      });
     });
-})
-</script>
+  </script>
 
-<script>//메인메뉴 호버
-$(document).ready(function(){
-  $('.sub_menu_wrap li').hover(function() {
-    var index = $(".sub_menu_wrap li").index(this) +1;
-    console.log(index);
-    $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-  }, function(){
-    var index = $(".sub_menu_wrap li").index(this) +1;
-      $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#444444").css("border-bottom", "none");
-    });
-
-    $('.menu_wrap>ul>li>a').hover(function() {
-      $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-      }, function(){
-      $(this).css("color", "#444444").css("border-bottom", "none");
-    });
-});
-</script>
-
-<script>//로그인팝업
-function layer_login() {
- $(".login_box").bPopup({
- 		modalClose : false
-	});
-}
-</script>
-
-<script>//모바일메뉴 클릭
-$(document).ready(function(){
-  $('.mobile_btn').on('click', function(){
-    $('.top_wrap').toggleClass('active');
-      if($('.top_wrap').hasClass('active')) {
-      $('.top_wrap').css('height', '100vh');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'block');
-      $('.mobilemenu_wrap').css('opacity', '1');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'none');
-      $('.m_quick_wrap').css('transition', '0.5s');
-    } else {
-      $('.top_wrap').css('height', '65px');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'none');
-      $('.mobilemenu_wrap').css('opacity', '0');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'block');
-      $('.m_quick_wrap').css('transition', '0.5s');
+  <script>
+    //로그인팝업
+    function layer_login() {
+      $(".login_box").bPopup({
+        modalClose: false
+      });
     }
-  });
-  });
-</script>
+  </script>
 
-<script>// 모바일메뉴탭
-$(document).ready(function() {
-  $(".momenu_left>div").click(function(){
-   var idx=$(".momenu_left>div").index($(this));
-   $(".momenu_left>div.on").removeClass("on");
-   $(this).addClass("on");
-   $(".momenu_right").hide();
-   $(".momenu_right").eq(idx).show();
+  <script>
+    //모바일메뉴 클릭
+    $(document).ready(function() {
+      $('.mobile_btn').on('click', function() {
+        $('.top_wrap').toggleClass('active');
+        if ($('.top_wrap').hasClass('active')) {
+          $('.top_wrap').css('height', '100vh');
+          $('.top_wrap').css('transition', '0.5s');
+          $('.mobilemenu_wrap').css('display', 'block');
+          $('.mobilemenu_wrap').css('opacity', '1');
+          $('.mobilemenu_wrap').css('transition', '0.5s');
+          $('.m_quick_wrap').css('display', 'none');
+          $('.m_quick_wrap').css('transition', '0.5s');
+        } else {
+          $('.top_wrap').css('height', '65px');
+          $('.top_wrap').css('transition', '0.5s');
+          $('.mobilemenu_wrap').css('display', 'none');
+          $('.mobilemenu_wrap').css('opacity', '0');
+          $('.mobilemenu_wrap').css('transition', '0.5s');
+          $('.m_quick_wrap').css('display', 'block');
+          $('.m_quick_wrap').css('transition', '0.5s');
+        }
+      });
+    });
+  </script>
 
-   return false;
-  });
-});
-</script>
+  <script>
+    // 모바일메뉴탭
+    $(document).ready(function() {
+      $(".momenu_left>div").click(function() {
+        var idx = $(".momenu_left>div").index($(this));
+        $(".momenu_left>div.on").removeClass("on");
+        $(this).addClass("on");
+        $(".momenu_right").hide();
+        $(".momenu_right").eq(idx).show();
 
-<script>//테이블 스크롤 연동
-$(document).ready(function(){
-    $(".table_wrap").scroll(function () {
-      $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
-  });
-  $(".table_popwrap").scroll(function () {
-    $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
-  });
-});
-</script>
+        return false;
+      });
+    });
+  </script>
+
+  <script>
+    //테이블 스크롤 연동
+    $(document).ready(function() {
+      $(".table_wrap").scroll(function() {
+        $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
+      });
+      $(".table_popwrap").scroll(function() {
+        $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
+      });
+    });
+  </script>
 
 </head>
 
@@ -185,7 +203,7 @@ $(document).ready(function(){
           </div>
           <div class="info_price">
             <span>잔액 : <strong>20,000 원</strong></span>
-             <span>SMS : <strong>1,000 건</strong></span>
+            <span>SMS : <strong>1,000 건</strong></span>
             <span>LMS : <strong>500 건</strong></span>
             <span>MMS : <strong>200 건</strong></span>
           </div>
@@ -424,7 +442,7 @@ $(document).ready(function(){
         </ul>
       </div>
     </div>
- 	</header>
+  </header>
   <section>
     <div class="sub_tab_wrap">
       <ul>
@@ -494,7 +512,7 @@ $(document).ready(function(){
                 </span>
               </div>
             </div>
-            <div class="selbox_tit kakao_line">
+            <div class="selbox_tit">
               <span>템플릿</span>
               <div class="full_textbox">
                 <span>
@@ -510,151 +528,319 @@ $(document).ready(function(){
               </div>
             </div>
             <div class="selbox_tit">
+              <span>발송유형</span>
+              <div class="full_textbox four_btn">
+                <span><label><input class="send_radio" type="radio" name="sms" value="10" checked />즉시발송</label></span>
+                <span><label><input class="send_radio" type="radio" name="sms" value="11" />예약발송</label></span>
+              </div>
+            </div>
+            <div class="selbox_tit">
+              <!--즉시발송시에는 비활성화 예약발송에만 활성화-->
+              <span class="empty"></span>
+              <div class="full_textbox four_btn">
+                <span><input class="datesel" type="date" /></span>
+                <!--날짜 클릭시 날짜선택 팝업/임의로 보여주기-->
+                <span class="reserv_time">
+                  <select name="time">
+                    <option value="01">01 시</option>
+                    <option value="02">02 시</option>
+                    <option value="03">03 시</option>
+                    <option value="04">04 시</option>
+                    <option value="05">05 시</option>
+                    <option value="06">06 시</option>
+                    <option value="07">07 시</option>
+                    <option value="08">08 시</option>
+                    <option value="09">09 시</option>
+                    <option value="10">10 시</option>
+                    <option value="11">11 시</option>
+                    <option value="12">12 시</option>
+                    <option value="13">13 시</option>
+                    <option value="14">14 시</option>
+                    <option value="15">15 시</option>
+                    <option value="16">16 시</option>
+                    <option value="17">17 시</option>
+                    <option value="18">18 시</option>
+                    <option value="19">19 시</option>
+                    <option value="20">20 시</option>
+                    <option value="21">21 시</option>
+                    <option value="22">22 시</option>
+                    <option value="23">23 시</option>
+                    <option value="24">24 시</option>
+                  </select>
+                  <i class="down_icon"></i>
+                </span>
+                <span class="reserv_time">
+                  <select name="min">
+                    <option value="00">00 분</option>
+                    <option value="01">01 분</option>
+                    <option value="02">02 분</option>
+                    <option value="03">03 분</option>
+                    <option value="04">04 분</option>
+                    <option value="05">05 분</option>
+                    <option value="06">06 분</option>
+                    <option value="07">07 분</option>
+                    <option value="08">08 분</option>
+                    <option value="09">09 분</option>
+                    <option value="10">10 분</option>
+                    <option value="11">11 분</option>
+                    <option value="12">12 분</option>
+                    <option value="13">13 분</option>
+                    <option value="14">14 분</option>
+                    <option value="15">15 분</option>
+                    <option value="16">16 분</option>
+                    <option value="17">17 분</option>
+                    <option value="18">18 분</option>
+                    <option value="19">19 분</option>
+                    <option value="20">20 분</option>
+                    <option value="21">21 분</option>
+                    <option value="22">22 분</option>
+                    <option value="23">23 분</option>
+                    <option value="24">24 분</option>
+                  </select>
+                  <i class="down_icon"></i>
+                </span>
+              </div>
+            </div>
+            <div class="selbox_tit">
+              <span>발송옵션</span>
+              <div class="full_textbox four_btn">
+                <span><label><input class="send_radio" type="checkbox" name="division" />분할발송</label></span>
+                <!--분할발송 체크시에만 select활성화-->
+                <span>
+                  발송시간간격
+                </span>
+                <span>
+                  <select name="time">
+                    <option value="10m">10분</option>
+                    <option value="20m">20분</option>
+                    <option value="30m">30분</option>
+                    <option value="1h">60분</option>
+                    <option value="2h">120분</option>
+                    <option value="3h">180분</option>
+                    <option value="">직접입력</option>
+                  </select>
+                  <i class="down_icon"></i>
+                </span>
+                <span>
+                  <!--select에서 직접입력 선택시 활성화 background 제거-->
+                  <input type="text" placeholder="직접입력" />
+                </span>
+              </div>
+            </div>
+            <div class="selbox_tit kakao_line">
+              <span class="empty"></span>
+              <div class="full_textbox four_btn">
+                <span></span>
+                <span>분할발송건수</span>
+                <span>
+                  <select name="time">
+                    <option value="1000">1000건</option>
+                    <option value="2000">2000건</option>
+                    <option value="3000">3000건</option>
+                    <option value="">직접입력</option>
+                  </select>
+                  <i class="down_icon"></i>
+                </span>
+                <span>
+                  <!--select에서 직접입력 선택시 활성화 background 제거-->
+                  <input type="text" placeholder="직접입력">
+                </span>
+              </div>
+            </div>
+            <div class="selbox_tit">
               <span>발송선택</span>
               <div class="full_textbox">
                 <span class="kakao_fail"><label><input class="send_radio" type="checkbox" name="kafail" />알림톡 실패 시 문자메시지 발송</label></span>
               </div>
             </div>
-            <!--체크박스 선택시 나타냄 재선택시 사라짐-->
-            <div class="fail_message">
-              <div class="selbox_tit">
-                <span>제목</span>
-                <div class="full_textbox">
-                  <input type="text" placeholder="LMS 또는 MMS로 발송할 경우에만 휴대폰에 표시됩니다." />
-                </div>
+          </div>
+        </div>
+      </div>
+      <div class="message_box fail_message">
+        <div class="sub_tit">
+          <p>
+            대체문자
+          </p>
+          <span></span>
+        </div>
+        <div class="sub_box">
+          <div class="text_box">
+            <div class="text_wrap">
+              <span class="text_tit">SMS</span>
+              <textarea></textarea>
+              <span class="basic_text">90 bytes 초과시<br /> LMS 서비스로 변경됩니다.</span>
+              <span class="text_tit">0/90</span>
+            </div>
+          </div>
+          <div class="sel_box popup_fix">
+            <div class="selbox_tit">
+              <span>제목</span>
+              <div class="full_textbox">
+                <input type="text" placeholder="LMS 또는 MMS로 발송할 경우에만 휴대폰에 표시됩니다." />
               </div>
-              <div class="selbox_tit">
-                <span>회신번호</span>
-                <div class="full_textbox dbtn_textbox">
-                  <input type="text">
-                </div>
-                <div class="dbtn_wrap">
-                  <button class="pink_btn" onclick="layer_replyregi();">등록</button>
-                  <button class="grey_btn" onclick="layer_replysel();">선택</button>
-                </div>
+            </div>
+            <div class="selbox_tit">
+              <span>회신번호</span>
+              <div class="full_textbox dbtn_textbox">
+                <input type="text">
               </div>
-              <div class="selbox_tit">
-                <span>발송유형</span>
-                <div class="full_textbox four_btn">
-                  <span><label><input class="send_radio" type="radio" name="sms" value="10" checked/>즉시발송</label></span>
-                  <span><label><input class="send_radio" type="radio" name="sms" value="11"/>예약발송</label></span>
-                </div>
+              <div class="dbtn_wrap">
+                <button class="pink_btn" onclick="layer_replyregi();">등록</button>
+                <button class="grey_btn" onclick="layer_replysel();">선택</button>
               </div>
-              <div class="selbox_tit"><!--즉시발송시에는 비활성화 예약발송에만 활성화-->
-                <span class="empty"></span>
-                <div class="full_textbox four_btn">
-                  <span><input class="datesel" type="date"/></span><!--날짜 클릭시 날짜선택 팝업/임의로 보여주기-->
-                  <span class="reserv_time">
-                    <select name="time">
-                      <option value="01">01 시</option>
-                      <option value="02">02 시</option>
-                      <option value="03">03 시</option>
-                      <option value="04">04 시</option>
-                      <option value="05">05 시</option>
-                      <option value="06">06 시</option>
-                      <option value="07">07 시</option>
-                      <option value="08">08 시</option>
-                      <option value="09">09 시</option>
-                      <option value="10">10 시</option>
-                      <option value="11">11 시</option>
-                      <option value="12">12 시</option>
-                      <option value="13">13 시</option>
-                      <option value="14">14 시</option>
-                      <option value="15">15 시</option>
-                      <option value="16">16 시</option>
-                      <option value="17">17 시</option>
-                      <option value="18">18 시</option>
-                      <option value="19">19 시</option>
-                      <option value="20">20 시</option>
-                      <option value="21">21 시</option>
-                      <option value="22">22 시</option>
-                      <option value="23">23 시</option>
-                      <option value="24">24 시</option>
-                    </select>
-                    <i class="down_icon"></i>
-                  </span>
-                  <span class="reserv_time">
-                    <select name="min">
-                      <option value="00">00 분</option>
-                      <option value="01">01 분</option>
-                      <option value="02">02 분</option>
-                      <option value="03">03 분</option>
-                      <option value="04">04 분</option>
-                      <option value="05">05 분</option>
-                      <option value="06">06 분</option>
-                      <option value="07">07 분</option>
-                      <option value="08">08 분</option>
-                      <option value="09">09 분</option>
-                      <option value="10">10 분</option>
-                      <option value="11">11 분</option>
-                      <option value="12">12 분</option>
-                      <option value="13">13 분</option>
-                      <option value="14">14 분</option>
-                      <option value="15">15 분</option>
-                      <option value="16">16 분</option>
-                      <option value="17">17 분</option>
-                      <option value="18">18 분</option>
-                      <option value="19">19 분</option>
-                      <option value="20">20 분</option>
-                      <option value="21">21 분</option>
-                      <option value="22">22 분</option>
-                      <option value="23">23 분</option>
-                      <option value="24">24 분</option>
-                    </select>
-                    <i class="down_icon"></i>
-                  </span>
-                </div>
+            </div>
+            <div class="test_btn_wrap">
+              <button class="pink_btn">스팸필터링 테스트 발송</button>
+              <button class="grey_btn" onclick="layer_test();">테스트 결과조회</button>
+              <div class="test_detail">
+                <span></span>
+                <p>
+                  발송전 통신 3사 (SKT,KT, LGU+)의 스팸필터링에 차단되는지 확인하는<br /> <strong>원샷 만의 특별한 기능</strong>
+                </p>
               </div>
-              <div class="selbox_tit">
-                <span>발송옵션</span>
-                <div class="full_textbox four_btn">
-                  <span><label><input class="send_radio" type="checkbox" name="division" />분할발송</label></span><!--분할발송 체크시에만 select활성화-->
-                  <span>
-                    발송시간간격
-                  </span>
-                  <span>
-                    <select name="time">
-                      <option value="10m">10분</option>
-                      <option value="20m">20분</option>
-                      <option value="30m">30분</option>
-                      <option value="1h">60분</option>
-                      <option value="2h">120분</option>
-                      <option value="3h">180분</option>
-                      <option value="">직접입력</option>
-                    </select>
-                    <i class="down_icon"></i>
-                  </span>
-                  <span>
-                    <!--select에서 직접입력 선택시 활성화 background 제거-->
-                    <input type="text" placeholder="직접입력"/>
-                  </span>
-                </div>
+            </div>
+            <div class="selbox_tit">
+              <span>특수기능</span>
+              <div class="full_textbox four_btn">
+                <span><button class="msg_btn01">특수문자</button></span>
+                <span><button class="msg_btn02">이모티콘</button></span>
+                <span><button class="msg_btn03">컬러티콘</button></span>
+                <span><button class="msg_btn04">치환문자</button></span>
               </div>
-              <div class="selbox_tit last_bottom" >
-                <span class="empty"></span>
-                <div class="full_textbox four_btn">
-                  <span></span>
-                  <span>분할발송건수</span>
-                  <span>
-                    <select name="time">
-                      <option value="1000">1000건</option>
-                      <option value="2000">2000건</option>
-                      <option value="3000">3000건</option>
-                      <option value="">직접입력</option>
-                    </select>
-                    <i class="down_icon"></i>
-                  </span>
-                  <span>
-                    <!--select에서 직접입력 선택시 활성화 background 제거-->
-                    <input type="text" placeholder="직접입력">
-                  </span>
-                </div>
+            </div>
+            <div class="selbox_tit">
+              <span>선택사항</span>
+              <div class="full_textbox four_btn">
+                <span><button class="msg_btn05">새로쓰기</button></span>
+                <span><button class="msg_btn06">문자저장</button></span>
+                <span><button class="msg_btn07">내문자함</button></span>
+                <span><button class="msg_btn08">사진첨부</button></span>
+              </div>
+            </div>
+            <div class="selbox_tit">
+              <span>발송유형</span>
+              <div class="full_textbox four_btn">
+                <span><label><input class="send_radio" type="radio" name="sms" value="10" checked />즉시발송</label></span>
+                <span><label><input class="send_radio" type="radio" name="sms" value="11" />예약발송</label></span>
+              </div>
+            </div>
+            <div class="selbox_tit">
+              <!--즉시발송시에는 비활성화 예약발송에만 활성화-->
+              <span class="empty"></span>
+              <div class="full_textbox four_btn">
+                <span><input class="datesel" type="date" /></span>
+                <!--날짜 클릭시 날짜선택 팝업/임의로 보여주기-->
+                <span class="reserv_time">
+                  <select name="time">
+                    <option value="01">01 시</option>
+                    <option value="02">02 시</option>
+                    <option value="03">03 시</option>
+                    <option value="04">04 시</option>
+                    <option value="05">05 시</option>
+                    <option value="06">06 시</option>
+                    <option value="07">07 시</option>
+                    <option value="08">08 시</option>
+                    <option value="09">09 시</option>
+                    <option value="10">10 시</option>
+                    <option value="11">11 시</option>
+                    <option value="12">12 시</option>
+                    <option value="13">13 시</option>
+                    <option value="14">14 시</option>
+                    <option value="15">15 시</option>
+                    <option value="16">16 시</option>
+                    <option value="17">17 시</option>
+                    <option value="18">18 시</option>
+                    <option value="19">19 시</option>
+                    <option value="20">20 시</option>
+                    <option value="21">21 시</option>
+                    <option value="22">22 시</option>
+                    <option value="23">23 시</option>
+                    <option value="24">24 시</option>
+                  </select>
+                  <i class="down_icon"></i>
+                </span>
+                <span class="reserv_time">
+                  <select name="min">
+                    <option value="00">00 분</option>
+                    <option value="01">01 분</option>
+                    <option value="02">02 분</option>
+                    <option value="03">03 분</option>
+                    <option value="04">04 분</option>
+                    <option value="05">05 분</option>
+                    <option value="06">06 분</option>
+                    <option value="07">07 분</option>
+                    <option value="08">08 분</option>
+                    <option value="09">09 분</option>
+                    <option value="10">10 분</option>
+                    <option value="11">11 분</option>
+                    <option value="12">12 분</option>
+                    <option value="13">13 분</option>
+                    <option value="14">14 분</option>
+                    <option value="15">15 분</option>
+                    <option value="16">16 분</option>
+                    <option value="17">17 분</option>
+                    <option value="18">18 분</option>
+                    <option value="19">19 분</option>
+                    <option value="20">20 분</option>
+                    <option value="21">21 분</option>
+                    <option value="22">22 분</option>
+                    <option value="23">23 분</option>
+                    <option value="24">24 분</option>
+                  </select>
+                  <i class="down_icon"></i>
+                </span>
+              </div>
+            </div>
+            <div class="selbox_tit">
+              <span>발송옵션</span>
+              <div class="full_textbox four_btn">
+                <span><label><input class="send_radio" type="checkbox" name="division" />분할발송</label></span>
+                <!--분할발송 체크시에만 select활성화-->
+                <span>
+                  발송시간간격
+                </span>
+                <span>
+                  <select name="time">
+                    <option value="10m">10분</option>
+                    <option value="20m">20분</option>
+                    <option value="30m">30분</option>
+                    <option value="1h">60분</option>
+                    <option value="2h">120분</option>
+                    <option value="3h">180분</option>
+                    <option value="">직접입력</option>
+                  </select>
+                  <i class="down_icon"></i>
+                </span>
+                <span>
+                  <!--select에서 직접입력 선택시 활성화 background 제거-->
+                  <input type="text" placeholder="직접입력" />
+                </span>
+              </div>
+            </div>
+            <div class="selbox_tit last_bottom">
+              <span class="empty"></span>
+              <div class="full_textbox four_btn">
+                <span></span>
+                <span>분할발송건수</span>
+                <span>
+                  <select name="time">
+                    <option value="1000">1000건</option>
+                    <option value="2000">2000건</option>
+                    <option value="3000">3000건</option>
+                    <option value="">직접입력</option>
+                  </select>
+                  <i class="down_icon"></i>
+                </span>
+                <span>
+                  <!--select에서 직접입력 선택시 활성화 background 제거-->
+                  <input type="text" placeholder="직접입력">
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="message_box last_box" >
+      <div class="message_box last_box">
         <div class="sub_tit">
           <p>
             받는사람
@@ -791,8 +977,8 @@ $(document).ready(function(){
               <div class="all_count">총 <span>1,234</span> 명</div>
             </div>
             <div class="del_btn">
-              <button  onclick="alert('선택한 항목을 삭제하시겠습니까?');">선택삭제</button>
-              <button  onclick="alert('모두 삭제하시겠습니까?');">전체삭제</button>
+              <button onclick="alert('선택한 항목을 삭제하시겠습니까?');">선택삭제</button>
+              <button onclick="alert('모두 삭제하시겠습니까?');">전체삭제</button>
             </div>
           </div>
           <div class="sel_box tab_selbox first">
@@ -1439,11 +1625,11 @@ $(document).ready(function(){
         <form>
           <div>
             <label for="user_id"></label>
-            <input id="user_id" type="text" name="user_id" placeholder="아이디"/>
+            <input id="user_id" type="text" name="user_id" placeholder="아이디" />
           </div>
           <div>
             <label for="user_pw"></label>
-            <input id="user_pw" type="password" placeholder="비밀번호"/>
+            <input id="user_pw" type="password" placeholder="비밀번호" />
           </div>
           <div>
             <input class="login" type="submit" value="로그인" />
@@ -1473,13 +1659,13 @@ $(document).ready(function(){
           1566-6639
         </p>
         <p>
-          평일(월~금)<br/>09:00 ~ 18:00<br/>토/일/공휴일 휴무<br/>점심시간<br/>12:30 ~ 13:30
+          평일(월~금)<br />09:00 ~ 18:00<br />토/일/공휴일 휴무<br />점심시간<br />12:30 ~ 13:30
         </p>
       </div>
       <div class="quick_button">
         <div class="quick_b01">
           <p>
-            <a href="client.html">클라이언트<br/>다운로드</a>
+            <a href="client.html">클라이언트<br />다운로드</a>
           </p>
         </div>
         <div class="quick_b02">
@@ -1509,7 +1695,7 @@ $(document).ready(function(){
         <div class="m_customer">
           <span><img src="img/customer.png" alt="고객센터"></span>
           <p class="customer_num">
-            고객센터  1566-6639
+            고객센터 1566-6639
           </p>
           <p class="customer_time">
             월~금 09:00 ~ 18:00 (토/일/공휴일 휴무)
@@ -1603,4 +1789,5 @@ $(document).ready(function(){
     </div>
   </footer>
 </body>
+
 </html>

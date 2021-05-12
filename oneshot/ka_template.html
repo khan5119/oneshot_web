@@ -1,135 +1,144 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>One Shot</title>
-<link href="css/reset.css" rel="stylesheet" type="text/css">
-<link href="css/main.css" rel="stylesheet" type="text/css">
-<link href="css/sub.css" rel="stylesheet" type="text/css">
-<link href="css/mobile.css" rel="stylesheet" type="text/css">
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/jquery.bxslider.min.js"></script>
-<script src="js/jquery.bpopup.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>One Shot</title>
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/sub.css" rel="stylesheet" type="text/css">
+  <link href="css/mobile.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/jquery.bxslider.min.js"></script>
+  <script src="js/jquery.bpopup.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
 
 
-<script>//템플릿 선택 탭
-$(document).ready(function(){
-  $(".line_h").not('.date_on').hide();
-    var radioContent = $(".line_h");
-  $(".template_tab input[type='radio']").click(function(){
-    radioContent.hide();
-    radioContent.eq($(".date_tab input[type='radio']").index(this)).show();
-  });
-});
-</script>
+  <script>
+    //템플릿 선택 탭
+    $(document).ready(function() {
+      $(".line_h").not('.date_on').hide();
+      var radioContent = $(".line_h");
+      $(".template_tab input[type='radio']").click(function() {
+        radioContent.hide();
+        radioContent.eq($(".date_tab input[type='radio']").index(this)).show();
+      });
+    });
+  </script>
 
-<!--공통 스크립트-->
-<script>//로그인 시 상단 변경
-$(document).ready(function(){
-  $(".login").click(function(){
-    $(".login_btn, .join_btn").hide();
-    $(".myinfo_wrap").show();
-    $(".myinfo_wrap").css('display','inline-block');
-  });
-  });
-</script>
+  <!--공통 스크립트-->
+  <script>
+    //로그인 시 상단 변경
+    $(document).ready(function() {
+      $(".login").click(function() {
+        $(".login_btn, .join_btn").hide();
+        $(".myinfo_wrap").show();
+        $(".myinfo_wrap").css('display', 'inline-block');
+      });
+    });
+  </script>
 
-<script>//퀵메뉴
-$(function(){
-    var cssTop = parseInt($(".quick_wrap").css("top"));
-    $(window).scroll(function() {
+  <script>
+    //퀵메뉴
+    $(function() {
+      var cssTop = parseInt($(".quick_wrap").css("top"));
+      $(window).scroll(function() {
         var position = $(window).scrollTop();
 
         var total = cssTop + position + 0;
 
-        if(total == 0){
-            total = 0;
+        if (total == 0) {
+          total = 0;
         }
 
         $(".quick_wrap").stop().animate({
-            "top" : total + "px"
+          "top": total + "px"
         }, 800);
+      });
+    })
+  </script>
+
+  <script>
+    //메인메뉴 호버
+    $(document).ready(function() {
+      $('.sub_menu_wrap li').hover(function() {
+        var index = $(".sub_menu_wrap li").index(this) + 1;
+        console.log(index);
+        $('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function() {
+        var index = $(".sub_menu_wrap li").index(this) + 1;
+        $('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#444444").css("border-bottom", "none");
+      });
+
+      $('.menu_wrap>ul>li>a').hover(function() {
+        $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function() {
+        $(this).css("color", "#444444").css("border-bottom", "none");
+      });
     });
-})
-</script>
+  </script>
 
-<script>//메인메뉴 호버
-$(document).ready(function(){
-  $('.sub_menu_wrap li').hover(function() {
-    var index = $(".sub_menu_wrap li").index(this) +1;
-    console.log(index);
-    $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-  }, function(){
-    var index = $(".sub_menu_wrap li").index(this) +1;
-      $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#444444").css("border-bottom", "none");
-    });
-
-    $('.menu_wrap>ul>li>a').hover(function() {
-      $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-      }, function(){
-      $(this).css("color", "#444444").css("border-bottom", "none");
-    });
-});
-</script>
-
-<script>//로그인팝업
-function layer_login() {
- $(".login_box").bPopup({
- 		modalClose : false
-	});
-}
-</script>
-
-<script>//모바일메뉴 클릭
-$(document).ready(function(){
-  $('.mobile_btn').on('click', function(){
-    $('.top_wrap').toggleClass('active');
-      if($('.top_wrap').hasClass('active')) {
-      $('.top_wrap').css('height', '100vh');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'block');
-      $('.mobilemenu_wrap').css('opacity', '1');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'none');
-      $('.m_quick_wrap').css('transition', '0.5s');
-    } else {
-      $('.top_wrap').css('height', '65px');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'none');
-      $('.mobilemenu_wrap').css('opacity', '0');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'block');
-      $('.m_quick_wrap').css('transition', '0.5s');
+  <script>
+    //로그인팝업
+    function layer_login() {
+      $(".login_box").bPopup({
+        modalClose: false
+      });
     }
-  });
-  });
-</script>
+  </script>
 
-<script>// 모바일메뉴탭
-$(document).ready(function() {
-  $(".momenu_left>div").click(function(){
-   var idx=$(".momenu_left>div").index($(this));
-   $(".momenu_left>div.on").removeClass("on");
-   $(this).addClass("on");
-   $(".momenu_right").hide();
-   $(".momenu_right").eq(idx).show();
+  <script>
+    //모바일메뉴 클릭
+    $(document).ready(function() {
+      $('.mobile_btn').on('click', function() {
+        $('.top_wrap').toggleClass('active');
+        if ($('.top_wrap').hasClass('active')) {
+          $('.top_wrap').css('height', '100vh');
+          $('.top_wrap').css('transition', '0.5s');
+          $('.mobilemenu_wrap').css('display', 'block');
+          $('.mobilemenu_wrap').css('opacity', '1');
+          $('.mobilemenu_wrap').css('transition', '0.5s');
+          $('.m_quick_wrap').css('display', 'none');
+          $('.m_quick_wrap').css('transition', '0.5s');
+        } else {
+          $('.top_wrap').css('height', '65px');
+          $('.top_wrap').css('transition', '0.5s');
+          $('.mobilemenu_wrap').css('display', 'none');
+          $('.mobilemenu_wrap').css('opacity', '0');
+          $('.mobilemenu_wrap').css('transition', '0.5s');
+          $('.m_quick_wrap').css('display', 'block');
+          $('.m_quick_wrap').css('transition', '0.5s');
+        }
+      });
+    });
+  </script>
 
-   return false;
-  });
-});
-</script>
+  <script>
+    // 모바일메뉴탭
+    $(document).ready(function() {
+      $(".momenu_left>div").click(function() {
+        var idx = $(".momenu_left>div").index($(this));
+        $(".momenu_left>div.on").removeClass("on");
+        $(this).addClass("on");
+        $(".momenu_right").hide();
+        $(".momenu_right").eq(idx).show();
 
-<script>//테이블 스크롤 연동
-$(document).ready(function(){
-    $(".table_wrap").scroll(function () {
-      $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
-  });
-  $(".table_popwrap").scroll(function () {
-    $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
-  });
-});
-</script>
+        return false;
+      });
+    });
+  </script>
+
+  <script>
+    //테이블 스크롤 연동
+    $(document).ready(function() {
+      $(".table_wrap").scroll(function() {
+        $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
+      });
+      $(".table_popwrap").scroll(function() {
+        $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
+      });
+    });
+  </script>
 
 </head>
 
@@ -153,7 +162,7 @@ $(document).ready(function(){
           </div>
           <div class="info_price">
             <span>잔액 : <strong>20,000 원</strong></span>
-             <span>SMS : <strong>1,000 건</strong></span>
+            <span>SMS : <strong>1,000 건</strong></span>
             <span>LMS : <strong>500 건</strong></span>
             <span>MMS : <strong>200 건</strong></span>
           </div>
@@ -392,7 +401,7 @@ $(document).ready(function(){
         </ul>
       </div>
     </div>
- 	</header>
+  </header>
   <section>
     <div class="sub_tab_wrap">
       <ul>
@@ -421,7 +430,7 @@ $(document).ready(function(){
         </p>
       </div>
     </div>
-		<div class="message_wrap">
+    <div class="message_wrap">
       <div class="message_box add_wrap">
         <div class="add_all_list">
           <div class="add_list_btn">
@@ -433,16 +442,16 @@ $(document).ready(function(){
               </div>
               <div class="date_tab template_tab">
                 <label>
-                  <input type="radio"  name="tem_sel" /><span>숨김보기</span>
+                  <input type="radio" name="tem_sel" /><span>숨김보기</span>
                 </label>
               </div>
               <div class="date_tab template_tab">
                 <label>
-                  <input type="radio"  name="tem_sel" /><span>전체보기</span>
+                  <input type="radio" name="tem_sel" /><span>전체보기</span>
                 </label>
               </div>
             </div>
-						<div class="add_search_wrap kakao_search">
+            <div class="add_search_wrap kakao_search">
               <div class="search_wrap">
                 <input type="text" placeholder="검색용ID 또는 프로필키 입력" />
                 <button><img src="img/search_btn.png" alt="검색" /></button>
@@ -452,8 +461,8 @@ $(document).ready(function(){
             <!--하단 테이블의 검수상태 확인을 위한 리프레시-->
             <button>새로고침</button>
             <div class="guide_btn">
-    					<a href="http://b2c.one-shot.co.kr/guide/new_guide.html" target="_blank">템플릿 등록 가이드</a>
-    				</div>
+              <a href="http://b2c.one-shot.co.kr/guide/new_guide.html" target="_blank">템플릿 등록 가이드</a>
+            </div>
           </div>
           <div class="add_list_table">
             <div class="table_wrap template_wrap">
@@ -481,12 +490,12 @@ $(document).ready(function(){
                       이름
                     </th>
                     <th>
-                    	검색용 ID
+                      검색용 ID
                     </th>
                     <th>
                       템플릿명
                     </th>
-										<th>
+                    <th>
                       템플릿코드
                     </th>
                     <th>
@@ -503,7 +512,7 @@ $(document).ready(function(){
                 <tbody>
                   <tr>
                     <td>
-                    	<input type="checkbox" />
+                      <input type="checkbox" />
                     </td>
                     <td>
                       dododo
@@ -524,10 +533,10 @@ $(document).ready(function(){
                       승인
                     </td>
                     <td>
-                      <button class="grey_btn" >숨김</button>
+                      <button class="grey_btn">숨김</button>
                     </td>
                     <td>
-                      <button class="grey_btn" >조회</button>
+                      <button class="grey_btn">조회</button>
                     </td>
                   </tr>
                   <tr>
@@ -550,7 +559,7 @@ $(document).ready(function(){
 
                     </td>
                     <td>
-                      <button class="pink_btn">확인</button>
+                      <span class="red_text">확인</span>
                     </td>
                     <td>
 
@@ -963,12 +972,12 @@ $(document).ready(function(){
                         이름
                       </th>
                       <th>
-                      	검색용 ID
+                        검색용 ID
                       </th>
                       <th>
                         템플릿명
                       </th>
-  										<th>
+                      <th>
                         템플릿코드
                       </th>
                       <th>
@@ -1075,9 +1084,9 @@ $(document).ready(function(){
                   </select>
                   <i class="down_icon"></i>
                 </span>
-                <span><input type="text" placeholder="버튼명"/></span>
-                <span><input type="text" placeholder="안드로이드 또는 모바일용"/></span>
-                <span><input type="text" placeholder="iOS 또는 PC용"/></span>
+                <span><input type="text" placeholder="버튼명" /></span>
+                <span><input type="text" placeholder="안드로이드 또는 모바일용" /></span>
+                <span><input type="text" placeholder="iOS 또는 PC용" /></span>
                 <span><button class="grey_btn">삭제</button></span>
               </div>
               <div class="full_textbox four_btn">
@@ -1121,9 +1130,9 @@ $(document).ready(function(){
                   </select>
                   <i class="down_icon"></i>
                 </span>
-                <span><input type="text" placeholder="버튼명"/></span>
-                <span><input type="text" placeholder="안드로이드 또는 모바일용"/></span>
-                <span><input type="text" placeholder="iOS 또는 PC용"/></span>
+                <span><input type="text" placeholder="버튼명" /></span>
+                <span><input type="text" placeholder="안드로이드 또는 모바일용" /></span>
+                <span><input type="text" placeholder="iOS 또는 PC용" /></span>
                 <span><button class="grey_btn">삭제</button></span>
               </div>
               <div class="full_textbox four_btn">
@@ -1167,9 +1176,9 @@ $(document).ready(function(){
                   </select>
                   <i class="down_icon"></i>
                 </span>
-                <span><input type="text" placeholder="버튼명"/></span>
-                <span><input type="text" placeholder="안드로이드 또는 모바일용"/></span>
-                <span><input type="text" placeholder="iOS 또는 PC용"/></span>
+                <span><input type="text" placeholder="버튼명" /></span>
+                <span><input type="text" placeholder="안드로이드 또는 모바일용" /></span>
+                <span><input type="text" placeholder="iOS 또는 PC용" /></span>
                 <span><button class="grey_btn">삭제</button></span>
               </div>
               <div class="full_textbox four_btn">
@@ -1213,9 +1222,9 @@ $(document).ready(function(){
                   </select>
                   <i class="down_icon"></i>
                 </span>
-                <span><input type="text" placeholder="버튼명"/></span>
-                <span><input type="text" placeholder="안드로이드 또는 모바일용"/></span>
-                <span><input type="text" placeholder="iOS 또는 PC용"/></span>
+                <span><input type="text" placeholder="버튼명" /></span>
+                <span><input type="text" placeholder="안드로이드 또는 모바일용" /></span>
+                <span><input type="text" placeholder="iOS 또는 PC용" /></span>
                 <span><button class="grey_btn">삭제</button></span>
               </div>
               <div class="full_textbox four_btn">
@@ -1259,9 +1268,9 @@ $(document).ready(function(){
                   </select>
                   <i class="down_icon"></i>
                 </span>
-                <span><input type="text" placeholder="버튼명"/></span>
-                <span><input type="text" placeholder="안드로이드 또는 모바일용"/></span>
-                <span><input type="text" placeholder="iOS 또는 PC용"/></span>
+                <span><input type="text" placeholder="버튼명" /></span>
+                <span><input type="text" placeholder="안드로이드 또는 모바일용" /></span>
+                <span><input type="text" placeholder="iOS 또는 PC용" /></span>
                 <span><button class="grey_btn">삭제</button></span>
               </div>
             </div>
@@ -1306,11 +1315,11 @@ $(document).ready(function(){
         <form>
           <div>
             <label for="user_id"></label>
-            <input id="user_id" type="text" name="user_id" placeholder="아이디"/>
+            <input id="user_id" type="text" name="user_id" placeholder="아이디" />
           </div>
           <div>
             <label for="user_pw"></label>
-            <input id="user_pw" type="password" placeholder="비밀번호"/>
+            <input id="user_pw" type="password" placeholder="비밀번호" />
           </div>
           <div>
             <input class="login" type="submit" value="로그인" />
@@ -1340,13 +1349,13 @@ $(document).ready(function(){
           1566-6639
         </p>
         <p>
-          평일(월~금)<br/>09:00 ~ 18:00<br/>토/일/공휴일 휴무<br/>점심시간<br/>12:30 ~ 13:30
+          평일(월~금)<br />09:00 ~ 18:00<br />토/일/공휴일 휴무<br />점심시간<br />12:30 ~ 13:30
         </p>
       </div>
       <div class="quick_button">
         <div class="quick_b01">
           <p>
-            <a href="client.html">클라이언트<br/>다운로드</a>
+            <a href="client.html">클라이언트<br />다운로드</a>
           </p>
         </div>
         <div class="quick_b02">
@@ -1376,7 +1385,7 @@ $(document).ready(function(){
         <div class="m_customer">
           <span><img src="img/customer.png" alt="고객센터"></span>
           <p class="customer_num">
-            고객센터  1566-6639
+            고객센터 1566-6639
           </p>
           <p class="customer_time">
             월~금 09:00 ~ 18:00 (토/일/공휴일 휴무)
@@ -1470,4 +1479,5 @@ $(document).ready(function(){
     </div>
   </footer>
 </body>
+
 </html>

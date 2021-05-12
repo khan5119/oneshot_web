@@ -1,131 +1,140 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>One Shot</title>
-<link href="css/reset.css" rel="stylesheet" type="text/css">
-<link href="css/main.css" rel="stylesheet" type="text/css">
-<link href="css/sub.css" rel="stylesheet" type="text/css">
-<link href="css/mobile.css" rel="stylesheet" type="text/css">
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/jquery.bxslider.min.js"></script>
-<script src="js/jquery.bpopup.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>One Shot</title>
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/sub.css" rel="stylesheet" type="text/css">
+  <link href="css/mobile.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/jquery.bxslider.min.js"></script>
+  <script src="js/jquery.bpopup.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
 
-<script>//서비스신청 팝업
-function layer_service() {
- $(".service_popup").bPopup({
-    modalClose : false
-  });
-}
-</script>
+  <script>
+    //서비스신청 팝업
+    function layer_service() {
+      $(".service_popup").bPopup({
+        modalClose: false
+      });
+    }
+  </script>
 
-<!--공통 스크립트-->
-<script>//로그인 시 상단 변경
-$(document).ready(function(){
-  $(".login").click(function(){
-    $(".login_btn, .join_btn").hide();
-    $(".myinfo_wrap").show();
-    $(".myinfo_wrap").css('display','inline-block');
-  });
-  });
-</script>
+  <!--공통 스크립트-->
+  <script>
+    //로그인 시 상단 변경
+    $(document).ready(function() {
+      $(".login").click(function() {
+        $(".login_btn, .join_btn").hide();
+        $(".myinfo_wrap").show();
+        $(".myinfo_wrap").css('display', 'inline-block');
+      });
+    });
+  </script>
 
-<script>//퀵메뉴
-$(function(){
-    var cssTop = parseInt($(".quick_wrap").css("top"));
-    $(window).scroll(function() {
+  <script>
+    //퀵메뉴
+    $(function() {
+      var cssTop = parseInt($(".quick_wrap").css("top"));
+      $(window).scroll(function() {
         var position = $(window).scrollTop();
 
         var total = cssTop + position + 0;
 
-        if(total == 0){
-            total = 0;
+        if (total == 0) {
+          total = 0;
         }
 
         $(".quick_wrap").stop().animate({
-            "top" : total + "px"
+          "top": total + "px"
         }, 800);
+      });
+    })
+  </script>
+
+  <script>
+    //메인메뉴 호버
+    $(document).ready(function() {
+      $('.sub_menu_wrap li').hover(function() {
+        var index = $(".sub_menu_wrap li").index(this) + 1;
+        console.log(index);
+        $('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function() {
+        var index = $(".sub_menu_wrap li").index(this) + 1;
+        $('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#444444").css("border-bottom", "none");
+      });
+
+      $('.menu_wrap>ul>li>a').hover(function() {
+        $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function() {
+        $(this).css("color", "#444444").css("border-bottom", "none");
+      });
     });
-})
-</script>
+  </script>
 
-<script>//메인메뉴 호버
-$(document).ready(function(){
-  $('.sub_menu_wrap li').hover(function() {
-    var index = $(".sub_menu_wrap li").index(this) +1;
-    console.log(index);
-    $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-  }, function(){
-    var index = $(".sub_menu_wrap li").index(this) +1;
-      $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#444444").css("border-bottom", "none");
-    });
-
-    $('.menu_wrap>ul>li>a').hover(function() {
-      $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-      }, function(){
-      $(this).css("color", "#444444").css("border-bottom", "none");
-    });
-});
-</script>
-
-<script>//로그인팝업
-function layer_login() {
- $(".login_box").bPopup({
- 		modalClose : false
-	});
-}
-</script>
-
-<script>//모바일메뉴 클릭
-$(document).ready(function(){
-  $('.mobile_btn').on('click', function(){
-    $('.top_wrap').toggleClass('active');
-      if($('.top_wrap').hasClass('active')) {
-      $('.top_wrap').css('height', '100vh');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'block');
-      $('.mobilemenu_wrap').css('opacity', '1');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'none');
-      $('.m_quick_wrap').css('transition', '0.5s');
-    } else {
-      $('.top_wrap').css('height', '65px');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'none');
-      $('.mobilemenu_wrap').css('opacity', '0');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'block');
-      $('.m_quick_wrap').css('transition', '0.5s');
+  <script>
+    //로그인팝업
+    function layer_login() {
+      $(".login_box").bPopup({
+        modalClose: false
+      });
     }
-  });
-  });
-</script>
+  </script>
 
-<script>// 모바일메뉴탭
-$(document).ready(function() {
-  $(".momenu_left>div").click(function(){
-   var idx=$(".momenu_left>div").index($(this));
-   $(".momenu_left>div.on").removeClass("on");
-   $(this).addClass("on");
-   $(".momenu_right").hide();
-   $(".momenu_right").eq(idx).show();
+  <script>
+    //모바일메뉴 클릭
+    $(document).ready(function() {
+      $('.mobile_btn').on('click', function() {
+        $('.top_wrap').toggleClass('active');
+        if ($('.top_wrap').hasClass('active')) {
+          $('.top_wrap').css('height', '100vh');
+          $('.top_wrap').css('transition', '0.5s');
+          $('.mobilemenu_wrap').css('display', 'block');
+          $('.mobilemenu_wrap').css('opacity', '1');
+          $('.mobilemenu_wrap').css('transition', '0.5s');
+          $('.m_quick_wrap').css('display', 'none');
+          $('.m_quick_wrap').css('transition', '0.5s');
+        } else {
+          $('.top_wrap').css('height', '65px');
+          $('.top_wrap').css('transition', '0.5s');
+          $('.mobilemenu_wrap').css('display', 'none');
+          $('.mobilemenu_wrap').css('opacity', '0');
+          $('.mobilemenu_wrap').css('transition', '0.5s');
+          $('.m_quick_wrap').css('display', 'block');
+          $('.m_quick_wrap').css('transition', '0.5s');
+        }
+      });
+    });
+  </script>
 
-   return false;
-  });
-});
-</script>
+  <script>
+    // 모바일메뉴탭
+    $(document).ready(function() {
+      $(".momenu_left>div").click(function() {
+        var idx = $(".momenu_left>div").index($(this));
+        $(".momenu_left>div.on").removeClass("on");
+        $(this).addClass("on");
+        $(".momenu_right").hide();
+        $(".momenu_right").eq(idx).show();
 
-<script>//테이블 스크롤 연동
-$(document).ready(function(){
-    $(".table_wrap").scroll(function () {
-      $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
-  });
-  $(".table_popwrap").scroll(function () {
-    $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
-  });
-});
-</script>
+        return false;
+      });
+    });
+  </script>
+
+  <script>
+    //테이블 스크롤 연동
+    $(document).ready(function() {
+      $(".table_wrap").scroll(function() {
+        $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
+      });
+      $(".table_popwrap").scroll(function() {
+        $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
+      });
+    });
+  </script>
 
 </head>
 
@@ -149,7 +158,7 @@ $(document).ready(function(){
           </div>
           <div class="info_price">
             <span>잔액 : <strong>20,000 원</strong></span>
-             <span>SMS : <strong>1,000 건</strong></span>
+            <span>SMS : <strong>1,000 건</strong></span>
             <span>LMS : <strong>500 건</strong></span>
             <span>MMS : <strong>200 건</strong></span>
           </div>
@@ -388,7 +397,7 @@ $(document).ready(function(){
         </ul>
       </div>
     </div>
- 	</header>
+  </header>
   <section>
     <div class="sub_tab_wrap">
       <ul>
@@ -399,7 +408,7 @@ $(document).ready(function(){
           <a href="function.html">기능소개</a>
         </li>
         <li>
-          <a href="link.html"  class="on">문자연동서비스</a>
+          <a href="link.html" class="on">문자연동서비스</a>
         </li>
         <li>
           <a href="client.html">클라이언트 다운로드</a>
@@ -420,7 +429,7 @@ $(document).ready(function(){
                 <span class="link_box_01"></span>
                 <div class="box_text">
                   <p class="small_text">
-                    발송 시스템<br/>이중화 구성
+                    발송 시스템<br />이중화 구성
                   </p>
                 </div>
               </div>
@@ -430,7 +439,7 @@ $(document).ready(function(){
                 <span class="link_box_02"></span>
                 <div class="box_text">
                   <p class="small_text">
-                    1,000 TPS 이상의<br/>발송 속도
+                    1,000 TPS 이상의<br />발송 속도
                   </p>
                 </div>
               </div>
@@ -440,7 +449,7 @@ $(document).ready(function(){
                 <span class="link_box_03"></span>
                 <div class="box_text">
                   <p class="small_text">
-                    장애 모니터링 및<br/>알림 시스템
+                    장애 모니터링 및<br />알림 시스템
                   </p>
                 </div>
               </div>
@@ -450,7 +459,7 @@ $(document).ready(function(){
                 <span class="link_box_04"></span>
                 <div class="box_text">
                   <p class="small_text">
-                    발송정보 유출 사전차단 및<br/>외부침입 사전차단
+                    발송정보 유출 사전차단 및<br />외부침입 사전차단
                   </p>
                 </div>
               </div>
@@ -460,7 +469,7 @@ $(document).ready(function(){
                 <span class="link_box_05"></span>
                 <div class="box_text">
                   <p class="small_text">
-                    보안 관제시스템<br/>상시 운영
+                    보안 관제시스템<br />상시 운영
                   </p>
                 </div>
               </div>
@@ -526,23 +535,23 @@ $(document).ready(function(){
           </p>
         </div>
         <div class="contents_wrap service_box fileshot_box">
-              <div class="contents_box service_contents">
-                <div class="link_agent">
-                  <div>
-                    <p>
-                      윈도우, 리눅스, 유닉스, Mac OS 등 모든 OS 환경 지원
-                    </p>
-                  </div>
-                </div>
+          <div class="contents_box service_contents">
+            <div class="link_agent">
+              <div>
+                <p>
+                  윈도우, 리눅스, 유닉스, Mac OS 등 모든 OS 환경 지원
+                </p>
               </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="link_table">
         <table>
           <colgroup>
-            <col width = "24%" />
-            <col width = "38%" />
-            <col width = "38%" />
+            <col style="width:24%;" />
+            <col style="width:38%;" />
+            <col style="width:38%;" />
           </colgroup>
           <thead>
             <tr>
@@ -652,7 +661,7 @@ $(document).ready(function(){
         문자연동 서비스신청
         <span class="b-close">&times;</span>
       </div>
-      <div class="popup_contents sms_service">
+      <div class="company_info popup_contents">
         <div class="join_write">
           <div class="join_tab">
             <div class="join_tit">
@@ -677,31 +686,31 @@ $(document).ready(function(){
               <div class="m_sel">
                 <div class="sel_radio sel_check">
                   <label>
-                    <input type="checkbox"  class="checkbox" name="sevice" value="01">
+                    <input type="checkbox" class="checkbox" name="sevice" value="01">
                     <span>SMS</span>
                   </label>
                 </div>
                 <div class="sel_radio sel_check">
                   <label>
-                    <input type="checkbox"  class="checkbox" name="sevice" value="01">
+                    <input type="checkbox" class="checkbox" name="sevice" value="01">
                     <span>LMS</span>
                   </label>
                 </div>
                 <div class="sel_radio sel_check">
                   <label>
-                    <input type="checkbox"  class="checkbox" name="sevice" value="01">
+                    <input type="checkbox" class="checkbox" name="sevice" value="01">
                     <span>MMS</span>
                   </label>
                 </div>
                 <div class="sel_radio sel_check">
                   <label>
-                    <input type="checkbox"  class="checkbox" name="sevice" value="01">
+                    <input type="checkbox" class="checkbox" name="sevice" value="01">
                     <span>알림톡</span>
                   </label>
                 </div>
                 <div class="sel_radio sel_check">
                   <label>
-                    <input type="checkbox"  class="checkbox" name="sevice" value="01">
+                    <input type="checkbox" class="checkbox" name="sevice" value="01">
                     <span>친구톡</span>
                   </label>
                 </div>
@@ -729,7 +738,7 @@ $(document).ready(function(){
               연락처
             </div>
             <div class="join_text">
-              <span><input type="text"  /></span>
+              <span><input type="text" /></span>
             </div>
           </div>
           <div class="join_tab">
@@ -737,7 +746,7 @@ $(document).ready(function(){
               이메일
             </div>
             <div class="join_text">
-              <span><input type="text"  /></span>
+              <span><input type="text" /></span>
             </div>
           </div>
           <div class="join_tab">
@@ -745,7 +754,7 @@ $(document).ready(function(){
               월 평균 예상 사용 건수
             </div>
             <div class="join_text">
-              <span class="jump_box"><input type="text"  /><span class="jump_text">건</span></span>
+              <span class="jump_box"><input type="text" /><span class="jump_text">건</span></span>
             </div>
           </div>
         </div>
@@ -763,11 +772,11 @@ $(document).ready(function(){
         <form>
           <div>
             <label for="user_id"></label>
-            <input id="user_id" type="text" name="user_id" placeholder="아이디"/>
+            <input id="user_id" type="text" name="user_id" placeholder="아이디" />
           </div>
           <div>
             <label for="user_pw"></label>
-            <input id="user_pw" type="password" placeholder="비밀번호"/>
+            <input id="user_pw" type="password" placeholder="비밀번호" />
           </div>
           <div>
             <input class="login" type="submit" value="로그인" />
@@ -797,13 +806,13 @@ $(document).ready(function(){
           1566-6639
         </p>
         <p>
-          평일(월~금)<br/>09:00 ~ 18:00<br/>토/일/공휴일 휴무<br/>점심시간<br/>12:30 ~ 13:30
+          평일(월~금)<br />09:00 ~ 18:00<br />토/일/공휴일 휴무<br />점심시간<br />12:30 ~ 13:30
         </p>
       </div>
       <div class="quick_button">
         <div class="quick_b01">
           <p>
-            <a href="client.html">클라이언트<br/>다운로드</a>
+            <a href="client.html">클라이언트<br />다운로드</a>
           </p>
         </div>
         <div class="quick_b02">
@@ -833,7 +842,7 @@ $(document).ready(function(){
         <div class="m_customer">
           <span><img src="img/customer.png" alt="고객센터"></span>
           <p class="customer_num">
-            고객센터  1566-6639
+            고객센터 1566-6639
           </p>
           <p class="customer_time">
             월~금 09:00 ~ 18:00 (토/일/공휴일 휴무)
@@ -927,4 +936,5 @@ $(document).ready(function(){
     </div>
   </footer>
 </body>
+
 </html>

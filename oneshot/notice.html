@@ -1,133 +1,142 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>One Shot</title>
-<link href="css/reset.css" rel="stylesheet" type="text/css">
-<link href="css/main.css" rel="stylesheet" type="text/css">
-<link href="css/sub.css" rel="stylesheet" type="text/css">
-<link href="css/mobile.css" rel="stylesheet" type="text/css">
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/slick.min.js"></script>
-<script src="js/jquery.bpopup.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>One Shot</title>
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/sub.css" rel="stylesheet" type="text/css">
+  <link href="css/mobile.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/jquery.bpopup.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
 
-<script>//공지상세
-  $(document).ready(function(){
-    $(".notice_table a").click(function(){
-      $(".notice_detail").show();
-      $(".message_box").hide();
+  <script>
+    //공지상세
+    $(document).ready(function() {
+      $(".notice_table a").click(function() {
+        $(".notice_detail").show();
+        $(".message_box").hide();
 
+      });
     });
-});
-</script>
+  </script>
 
-<!--공통 스크립트-->
-<script>//로그인 시 상단 변경
-$(document).ready(function(){
-  $(".login").click(function(){
-    $(".login_btn, .join_btn").hide();
-    $(".myinfo_wrap").show();
-    $(".myinfo_wrap").css('display','inline-block');
-  });
-  });
-</script>
+  <!--공통 스크립트-->
+  <script>
+    //로그인 시 상단 변경
+    $(document).ready(function() {
+      $(".login").click(function() {
+        $(".login_btn, .join_btn").hide();
+        $(".myinfo_wrap").show();
+        $(".myinfo_wrap").css('display', 'inline-block');
+      });
+    });
+  </script>
 
-<script>//퀵메뉴
-$(function(){
-    var cssTop = parseInt($(".quick_wrap").css("top"));
-    $(window).scroll(function() {
+  <script>
+    //퀵메뉴
+    $(function() {
+      var cssTop = parseInt($(".quick_wrap").css("top"));
+      $(window).scroll(function() {
         var position = $(window).scrollTop();
 
         var total = cssTop + position + 0;
 
-        if(total == 0){
-            total = 0;
+        if (total == 0) {
+          total = 0;
         }
 
         $(".quick_wrap").stop().animate({
-            "top" : total + "px"
+          "top": total + "px"
         }, 800);
+      });
+    })
+  </script>
+
+  <script>
+    //메인메뉴 호버
+    $(document).ready(function() {
+      $('.sub_menu_wrap li').hover(function() {
+        var index = $(".sub_menu_wrap li").index(this) + 1;
+        console.log(index);
+        $('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function() {
+        var index = $(".sub_menu_wrap li").index(this) + 1;
+        $('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#444444").css("border-bottom", "none");
+      });
+
+      $('.menu_wrap>ul>li>a').hover(function() {
+        $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function() {
+        $(this).css("color", "#444444").css("border-bottom", "none");
+      });
     });
-})
-</script>
+  </script>
 
-<script>//메인메뉴 호버
-$(document).ready(function(){
-  $('.sub_menu_wrap li').hover(function() {
-    var index = $(".sub_menu_wrap li").index(this) +1;
-    console.log(index);
-    $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-  }, function(){
-    var index = $(".sub_menu_wrap li").index(this) +1;
-      $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#444444").css("border-bottom", "none");
-    });
-
-    $('.menu_wrap>ul>li>a').hover(function() {
-      $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-      }, function(){
-      $(this).css("color", "#444444").css("border-bottom", "none");
-    });
-});
-</script>
-
-<script>//로그인팝업
-function layer_login() {
- $(".login_box").bPopup({
- 		modalClose : false
-	});
-}
-</script>
-
-<script>//모바일메뉴 클릭
-$(document).ready(function(){
-  $('.mobile_btn').on('click', function(){
-    $('.top_wrap').toggleClass('active');
-      if($('.top_wrap').hasClass('active')) {
-      $('.top_wrap').css('height', '100vh');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'block');
-      $('.mobilemenu_wrap').css('opacity', '1');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'none');
-      $('.m_quick_wrap').css('transition', '0.5s');
-    } else {
-      $('.top_wrap').css('height', '65px');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'none');
-      $('.mobilemenu_wrap').css('opacity', '0');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'block');
-      $('.m_quick_wrap').css('transition', '0.5s');
+  <script>
+    //로그인팝업
+    function layer_login() {
+      $(".login_box").bPopup({
+        modalClose: false
+      });
     }
-  });
-  });
-</script>
+  </script>
 
-<script>// 모바일메뉴탭
-$(document).ready(function() {
-  $(".momenu_left>div").click(function(){
-   var idx=$(".momenu_left>div").index($(this));
-   $(".momenu_left>div.on").removeClass("on");
-   $(this).addClass("on");
-   $(".momenu_right").hide();
-   $(".momenu_right").eq(idx).show();
+  <script>
+    //모바일메뉴 클릭
+    $(document).ready(function() {
+      $('.mobile_btn').on('click', function() {
+        $('.top_wrap').toggleClass('active');
+        if ($('.top_wrap').hasClass('active')) {
+          $('.top_wrap').css('height', '100vh');
+          $('.top_wrap').css('transition', '0.5s');
+          $('.mobilemenu_wrap').css('display', 'block');
+          $('.mobilemenu_wrap').css('opacity', '1');
+          $('.mobilemenu_wrap').css('transition', '0.5s');
+          $('.m_quick_wrap').css('display', 'none');
+          $('.m_quick_wrap').css('transition', '0.5s');
+        } else {
+          $('.top_wrap').css('height', '65px');
+          $('.top_wrap').css('transition', '0.5s');
+          $('.mobilemenu_wrap').css('display', 'none');
+          $('.mobilemenu_wrap').css('opacity', '0');
+          $('.mobilemenu_wrap').css('transition', '0.5s');
+          $('.m_quick_wrap').css('display', 'block');
+          $('.m_quick_wrap').css('transition', '0.5s');
+        }
+      });
+    });
+  </script>
 
-   return false;
-  });
-});
-</script>
+  <script>
+    // 모바일메뉴탭
+    $(document).ready(function() {
+      $(".momenu_left>div").click(function() {
+        var idx = $(".momenu_left>div").index($(this));
+        $(".momenu_left>div.on").removeClass("on");
+        $(this).addClass("on");
+        $(".momenu_right").hide();
+        $(".momenu_right").eq(idx).show();
 
-<script>//테이블 스크롤 연동
-$(document).ready(function(){
-    $(".table_wrap").scroll(function () {
-      $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
-  });
-  $(".table_popwrap").scroll(function () {
-    $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
-  });
-});
-</script>
+        return false;
+      });
+    });
+  </script>
+
+  <script>
+    //테이블 스크롤 연동
+    $(document).ready(function() {
+      $(".table_wrap").scroll(function() {
+        $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
+      });
+      $(".table_popwrap").scroll(function() {
+        $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
+      });
+    });
+  </script>
 
 </head>
 
@@ -150,7 +159,7 @@ $(document).ready(function(){
           </div>
           <div class="info_price">
             <span>잔액 : <strong>20,000 원</strong></span>
-             <span>SMS : <strong>1,000 건</strong></span>
+            <span>SMS : <strong>1,000 건</strong></span>
             <span>LMS : <strong>500 건</strong></span>
             <span>MMS : <strong>200 건</strong></span>
           </div>
@@ -389,7 +398,7 @@ $(document).ready(function(){
         </ul>
       </div>
     </div>
- 	</header>
+  </header>
   <section>
     <div class="sub_tab_wrap">
       <ul>
@@ -667,7 +676,9 @@ $(document).ready(function(){
           </div>
           <div class="detail_contents">
             <p>
-              우버와 SK텔레콤 자회사 티맵모빌리티가 합작회사 우티 유한회사(UT LLC)를 공식 출범했다고 1일 밝혔다.<br /><br />우티 최고경영자(CEO)는 톰 화이트(Tom White) 우버 한국 총괄이 내정됐다. 톰 화이트 CEO 내정자는 2015년 우버에 입사해 호주, 베트남, 일본, 한국 등에서 사업을 맡으며 우버의 글로벌 성장을 주도했단 평가다.<br /><br />최고재무책임자(CFO)는 SK 출신의 오명훈 총괄이 수행한다. 오명훈 CFO는 2001년 SK 그룹에 입사해 SK텔레콤 및 SK홀딩스에서 IR, 글로벌 M&A 수행, 터키지사장 등을 역임한 글로벌 재무 전문가다.<br /><br />우티는 올 중순 우버택시와 티맵택시를 통합한 새 서비스와 브랜드를 선보일 예정이다. 우티 측은 합리적인 운임 체계, 승객과 기사의 안전을 보장하는 기능 등을 적용한 새 서비스를 계획 중이라고 설명했다.<br />아울러 통합 서비스가 나오기 전까지 이용자는 지금과 마찬가지로 우버와 티맵모빌리티가 제공 중인 서비스를 그대로 이용할 수 있다.<br /><br />톰 화이트 우티 CEO 내정자는 "우버의 기술력과 글로벌 전문성이 티맵모빌리티의 맵핑 서비스로 구성된 네트워크와 결합해 새로운 차원의 서비스와 혁신을 승객과 드라이버에게 제공할 수 있을 것으로 기대한다"고 말했다.
+              우버와 SK텔레콤 자회사 티맵모빌리티가 합작회사 우티 유한회사(UT LLC)를 공식 출범했다고 1일 밝혔다.<br /><br />우티 최고경영자(CEO)는 톰 화이트(Tom White) 우버 한국 총괄이 내정됐다. 톰 화이트 CEO 내정자는 2015년 우버에 입사해 호주, 베트남, 일본, 한국 등에서 사업을 맡으며 우버의 글로벌 성장을 주도했단 평가다.<br /><br />최고재무책임자(CFO)는 SK 출신의 오명훈
+              총괄이 수행한다. 오명훈 CFO는 2001년 SK 그룹에 입사해 SK텔레콤 및 SK홀딩스에서 IR, 글로벌 M&A 수행, 터키지사장 등을 역임한 글로벌 재무 전문가다.<br /><br />우티는 올 중순 우버택시와 티맵택시를 통합한 새 서비스와 브랜드를 선보일 예정이다. 우티 측은 합리적인 운임 체계, 승객과 기사의 안전을 보장하는 기능 등을 적용한 새 서비스를 계획 중이라고 설명했다.<br />아울러 통합 서비스가
+              나오기 전까지 이용자는 지금과 마찬가지로 우버와 티맵모빌리티가 제공 중인 서비스를 그대로 이용할 수 있다.<br /><br />톰 화이트 우티 CEO 내정자는 "우버의 기술력과 글로벌 전문성이 티맵모빌리티의 맵핑 서비스로 구성된 네트워크와 결합해 새로운 차원의 서비스와 혁신을 승객과 드라이버에게 제공할 수 있을 것으로 기대한다"고 말했다.
             </p>
           </div>
 
@@ -690,11 +701,11 @@ $(document).ready(function(){
         <form>
           <div>
             <label for="user_id"></label>
-            <input id="user_id" type="text" name="user_id" placeholder="아이디"/>
+            <input id="user_id" type="text" name="user_id" placeholder="아이디" />
           </div>
           <div>
             <label for="user_pw"></label>
-            <input id="user_pw" type="password" placeholder="비밀번호"/>
+            <input id="user_pw" type="password" placeholder="비밀번호" />
           </div>
           <div>
             <input class="login" type="submit" value="로그인" />
@@ -724,13 +735,13 @@ $(document).ready(function(){
           1566-6639
         </p>
         <p>
-          평일(월~금)<br/>09:00 ~ 18:00<br/>토/일/공휴일 휴무<br/>점심시간<br/>12:30 ~ 13:30
+          평일(월~금)<br />09:00 ~ 18:00<br />토/일/공휴일 휴무<br />점심시간<br />12:30 ~ 13:30
         </p>
       </div>
       <div class="quick_button">
         <div class="quick_b01">
           <p>
-            <a href="client.html">클라이언트<br/>다운로드</a>
+            <a href="client.html">클라이언트<br />다운로드</a>
           </p>
         </div>
         <div class="quick_b02">
@@ -760,7 +771,7 @@ $(document).ready(function(){
         <div class="m_customer">
           <span><img src="img/customer.png" alt="고객센터"></span>
           <p class="customer_num">
-            고객센터  1566-6639
+            고객센터 1566-6639
           </p>
           <p class="customer_time">
             월~금 09:00 ~ 18:00 (토/일/공휴일 휴무)
@@ -854,4 +865,5 @@ $(document).ready(function(){
     </div>
   </footer>
 </body>
+
 </html>

@@ -1,219 +1,246 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>One Shot</title>
-<link href="css/reset.css" rel="stylesheet" type="text/css">
-<link href="css/main.css" rel="stylesheet" type="text/css">
-<link href="css/sub.css" rel="stylesheet" type="text/css">
-<link href="css/mobile.css" rel="stylesheet" type="text/css">
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/jquery.bxslider.min.js"></script>
-<script src="js/jquery.bpopup.min.js"></script>
-<script src="js/slick.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>One Shot</title>
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/sub.css" rel="stylesheet" type="text/css">
+  <link href="css/mobile.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/jquery.bxslider.min.js"></script>
+  <script src="js/jquery.bpopup.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
 
-<script>//특수기능.선택사항 팝업
-  $(document).ready(function(){
-    $(".msg_btn01").click(function(){
-      $(".function_pop>div").hide();
-      $(".spe_box").show();
+  <script>
+    //특수기능.선택사항 팝업
+    $(document).ready(function() {
+      $(".msg_btn01").click(function() {
+        $(".function_pop>div").hide();
+        $(".spe_box").show();
+      });
+      $(".msg_btn02").click(function() {
+        $(".function_pop>div").hide();
+        $(".imo_box").show();
+      });
+      $(".msg_btn03").click(function() {
+        $(".function_pop>div").hide();
+        $(".col_box").show();
+      });
+      $(".msg_btn04").click(function() {
+        $(".function_pop>div").hide();
+        $(".chan_box").show();
+      });
+      $(".msg_btn05").click(function() {
+        $(".function_pop>div").hide();
+      });
+      $(".msg_btn06").click(function() {
+        $(".function_pop>div").hide();
+        $(".save_box").show();
+      });
+      $(".msg_btn07").click(function() {
+        $(".function_pop>div").hide();
+        $(".my_box").show();
+      });
+      $(".msg_btn08").click(function() {
+        $(".function_pop>div").hide();
+        $(".pic_box").show();
+      });
+      $(".close_btn").click(function() {
+        $(".function_pop>div").hide();
+      });
     });
-    $(".msg_btn02").click(function(){
-      $(".function_pop>div").hide();
-      $(".imo_box").show();
-    });
-    $(".msg_btn03").click(function(){
-      $(".function_pop>div").hide();
-      $(".col_box").show();
-    });
-    $(".msg_btn04").click(function(){
-      $(".function_pop>div").hide();
-      $(".chan_box").show();
-    });
-    $(".msg_btn05").click(function(){
-      $(".function_pop>div").hide();
-    });
-    $(".msg_btn06").click(function(){
-      $(".function_pop>div").hide();
-      $(".save_box").show();
-    });
-    $(".msg_btn07").click(function(){
-      $(".function_pop>div").hide();
-      $(".my_box").show();
-    });
-    $(".msg_btn08").click(function(){
-      $(".function_pop>div").hide();
-      $(".pic_box").show();
-    });
-    $(".close_btn").click(function(){
-      $(".function_pop>div").hide();
-    });
-  });
+  </script>
 
-</script>
-
-<script>//레이어팝업
-function layer_replysel() {
- $(".reply_sel").bPopup({
- 		modalClose : false
-	});
-}
-function layer_replyregi() {
- $(".reply_regi").bPopup({
- 		modalClose : false
-	});
-}
-function layer_test() {
- $(".test_result").bPopup({
- 		modalClose : false
-	});
-}
-function layer_add() {
- $(".add_popup").bPopup({
- 		modalClose : false
-	});
-}
-</script>
-
-<script>//받는사람 라디오탭
-$(document).ready(function(){
-  document.getElementById('checked').checked = true;
-  $(".tab_selbox").not('.first').hide();
-    var radioContent = $(".tab_selbox");
-  $(".radio_tab input[type='radio']").click(function(){
-    radioContent.hide();
-    radioContent.eq($(".radio_tab input[type='radio']").index(this)).show();
-  });
-});
-</script>
-
-<script>//문자창 클릭
-  $(document).ready(function(){
-    $("textarea").click(function(){
-      $(".basic_text").hide();
-       });
+  <script>
+    //테이블 스크롤 연동
+    $(document).ready(function() {
+      $(".table_scroll").scroll(function() {
+        $(".cover_scroll").scrollLeft($(".table_scroll").scrollLeft());
+      });
+      $(".table_scroll2").scroll(function() {
+        $(".cover_scroll2").scrollLeft($(".table_scroll2").scrollLeft());
+      });
     });
-</script>
+  </script>
 
+  <script>
+    //레이어팝업
+    function layer_replysel() {
+      $(".reply_sel").bPopup({
+        modalClose: false
+      });
+    }
 
-<script>//주소록팝업
-  $(document).ready(function(){
-    $(".popadd_tab .group_name").click(function(){
-      $(".group_call").show();
-       });
-    $(".group_call .grey_btn").click(function(){
-      $(".group_call").hide();
-       });
+    function layer_replyregi() {
+      $(".reply_regi").bPopup({
+        modalClose: false
+      });
+    }
+
+    function layer_test() {
+      $(".test_result").bPopup({
+        modalClose: false
+      });
+    }
+
+    function layer_add() {
+      $(".add_popup").bPopup({
+        modalClose: false
+      });
+    }
+  </script>
+
+  <script>
+    //받는사람 라디오탭
+    $(document).ready(function() {
+      document.getElementById('checked').checked = true;
+      $(".tab_selbox").not('.first').hide();
+      var radioContent = $(".tab_selbox");
+      $(".radio_tab input[type='radio']").click(function() {
+        radioContent.hide();
+        radioContent.eq($(".radio_tab input[type='radio']").index(this)).show();
+      });
     });
-</script>
+  </script>
 
-<!--공통 스크립트-->
-<script>//로그인 시 상단 변경
-$(document).ready(function(){
-  $(".login").click(function(){
-    $(".login_btn, .join_btn").hide();
-    $(".myinfo_wrap").show();
-    $(".myinfo_wrap").css('display','inline-block');
-  });
-  });
-</script>
+  <script>
+    //문자창 클릭
+    $(document).ready(function() {
+      $("textarea").click(function() {
+        $(".basic_text").hide();
+      });
+    });
+  </script>
 
-<script>//퀵메뉴
-$(function(){
-    var cssTop = parseInt($(".quick_wrap").css("top"));
-    $(window).scroll(function() {
+
+  <script>
+    //주소록팝업
+    $(document).ready(function() {
+      $(".popadd_tab .group_name").click(function() {
+        $(".group_call").show();
+      });
+      $(".group_call .grey_btn").click(function() {
+        $(".group_call").hide();
+      });
+    });
+  </script>
+
+  <!--공통 스크립트-->
+  <script>
+    //로그인 시 상단 변경
+    $(document).ready(function() {
+      $(".login").click(function() {
+        $(".login_btn, .join_btn").hide();
+        $(".myinfo_wrap").show();
+        $(".myinfo_wrap").css('display', 'inline-block');
+      });
+    });
+  </script>
+
+  <script>
+    //퀵메뉴
+    $(function() {
+      var cssTop = parseInt($(".quick_wrap").css("top"));
+      $(window).scroll(function() {
         var position = $(window).scrollTop();
 
         var total = cssTop + position + 0;
 
-        if(total == 0){
-            total = 0;
+        if (total == 0) {
+          total = 0;
         }
 
         $(".quick_wrap").stop().animate({
-            "top" : total + "px"
+          "top": total + "px"
         }, 800);
+      });
+    })
+  </script>
+
+  <script>
+    //메인메뉴 호버
+    $(document).ready(function() {
+      $('.sub_menu_wrap li').hover(function() {
+        var index = $(".sub_menu_wrap li").index(this) + 1;
+        console.log(index);
+        $('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function() {
+        var index = $(".sub_menu_wrap li").index(this) + 1;
+        $('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#444444").css("border-bottom", "none");
+      });
+
+      $('.menu_wrap>ul>li>a').hover(function() {
+        $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function() {
+        $(this).css("color", "#444444").css("border-bottom", "none");
+      });
     });
-})
-</script>
+  </script>
 
-<script>//메인메뉴 호버
-$(document).ready(function(){
-  $('.sub_menu_wrap li').hover(function() {
-    var index = $(".sub_menu_wrap li").index(this) +1;
-    console.log(index);
-    $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-  }, function(){
-    var index = $(".sub_menu_wrap li").index(this) +1;
-      $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#444444").css("border-bottom", "none");
-    });
-
-    $('.menu_wrap>ul>li>a').hover(function() {
-      $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-      }, function(){
-      $(this).css("color", "#444444").css("border-bottom", "none");
-    });
-});
-</script>
-
-<script>//로그인팝업
-function layer_login() {
- $(".login_box").bPopup({
- 		modalClose : false
-	});
-}
-</script>
-
-<script>//모바일메뉴 클릭
-$(document).ready(function(){
-  $('.mobile_btn').on('click', function(){
-    $('.top_wrap').toggleClass('active');
-      if($('.top_wrap').hasClass('active')) {
-      $('.top_wrap').css('height', '100vh');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'block');
-      $('.mobilemenu_wrap').css('opacity', '1');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'none');
-      $('.m_quick_wrap').css('transition', '0.5s');
-    } else {
-      $('.top_wrap').css('height', '65px');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'none');
-      $('.mobilemenu_wrap').css('opacity', '0');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'block');
-      $('.m_quick_wrap').css('transition', '0.5s');
+  <script>
+    //로그인팝업
+    function layer_login() {
+      $(".login_box").bPopup({
+        modalClose: false
+      });
     }
-  });
-  });
-</script>
+  </script>
 
-<script>// 모바일메뉴탭
-$(document).ready(function() {
-  $(".momenu_left>div").click(function(){
-   var idx=$(".momenu_left>div").index($(this));
-   $(".momenu_left>div.on").removeClass("on");
-   $(this).addClass("on");
-   $(".momenu_right").hide();
-   $(".momenu_right").eq(idx).show();
+  <script>
+    //모바일메뉴 클릭
+    $(document).ready(function() {
+      $('.mobile_btn').on('click', function() {
+        $('.top_wrap').toggleClass('active');
+        if ($('.top_wrap').hasClass('active')) {
+          $('.top_wrap').css('height', '100vh');
+          $('.top_wrap').css('transition', '0.5s');
+          $('.mobilemenu_wrap').css('display', 'block');
+          $('.mobilemenu_wrap').css('opacity', '1');
+          $('.mobilemenu_wrap').css('transition', '0.5s');
+          $('.m_quick_wrap').css('display', 'none');
+          $('.m_quick_wrap').css('transition', '0.5s');
+        } else {
+          $('.top_wrap').css('height', '65px');
+          $('.top_wrap').css('transition', '0.5s');
+          $('.mobilemenu_wrap').css('display', 'none');
+          $('.mobilemenu_wrap').css('opacity', '0');
+          $('.mobilemenu_wrap').css('transition', '0.5s');
+          $('.m_quick_wrap').css('display', 'block');
+          $('.m_quick_wrap').css('transition', '0.5s');
+        }
+      });
+    });
+  </script>
 
-   return false;
-  });
-});
-</script>
+  <script>
+    // 모바일메뉴탭
+    $(document).ready(function() {
+      $(".momenu_left>div").click(function() {
+        var idx = $(".momenu_left>div").index($(this));
+        $(".momenu_left>div.on").removeClass("on");
+        $(this).addClass("on");
+        $(".momenu_right").hide();
+        $(".momenu_right").eq(idx).show();
 
-<script>//테이블 스크롤 연동
-$(document).ready(function(){
-    $(".table_wrap").scroll(function () {
-      $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
-  });
-  $(".table_popwrap").scroll(function () {
-    $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
-  });
-});
-</script>
+        return false;
+      });
+    });
+  </script>
+
+  <script>
+    //테이블 스크롤 연동
+    $(document).ready(function() {
+      $(".table_wrap").scroll(function() {
+        $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
+      });
+      $(".table_popwrap").scroll(function() {
+        $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
+      });
+    });
+  </script>
 
 </head>
 
@@ -237,7 +264,7 @@ $(document).ready(function(){
           </div>
           <div class="info_price">
             <span>잔액 : <strong>20,000 원</strong></span>
-             <span>SMS : <strong>1,000 건</strong></span>
+            <span>SMS : <strong>1,000 건</strong></span>
             <span>LMS : <strong>500 건</strong></span>
             <span>MMS : <strong>200 건</strong></span>
           </div>
@@ -476,7 +503,7 @@ $(document).ready(function(){
         </ul>
       </div>
     </div>
- 	</header>
+  </header>
   <section>
     <div class="sub_tab_wrap">
       <ul>
@@ -534,7 +561,7 @@ $(document).ready(function(){
             <div class="text_wrap">
               <span class="text_tit">SMS</span>
               <textarea></textarea>
-              <span class="basic_text">90 bytes 초과시<br/> LMS 서비스로 변경됩니다.</span>
+              <span class="basic_text">90 bytes 초과시<br /> LMS 서비스로 변경됩니다.</span>
               <span class="text_tit">0/90</span>
             </div>
           </div>
@@ -561,7 +588,7 @@ $(document).ready(function(){
               <div class="test_detail">
                 <span></span>
                 <p>
-                  발송전 통신 3사 (SKT,KT, LGU+)의 스팸필터링에 차단되는지 확인하는<br/> <strong>원샷 만의 특별한 기능</strong>
+                  발송전 통신 3사 (SKT,KT, LGU+)의 스팸필터링에 차단되는지 확인하는<br /> <strong>원샷 만의 특별한 기능</strong>
                 </p>
               </div>
             </div>
@@ -586,14 +613,16 @@ $(document).ready(function(){
             <div class="selbox_tit">
               <span>발송유형</span>
               <div class="full_textbox four_btn">
-                <span><label><input class="send_radio" type="radio" name="sms" value="10" checked/>즉시발송</label></span>
-                <span><label><input class="send_radio" type="radio" name="sms" value="11"/>예약발송</label></span>
+                <span><label><input class="send_radio" type="radio" name="sms" value="10" checked />즉시발송</label></span>
+                <span><label><input class="send_radio" type="radio" name="sms" value="11" />예약발송</label></span>
               </div>
             </div>
-            <div class="selbox_tit"><!--즉시발송시에는 비활성화 예약발송에만 활성화-->
+            <div class="selbox_tit">
+              <!--즉시발송시에는 비활성화 예약발송에만 활성화-->
               <span class="empty"></span>
               <div class="full_textbox four_btn">
-                <span><input class="datesel" type="date"/></span><!--날짜 클릭시 날짜선택 팝업/임의로 보여주기-->
+                <span><input class="datesel" type="date" /></span>
+                <!--날짜 클릭시 날짜선택 팝업/임의로 보여주기-->
                 <span class="reserv_time">
                   <select name="time">
                     <option value="01">01 시</option>
@@ -658,7 +687,8 @@ $(document).ready(function(){
             <div class="selbox_tit">
               <span>발송옵션</span>
               <div class="full_textbox four_btn">
-                <span><label><input class="send_radio" type="checkbox" name="division" />분할발송</label></span><!--분할발송 체크시에만 select활성화-->
+                <span><label><input class="send_radio" type="checkbox" name="division" />분할발송</label></span>
+                <!--분할발송 체크시에만 select활성화-->
                 <span>
                   발송시간간격
                 </span>
@@ -676,11 +706,11 @@ $(document).ready(function(){
                 </span>
                 <span>
                   <!--select에서 직접입력 선택시 활성화 background 제거-->
-                  <input type="text" placeholder="직접입력"/>
+                  <input type="text" placeholder="직접입력" />
                 </span>
               </div>
             </div>
-            <div class="selbox_tit last_bottom" >
+            <div class="selbox_tit last_bottom">
               <span class="empty"></span>
               <div class="full_textbox four_btn">
                 <span></span>
@@ -703,7 +733,7 @@ $(document).ready(function(){
           </div>
         </div>
       </div>
-      <div class="message_box last_box" >
+      <div class="message_box last_box">
         <div class="sub_tit">
           <p>
             받는사람
@@ -713,7 +743,7 @@ $(document).ready(function(){
         <div class="sub_box">
           <div class="m_sel">
             <div class="sel_radio radio_tab">
-              <label><input type="radio"  name="receiver" value="" id="checked" checked /><span>직접입력</span></label>
+              <label><input type="radio" name="receiver" value="" id="checked" checked /><span>직접입력</span></label>
             </div>
             <div class="sel_radio radio_tab">
               <label><input type="radio" name="receiver" value=""><span>복사해서 붙여넣기</span></label>
@@ -840,8 +870,8 @@ $(document).ready(function(){
               <div class="all_count">총 <span>1,234</span> 명</div>
             </div>
             <div class="del_btn">
-              <button  onclick="alert('선택한 항목을 삭제하시겠습니까?');">선택삭제</button>
-              <button  onclick="alert('모두 삭제하시겠습니까?');">전체삭제</button>
+              <button onclick="alert('선택한 항목을 삭제하시겠습니까?');">선택삭제</button>
+              <button onclick="alert('모두 삭제하시겠습니까?');">전체삭제</button>
             </div>
           </div>
           <div class="sel_box tab_selbox first">
@@ -912,71 +942,71 @@ $(document).ready(function(){
           <div class="pop_contents">
             <ul>
               <li><a href="#none;">☆</a></li>
-              <li><a href="#none;" >★</a></li>
-              <li><a href="#none;" >○</a></li>
-              <li><a href="#none;" >●</a></li>
-              <li><a href="#none;" >◎</a></li>
-              <li><a href="#none;" >◇</a></li>
-              <li><a href="#none;" >◆</a></li>
-              <li><a href="#none;" >□</a></li>
-              <li><a href="#none;" >■</a></li>
-              <li><a href="#none;" >△</a></li>
-              <li><a href="#none;" >▲</a></li>
-              <li><a href="#none;" >▽</a></li>
-              <li><a href="#none;" >▼</a></li>
-              <li><a href="#none;" >※</a></li>
-              <li><a href="#none;" >▷</a></li>
-              <li><a href="#none;" >◀</a></li>
-              <li><a href="#none;" >▷</a></li>
-              <li><a href="#none;" >▶</a></li>
-              <li><a href="#none;" >♤</a></li>
-              <li><a href="#none;" >♠</a></li>
-              <li><a href="#none;" >♡</a></li>
-              <li><a href="#none;" >♥</a></li>
-              <li><a href="#none;" >♧</a></li>
-              <li><a href="#none;" >⊙</a></li>
-              <li><a href="#none;" >◈</a></li>
-              <li><a href="#none;" >▣</a></li>
-              <li><a href="#none;" >◐</a></li>
-              <li><a href="#none;" >◑</a></li>
-              <li><a href="#none;" >▒</a></li>
-              <li><a href="#none;" >▤</a></li>
-              <li><a href="#none;" >▥</a></li>
-              <li><a href="#none;" >▨</a></li>
-              <li><a href="#none;" >▧</a></li>
-              <li><a href="#none;" >▦</a></li>
-              <li><a href="#none;" >▩</a></li>
-              <li><a href="#none;" >♨</a></li>
-              <li><a href="#none;" >☏</a></li>
-              <li><a href="#none;" >☎</a></li>
-              <li><a href="#none;" >☜</a></li>
-              <li><a href="#none;" >☞</a></li>
-              <li><a href="#none;" >♭</a></li>
-              <li><a href="#none;" >♩</a></li>
-              <li><a href="#none;" >♪</a></li>
-              <li><a href="#none;" >♬</a></li>
-              <li><a href="#none;" >¶</a></li>
-              <li><a href="#none;" >†</a></li>
-              <li><a href="#none;" >‡</a></li>
-              <li><a href="#none;" >↕</a></li>
-              <li><a href="#none;" >↗</a></li>
-              <li><a href="#none;" >↙</a></li>
-              <li><a href="#none;" >↖</a></li>
-              <li><a href="#none;" >↘</a></li>
-              <li><a href="#none;" >→</a></li>
-              <li><a href="#none;" >←</a></li>
-              <li><a href="#none;" >↑</a></li>
-              <li><a href="#none;" >↓</a></li>
-              <li><a href="#none;" >↔</a></li>
-              <li><a href="#none;" >∑</a></li>
-              <li><a href="#none;" >∏</a></li>
-              <li><a href="#none;" >＿</a></li>
-              <li><a href="#none;" >￣</a></li>
-              <li><a href="#none;" >。</a></li>
-              <li><a href="#none;" >·</a></li>
-              <li><a href="#none;" >‥</a></li>
-              <li><a href="#none;" >…</a></li>
-              <li><a href="#none;" >㉿</a></li>
+              <li><a href="#none;">★</a></li>
+              <li><a href="#none;">○</a></li>
+              <li><a href="#none;">●</a></li>
+              <li><a href="#none;">◎</a></li>
+              <li><a href="#none;">◇</a></li>
+              <li><a href="#none;">◆</a></li>
+              <li><a href="#none;">□</a></li>
+              <li><a href="#none;">■</a></li>
+              <li><a href="#none;">△</a></li>
+              <li><a href="#none;">▲</a></li>
+              <li><a href="#none;">▽</a></li>
+              <li><a href="#none;">▼</a></li>
+              <li><a href="#none;">※</a></li>
+              <li><a href="#none;">▷</a></li>
+              <li><a href="#none;">◀</a></li>
+              <li><a href="#none;">▷</a></li>
+              <li><a href="#none;">▶</a></li>
+              <li><a href="#none;">♤</a></li>
+              <li><a href="#none;">♠</a></li>
+              <li><a href="#none;">♡</a></li>
+              <li><a href="#none;">♥</a></li>
+              <li><a href="#none;">♧</a></li>
+              <li><a href="#none;">⊙</a></li>
+              <li><a href="#none;">◈</a></li>
+              <li><a href="#none;">▣</a></li>
+              <li><a href="#none;">◐</a></li>
+              <li><a href="#none;">◑</a></li>
+              <li><a href="#none;">▒</a></li>
+              <li><a href="#none;">▤</a></li>
+              <li><a href="#none;">▥</a></li>
+              <li><a href="#none;">▨</a></li>
+              <li><a href="#none;">▧</a></li>
+              <li><a href="#none;">▦</a></li>
+              <li><a href="#none;">▩</a></li>
+              <li><a href="#none;">♨</a></li>
+              <li><a href="#none;">☏</a></li>
+              <li><a href="#none;">☎</a></li>
+              <li><a href="#none;">☜</a></li>
+              <li><a href="#none;">☞</a></li>
+              <li><a href="#none;">♭</a></li>
+              <li><a href="#none;">♩</a></li>
+              <li><a href="#none;">♪</a></li>
+              <li><a href="#none;">♬</a></li>
+              <li><a href="#none;">¶</a></li>
+              <li><a href="#none;">†</a></li>
+              <li><a href="#none;">‡</a></li>
+              <li><a href="#none;">↕</a></li>
+              <li><a href="#none;">↗</a></li>
+              <li><a href="#none;">↙</a></li>
+              <li><a href="#none;">↖</a></li>
+              <li><a href="#none;">↘</a></li>
+              <li><a href="#none;">→</a></li>
+              <li><a href="#none;">←</a></li>
+              <li><a href="#none;">↑</a></li>
+              <li><a href="#none;">↓</a></li>
+              <li><a href="#none;">↔</a></li>
+              <li><a href="#none;">∑</a></li>
+              <li><a href="#none;">∏</a></li>
+              <li><a href="#none;">＿</a></li>
+              <li><a href="#none;">￣</a></li>
+              <li><a href="#none;">。</a></li>
+              <li><a href="#none;">·</a></li>
+              <li><a href="#none;">‥</a></li>
+              <li><a href="#none;">…</a></li>
+              <li><a href="#none;">㉿</a></li>
             </ul>
           </div>
         </div>
@@ -1211,8 +1241,8 @@ $(document).ready(function(){
           </div>
           <div class="pop_contents">
             <div class="folder_sel">
-              <span class="pop_sel">
-                <input type="radio" name="save"/>
+              <div class="pop_sel">
+                <input type="radio" name="save" />
                 <div class="save_sms">
                   <span>
                     <select>
@@ -1232,11 +1262,11 @@ $(document).ready(function(){
                   </span>
                   <i class="down_icon"></i>
                 </div>
-              </span>
+              </div>
               <span>
                 <input type="radio" name="save" />
                 <span>
-                  <input type="text" placeholder="새롭게 생성할 폴더의 이름을 입력하세요."/>
+                  <input type="text" placeholder="새롭게 생성할 폴더의 이름을 입력하세요." />
                 </span>
               </span>
               <div>
@@ -1514,87 +1544,317 @@ $(document).ready(function(){
               <button class="grey_btn">조회</button>
             </div>
           </div>
-          <div class="spam_result">
-            <ul>
-              <li>
-                휴대폰번호
-              </li>
-              <li>
-                통신사
-              </li>
-              <li>
-                타입
-              </li>
-              <li>
-                메시지
-              </li>
-              <li>
-                발송일자
-              </li>
-              <li>
-                결과
-              </li>
-            </ul>
-            <ul>
-              <li>
-                01012345678
-              </li>
-              <li>
-                SKT
-              </li>
-              <li>
-                LMS
-              </li>
-              <li class="text_short">
-                (광고)안녕하세요 반갑습니다 에스엠티엔티입니다.
-              </li>
-              <li>
-                2020-12-12 10:16
-              </li>
-              <li>
-                정상발송
-              </li>
-            </ul>
-            <ul>
-              <li>
-                01012345678
-              </li>
-              <li>
-                SKT
-              </li>
-              <li>
-                LMS
-              </li>
-              <li class="text_short">
-                (광고)안녕하세요 반갑습니다 에스엠티엔티입니다.
-              </li>
-              <li>
-                2020-12-12 10:16
-              </li>
-              <li>
-                정상발송
-              </li>
-            </ul>
-            <ul>
-              <li>
-                01012345678
-              </li>
-              <li>
-                SKT
-              </li>
-              <li>
-                LMS
-              </li>
-              <li class="text_short">
-                (광고)안녕하세요 반갑습니다 에스엠티엔티입니다.
-              </li>
-              <li>
-                2020-12-12 10:16
-              </li>
-              <li>
-                정상발송
-              </li>
-            </ul>
+          <div class="add_list_table send_list_table">
+            <div class="table_wrap table_popwrap spam_result">
+              <table>
+                <colgroup>
+                  <col style="width:20%" />
+                  <col style="width:10%" />
+                  <col style="width:10%" />
+                  <col style="width:30%" />
+                  <col style="width:20%" />
+                  <col style="width:10%" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>
+                      휴대폰번호
+                    </th>
+                    <th>
+                      통신사
+                    </th>
+                    <th>
+                      구분
+                    </th>
+                    <th>
+                      메시지
+                    </th>
+                    <th>
+                      발송일자
+                    </th>
+                    <th>
+                      결과
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      SKT
+                    </td>
+                    <td>
+                      SMS
+                    </td>
+                    <td>
+                      <span>(광고)안녕하세요 반갑습니다 에스엠티엔티입니다.</span>
+                    </td>
+                    <td>
+                      2022-01-01 10:25
+                    </td>
+                    <td>
+                      정상발송
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      SKT
+                    </td>
+                    <td>
+                      SMS
+                    </td>
+                    <td>
+                      <span>(광고)안녕하세요 반갑습니다 에스엠티엔티입니다.</span>
+                    </td>
+                    <td>
+                      2022-01-01 10:25
+                    </td>
+                    <td>
+                      정상발송
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      SKT
+                    </td>
+                    <td>
+                      SMS
+                    </td>
+                    <td>
+                      <span>(광고)안녕하세요 반갑습니다 에스엠티엔티입니다.</span>
+                    </td>
+                    <td>
+                      2022-01-01 10:25
+                    </td>
+                    <td>
+                      정상발송
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      SKT
+                    </td>
+                    <td>
+                      SMS
+                    </td>
+                    <td>
+                      <span>(광고)안녕하세요 반갑습니다 에스엠티엔티입니다.</span>
+                    </td>
+                    <td>
+                      2022-01-01 10:25
+                    </td>
+                    <td>
+                      정상발송
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      SKT
+                    </td>
+                    <td>
+                      SMS
+                    </td>
+                    <td>
+                      <span>(광고)안녕하세요 반갑습니다 에스엠티엔티입니다.</span>
+                    </td>
+                    <td>
+                      2022-01-01 10:25
+                    </td>
+                    <td>
+                      정상발송
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      SKT
+                    </td>
+                    <td>
+                      SMS
+                    </td>
+                    <td>
+                      <span>(광고)안녕하세요 반갑습니다 에스엠티엔티입니다.</span>
+                    </td>
+                    <td>
+                      2022-01-01 10:25
+                    </td>
+                    <td>
+                      정상발송
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      SKT
+                    </td>
+                    <td>
+                      SMS
+                    </td>
+                    <td>
+                      <span>(광고)안녕하세요 반갑습니다 에스엠티엔티입니다.</span>
+                    </td>
+                    <td>
+                      2022-01-01 10:25
+                    </td>
+                    <td>
+                      정상발송
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      SKT
+                    </td>
+                    <td>
+                      SMS
+                    </td>
+                    <td>
+                      <span>(광고)안녕하세요 반갑습니다 에스엠티엔티입니다.</span>
+                    </td>
+                    <td>
+                      2022-01-01 10:25
+                    </td>
+                    <td>
+                      정상발송
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      SKT
+                    </td>
+                    <td>
+                      SMS
+                    </td>
+                    <td>
+                      <span>(광고)안녕하세요 반갑습니다 에스엠티엔티입니다.</span>
+                    </td>
+                    <td>
+                      2022-01-01 10:25
+                    </td>
+                    <td>
+                      정상발송
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      SKT
+                    </td>
+                    <td>
+                      SMS
+                    </td>
+                    <td>
+                      <span>(광고)안녕하세요 반갑습니다 에스엠티엔티입니다.</span>
+                    </td>
+                    <td>
+                      2022-01-01 10:25
+                    </td>
+                    <td>
+                      정상발송
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      SKT
+                    </td>
+                    <td>
+                      SMS
+                    </td>
+                    <td>
+                      <span>(광고)안녕하세요 반갑습니다 에스엠티엔티입니다.</span>
+                    </td>
+                    <td>
+                      2022-01-01 10:25
+                    </td>
+                    <td>
+                      정상발송
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      01012345678
+                    </td>
+                    <td>
+                      SKT
+                    </td>
+                    <td>
+                      SMS
+                    </td>
+                    <td>
+                      <span>(광고)안녕하세요 반갑습니다 에스엠티엔티입니다.</span>
+                    </td>
+                    <td>
+                      2022-01-01 10:25
+                    </td>
+                    <td>
+                      정상발송
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="cover_table cover_poptable">
+                <table>
+                  <colgroup>
+                    <col style="width:20%" />
+                    <col style="width:10%" />
+                    <col style="width:10%" />
+                    <col style="width:30%" />
+                    <col style="width:20%" />
+                    <col style="width:10%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>
+                        휴대폰번호
+                      </th>
+                      <th>
+                        통신사
+                      </th>
+                      <th>
+                        구분
+                      </th>
+                      <th>
+                        메시지
+                      </th>
+                      <th>
+                        발송일자
+                      </th>
+                      <th>
+                        결과
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1639,8 +1899,8 @@ $(document).ready(function(){
                   </div>
                 </div>
               </div>
-              <div class="table_wrap">
-                <div class="add_list_table">
+              <div class="add_list_table">
+                <div class="table_wrap table_scroll">
                   <table>
                     <colgroup>
                       <col style="width:5%" />
@@ -1975,6 +2235,40 @@ $(document).ready(function(){
                       </tr>
                     </tbody>
                   </table>
+                  <div class="cover_table cover_scroll">
+                    <table>
+                      <colgroup>
+                        <col style="width:5%" />
+                        <col style="width:10%" />
+                        <col style="width:15%" />
+                        <col style="width:30%" />
+                        <col style="width:10%" />
+                        <col style="width:30%" />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th>
+                            <input type="checkbox" />
+                          </th>
+                          <th>
+                            No.
+                          </th>
+                          <th>
+                            등록일
+                          </th>
+                          <th>
+                            그룹명
+                          </th>
+                          <th>
+                            인원
+                          </th>
+                          <th>
+                            그룹메모
+                          </th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2018,8 +2312,8 @@ $(document).ready(function(){
                   </div>
                 </div>
               </div>
-              <div class="table_wrap">
-                <div class="add_list_table">
+              <div class="add_list_table">
+                <div class="table_wrap table_scroll2">
                   <table>
                     <colgroup>
                       <col style="width:5%" />
@@ -2354,6 +2648,40 @@ $(document).ready(function(){
                       </tr>
                     </tbody>
                   </table>
+                  <div class="cover_table cover_scroll2">
+                    <table>
+                      <colgroup>
+                        <col style="width:5%" />
+                        <col style="width:10%" />
+                        <col style="width:15%" />
+                        <col style="width:15%" />
+                        <col style="width:20%" />
+                        <col style="width:35%" />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th>
+                            <input type="checkbox" />
+                          </th>
+                          <th>
+                            No.
+                          </th>
+                          <th>
+                            등록일
+                          </th>
+                          <th>
+                            이름
+                          </th>
+                          <th>
+                            전화번호
+                          </th>
+                          <th>
+                            메모
+                          </th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2370,11 +2698,11 @@ $(document).ready(function(){
         <form>
           <div>
             <label for="user_id"></label>
-            <input id="user_id" type="text" name="user_id" placeholder="아이디"/>
+            <input id="user_id" type="text" name="user_id" placeholder="아이디" />
           </div>
           <div>
             <label for="user_pw"></label>
-            <input id="user_pw" type="password" placeholder="비밀번호"/>
+            <input id="user_pw" type="password" placeholder="비밀번호" />
           </div>
           <div>
             <input class="login" type="submit" value="로그인" />
@@ -2403,13 +2731,13 @@ $(document).ready(function(){
           1566-6639
         </p>
         <p>
-          평일(월~금)<br/>09:00 ~ 18:00<br/>토/일/공휴일 휴무<br/>점심시간<br/>12:30 ~ 13:30
+          평일(월~금)<br />09:00 ~ 18:00<br />토/일/공휴일 휴무<br />점심시간<br />12:30 ~ 13:30
         </p>
       </div>
       <div class="quick_button">
         <div class="quick_b01">
           <p>
-            <a href="client.html">클라이언트<br/>다운로드</a>
+            <a href="client.html">클라이언트<br />다운로드</a>
           </p>
         </div>
         <div class="quick_b02">
@@ -2439,7 +2767,7 @@ $(document).ready(function(){
         <div class="m_customer">
           <span><img src="img/customer.png" alt="고객센터"></span>
           <p class="customer_num">
-            고객센터  1566-6639
+            고객센터 1566-6639
           </p>
           <p class="customer_time">
             월~금 09:00 ~ 18:00 (토/일/공휴일 휴무)
@@ -2533,4 +2861,5 @@ $(document).ready(function(){
     </div>
   </footer>
 </body>
+
 </html>

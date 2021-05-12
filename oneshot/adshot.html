@@ -1,216 +1,232 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>One Shot</title>
-<link href="css/reset.css" rel="stylesheet" type="text/css">
-<link href="css/main.css" rel="stylesheet" type="text/css">
-<link href="css/sub.css" rel="stylesheet" type="text/css">
-<link href="css/mobile.css" rel="stylesheet" type="text/css">
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/jquery.bxslider.min.js"></script>
-<script src="js/jquery.bpopup.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>One Shot</title>
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/sub.css" rel="stylesheet" type="text/css">
+  <link href="css/mobile.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/jquery.bxslider.min.js"></script>
+  <script src="js/jquery.bpopup.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
 
-<script>//특수기능.선택사항 팝업
-  $(document).ready(function(){
-    $(".msg_btn01").click(function(){
-      $(".function_pop>div").hide();
-      $(".spe_box").show();
+  <script>
+    //특수기능.선택사항 팝업
+    $(document).ready(function() {
+      $(".msg_btn01").click(function() {
+        $(".function_pop>div").hide();
+        $(".spe_box").show();
+      });
+      $(".msg_btn02").click(function() {
+        $(".function_pop>div").hide();
+        $(".imo_box").show();
+      });
+      $(".msg_btn03").click(function() {
+        $(".function_pop>div").hide();
+        $(".col_box").show();
+      });
+      $(".msg_btn04").click(function() {
+        $(".function_pop>div").hide();
+        $(".chan_box").show();
+      });
+      $(".msg_btn05").click(function() {
+        $(".function_pop>div").hide();
+      });
+      $(".msg_btn06").click(function() {
+        $(".function_pop>div").hide();
+        $(".save_box").show();
+      });
+      $(".msg_btn07").click(function() {
+        $(".function_pop>div").hide();
+        $(".my_box").show();
+      });
+      $(".msg_btn08").click(function() {
+        $(".function_pop>div").hide();
+        $(".pic_box").show();
+      });
+      $(".close_btn").click(function() {
+        $(".function_pop>div").hide();
+      });
     });
-    $(".msg_btn02").click(function(){
-      $(".function_pop>div").hide();
-      $(".imo_box").show();
-    });
-    $(".msg_btn03").click(function(){
-      $(".function_pop>div").hide();
-      $(".col_box").show();
-    });
-    $(".msg_btn04").click(function(){
-      $(".function_pop>div").hide();
-      $(".chan_box").show();
-    });
-    $(".msg_btn05").click(function(){
-      $(".function_pop>div").hide();
-    });
-    $(".msg_btn06").click(function(){
-      $(".function_pop>div").hide();
-      $(".save_box").show();
-    });
-    $(".msg_btn07").click(function(){
-      $(".function_pop>div").hide();
-      $(".my_box").show();
-    });
-    $(".msg_btn08").click(function(){
-      $(".function_pop>div").hide();
-      $(".pic_box").show();
-    });
-    $(".close_btn").click(function(){
-      $(".function_pop>div").hide();
-    });
-  });
+  </script>
 
-</script>
+  <script>
+    //레이어팝업
+    function layer_replysel() {
+      $(".reply_sel").bPopup({
+        modalClose: false
+      });
+    }
 
-<script>//레이어팝업
-function layer_replysel() {
- $(".reply_sel").bPopup({
- 		modalClose : false
-	});
-}
-function layer_replyregi() {
- $(".reply_regi").bPopup({
- 		modalClose : false
-	});
-}
-function layer_test() {
- $(".test_result").bPopup({
- 		modalClose : false
-	});
-}
-function layer_add() {
- $(".add_popup").bPopup({
- 		modalClose : false
-	});
-}
-</script>
+    function layer_replyregi() {
+      $(".reply_regi").bPopup({
+        modalClose: false
+      });
+    }
 
-<script>//받는사람 라디오탭
-$(document).ready(function(){
-  $(".tab_selbox").not('.first').hide();
-    var radioContent = $(".tab_selbox");
-  $(".radio_tab input[type='radio']").click(function(){
-    radioContent.hide();
-    radioContent.eq($(".radio_tab input[type='radio']").index(this)).show();
-  });
-});
-</script>
+    function layer_test() {
+      $(".test_result").bPopup({
+        modalClose: false
+      });
+    }
 
-<script>//문자창 클릭
-  $(document).ready(function(){
-    $("textarea").click(function(){
-      $(".basic_text").hide();
-       });
+    function layer_add() {
+      $(".add_popup").bPopup({
+        modalClose: false
+      });
+    }
+  </script>
+
+  <script>
+    //받는사람 라디오탭
+    $(document).ready(function() {
+      $(".tab_selbox").not('.first').hide();
+      var radioContent = $(".tab_selbox");
+      $(".radio_tab input[type='radio']").click(function() {
+        radioContent.hide();
+        radioContent.eq($(".radio_tab input[type='radio']").index(this)).show();
+      });
     });
-</script>
+  </script>
 
-<script>//파일샷보내기
-  $(document).ready(function(){
-    $(".send_fileshot").click(function(){
-      $(".message_open").show();
-
-      $('html, body').animate({scrollTop: $(".message_open").offset().top},500);
-       });
+  <script>
+    //문자창 클릭
+    $(document).ready(function() {
+      $("textarea").click(function() {
+        $(".basic_text").hide();
+      });
     });
+  </script>
 
-</script>
+  <script>
+    //파일샷보내기
+    $(document).ready(function() {
+      $(".send_fileshot").click(function() {
+        $(".message_open").toggle();
 
-<!--공통 스크립트-->
-<script>//로그인 시 상단 변경
-$(document).ready(function(){
-  $(".login").click(function(){
-    $(".login_btn, .join_btn").hide();
-    $(".myinfo_wrap").show();
-    $(".myinfo_wrap").css('display','inline-block');
-  });
-  });
-</script>
+        $('html, body').animate({
+          scrollTop: $(".message_open").offset().top
+        }, 500);
+      });
+    });
+  </script>
 
-<script>//퀵메뉴
-$(function(){
-    var cssTop = parseInt($(".quick_wrap").css("top"));
-    $(window).scroll(function() {
+  <!--공통 스크립트-->
+  <script>
+    //로그인 시 상단 변경
+    $(document).ready(function() {
+      $(".login").click(function() {
+        $(".login_btn, .join_btn").hide();
+        $(".myinfo_wrap").show();
+        $(".myinfo_wrap").css('display', 'inline-block');
+      });
+    });
+  </script>
+
+  <script>
+    //퀵메뉴
+    $(function() {
+      var cssTop = parseInt($(".quick_wrap").css("top"));
+      $(window).scroll(function() {
         var position = $(window).scrollTop();
 
         var total = cssTop + position + 0;
 
-        if(total == 0){
-            total = 0;
+        if (total == 0) {
+          total = 0;
         }
 
         $(".quick_wrap").stop().animate({
-            "top" : total + "px"
+          "top": total + "px"
         }, 800);
+      });
+    })
+  </script>
+
+  <script>
+    //메인메뉴 호버
+    $(document).ready(function() {
+      $('.sub_menu_wrap li').hover(function() {
+        var index = $(".sub_menu_wrap li").index(this) + 1;
+        console.log(index);
+        $('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function() {
+        var index = $(".sub_menu_wrap li").index(this) + 1;
+        $('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#444444").css("border-bottom", "none");
+      });
+
+      $('.menu_wrap>ul>li>a').hover(function() {
+        $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+      }, function() {
+        $(this).css("color", "#444444").css("border-bottom", "none");
+      });
     });
-})
-</script>
+  </script>
 
-<script>//메인메뉴 호버
-$(document).ready(function(){
-  $('.sub_menu_wrap li').hover(function() {
-    var index = $(".sub_menu_wrap li").index(this) +1;
-    console.log(index);
-    $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-  }, function(){
-    var index = $(".sub_menu_wrap li").index(this) +1;
-      $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#444444").css("border-bottom", "none");
-    });
-
-    $('.menu_wrap>ul>li>a').hover(function() {
-      $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-      }, function(){
-      $(this).css("color", "#444444").css("border-bottom", "none");
-    });
-});
-</script>
-
-<script>//로그인팝업
-function layer_login() {
- $(".login_box").bPopup({
- 		modalClose : false
-	});
-}
-</script>
-
-<script>//모바일메뉴 클릭
-$(document).ready(function(){
-  $('.mobile_btn').on('click', function(){
-    $('.top_wrap').toggleClass('active');
-      if($('.top_wrap').hasClass('active')) {
-      $('.top_wrap').css('height', '100vh');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'block');
-      $('.mobilemenu_wrap').css('opacity', '1');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'none');
-      $('.m_quick_wrap').css('transition', '0.5s');
-    } else {
-      $('.top_wrap').css('height', '65px');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'none');
-      $('.mobilemenu_wrap').css('opacity', '0');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'block');
-      $('.m_quick_wrap').css('transition', '0.5s');
+  <script>
+    //로그인팝업
+    function layer_login() {
+      $(".login_box").bPopup({
+        modalClose: false
+      });
     }
-  });
-  });
-</script>
+  </script>
 
-<script>// 모바일메뉴탭
-$(document).ready(function() {
-  $(".momenu_left>div").click(function(){
-   var idx=$(".momenu_left>div").index($(this));
-   $(".momenu_left>div.on").removeClass("on");
-   $(this).addClass("on");
-   $(".momenu_right").hide();
-   $(".momenu_right").eq(idx).show();
+  <script>
+    //모바일메뉴 클릭
+    $(document).ready(function() {
+      $('.mobile_btn').on('click', function() {
+        $('.top_wrap').toggleClass('active');
+        if ($('.top_wrap').hasClass('active')) {
+          $('.top_wrap').css('height', '100vh');
+          $('.top_wrap').css('transition', '0.5s');
+          $('.mobilemenu_wrap').css('display', 'block');
+          $('.mobilemenu_wrap').css('opacity', '1');
+          $('.mobilemenu_wrap').css('transition', '0.5s');
+          $('.m_quick_wrap').css('display', 'none');
+          $('.m_quick_wrap').css('transition', '0.5s');
+        } else {
+          $('.top_wrap').css('height', '65px');
+          $('.top_wrap').css('transition', '0.5s');
+          $('.mobilemenu_wrap').css('display', 'none');
+          $('.mobilemenu_wrap').css('opacity', '0');
+          $('.mobilemenu_wrap').css('transition', '0.5s');
+          $('.m_quick_wrap').css('display', 'block');
+          $('.m_quick_wrap').css('transition', '0.5s');
+        }
+      });
+    });
+  </script>
 
-   return false;
-  });
-});
-</script>
+  <script>
+    // 모바일메뉴탭
+    $(document).ready(function() {
+      $(".momenu_left>div").click(function() {
+        var idx = $(".momenu_left>div").index($(this));
+        $(".momenu_left>div.on").removeClass("on");
+        $(this).addClass("on");
+        $(".momenu_right").hide();
+        $(".momenu_right").eq(idx).show();
 
-<script>//테이블 스크롤 연동
-$(document).ready(function(){
-    $(".table_wrap").scroll(function () {
-      $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
-  });
-  $(".table_popwrap").scroll(function () {
-    $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
-  });
-});
-</script>
+        return false;
+      });
+    });
+  </script>
+
+  <script>
+    //테이블 스크롤 연동
+    $(document).ready(function() {
+      $(".table_wrap").scroll(function() {
+        $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
+      });
+      $(".table_popwrap").scroll(function() {
+        $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
+      });
+    });
+  </script>
 
 </head>
 
@@ -234,7 +250,7 @@ $(document).ready(function(){
           </div>
           <div class="info_price">
             <span>잔액 : <strong>20,000 원</strong></span>
-             <span>SMS : <strong>1,000 건</strong></span>
+            <span>SMS : <strong>1,000 건</strong></span>
             <span>LMS : <strong>500 건</strong></span>
             <span>MMS : <strong>200 건</strong></span>
           </div>
@@ -473,7 +489,7 @@ $(document).ready(function(){
         </ul>
       </div>
     </div>
- 	</header>
+  </header>
   <section>
     <div class="sub_tab_wrap">
       <ul>
@@ -507,8 +523,8 @@ $(document).ready(function(){
         <div>
           <div class="m_sel">
             <div class="sel_radio">
-              <label><input type="checkbox"  value=""/><span>불법스팸 발송 규제 방침 동의 (필수)</span></label>
-              <button  class="grey_rbtn">자세히보기</button>
+              <label><input type="checkbox" value="" /><span>불법스팸 발송 규제 방침 동의 (필수)</span></label>
+              <button class="grey_rbtn">자세히보기</button>
               <!--클릭시 팝업-->
             </div>
           </div>
@@ -554,7 +570,7 @@ $(document).ready(function(){
             <div class="text_wrap">
               <span class="text_tit">SMS</span>
               <textarea></textarea>
-              <span class="basic_text">90 bytes 초과시<br/> LMS 서비스로 변경됩니다.</span>
+              <span class="basic_text">90 bytes 초과시<br /> LMS 서비스로 변경됩니다.</span>
               <span class="text_tit">0/90</span>
             </div>
           </div>
@@ -581,7 +597,7 @@ $(document).ready(function(){
               <div class="test_detail">
                 <span></span>
                 <p>
-                  발송전 통신 3사 (SKT,KT, LGU+)의 스팸필터링에 차단되는지 확인하는<br/> <strong>원샷 만의 특별한 기능</strong>
+                  발송전 통신 3사 (SKT,KT, LGU+)의 스팸필터링에 차단되는지 확인하는<br /> <strong>원샷 만의 특별한 기능</strong>
                 </p>
               </div>
             </div>
@@ -606,14 +622,16 @@ $(document).ready(function(){
             <div class="selbox_tit">
               <span>발송유형</span>
               <div class="full_textbox four_btn">
-                <span><label><input class="send_radio" type="radio" name="sms" value="10" checked/>즉시발송</label></span>
-                <span><label><input class="send_radio" type="radio" name="sms" value="11"/>예약발송</label></span>
+                <span><label><input class="send_radio" type="radio" name="sms" value="10" checked />즉시발송</label></span>
+                <span><label><input class="send_radio" type="radio" name="sms" value="11" />예약발송</label></span>
               </div>
             </div>
-            <div class="selbox_tit"><!--즉시발송시에는 비활성화 예약발송에만 활성화-->
+            <div class="selbox_tit">
+              <!--즉시발송시에는 비활성화 예약발송에만 활성화-->
               <span class="empty"></span>
               <div class="full_textbox four_btn">
-                <span><input class="datesel" type="date"/></span><!--날짜 클릭시 날짜선택 팝업/임의로 보여주기-->
+                <span><input class="datesel" type="date" /></span>
+                <!--날짜 클릭시 날짜선택 팝업/임의로 보여주기-->
                 <span class="reserv_time">
                   <select name="time">
                     <option value="01">01 시</option>
@@ -678,7 +696,8 @@ $(document).ready(function(){
             <div class="selbox_tit">
               <span>발송옵션</span>
               <div class="full_textbox four_btn">
-                <span><label><input class="send_radio" type="checkbox" name="division" />분할발송</label></span><!--분할발송 체크시에만 select활성화-->
+                <span><label><input class="send_radio" type="checkbox" name="division" />분할발송</label></span>
+                <!--분할발송 체크시에만 select활성화-->
                 <span>
                   발송시간간격
                 </span>
@@ -696,11 +715,11 @@ $(document).ready(function(){
                 </span>
                 <span>
                   <!--select에서 직접입력 선택시 활성화 background 제거-->
-                  <input type="text" placeholder="직접입력"/>
+                  <input type="text" placeholder="직접입력" />
                 </span>
               </div>
             </div>
-            <div class="selbox_tit last_bottom" >
+            <div class="selbox_tit last_bottom">
               <span class="empty"></span>
               <div class="full_textbox four_btn">
                 <span></span>
@@ -723,7 +742,7 @@ $(document).ready(function(){
           </div>
         </div>
       </div>
-      <div class="message_box last_box" >
+      <div class="message_box last_box">
         <div class="sub_tit">
           <p>
             받는사람
@@ -860,8 +879,8 @@ $(document).ready(function(){
               <div class="all_count">총 <span>1,234</span> 명</div>
             </div>
             <div class="del_btn">
-              <button  onclick="alert('선택한 항목을 삭제하시겠습니까?');">선택삭제</button>
-              <button  onclick="alert('모두 삭제하시겠습니까?');">전체삭제</button>
+              <button onclick="alert('선택한 항목을 삭제하시겠습니까?');">선택삭제</button>
+              <button onclick="alert('모두 삭제하시겠습니까?');">전체삭제</button>
             </div>
           </div>
           <div class="sel_box tab_selbox first">
@@ -929,71 +948,71 @@ $(document).ready(function(){
           <div class="pop_contents">
             <ul>
               <li><a href="#none;">☆</a></li>
-              <li><a href="#none;" >★</a></li>
-              <li><a href="#none;" >○</a></li>
-              <li><a href="#none;" >●</a></li>
-              <li><a href="#none;" >◎</a></li>
-              <li><a href="#none;" >◇</a></li>
-              <li><a href="#none;" >◆</a></li>
-              <li><a href="#none;" >□</a></li>
-              <li><a href="#none;" >■</a></li>
-              <li><a href="#none;" >△</a></li>
-              <li><a href="#none;" >▲</a></li>
-              <li><a href="#none;" >▽</a></li>
-              <li><a href="#none;" >▼</a></li>
-              <li><a href="#none;" >※</a></li>
-              <li><a href="#none;" >▷</a></li>
-              <li><a href="#none;" >◀</a></li>
-              <li><a href="#none;" >▷</a></li>
-              <li><a href="#none;" >▶</a></li>
-              <li><a href="#none;" >♤</a></li>
-              <li><a href="#none;" >♠</a></li>
-              <li><a href="#none;" >♡</a></li>
-              <li><a href="#none;" >♥</a></li>
-              <li><a href="#none;" >♧</a></li>
-              <li><a href="#none;" >⊙</a></li>
-              <li><a href="#none;" >◈</a></li>
-              <li><a href="#none;" >▣</a></li>
-              <li><a href="#none;" >◐</a></li>
-              <li><a href="#none;" >◑</a></li>
-              <li><a href="#none;" >▒</a></li>
-              <li><a href="#none;" >▤</a></li>
-              <li><a href="#none;" >▥</a></li>
-              <li><a href="#none;" >▨</a></li>
-              <li><a href="#none;" >▧</a></li>
-              <li><a href="#none;" >▦</a></li>
-              <li><a href="#none;" >▩</a></li>
-              <li><a href="#none;" >♨</a></li>
-              <li><a href="#none;" >☏</a></li>
-              <li><a href="#none;" >☎</a></li>
-              <li><a href="#none;" >☜</a></li>
-              <li><a href="#none;" >☞</a></li>
-              <li><a href="#none;" >♭</a></li>
-              <li><a href="#none;" >♩</a></li>
-              <li><a href="#none;" >♪</a></li>
-              <li><a href="#none;" >♬</a></li>
-              <li><a href="#none;" >¶</a></li>
-              <li><a href="#none;" >†</a></li>
-              <li><a href="#none;" >‡</a></li>
-              <li><a href="#none;" >↕</a></li>
-              <li><a href="#none;" >↗</a></li>
-              <li><a href="#none;" >↙</a></li>
-              <li><a href="#none;" >↖</a></li>
-              <li><a href="#none;" >↘</a></li>
-              <li><a href="#none;" >→</a></li>
-              <li><a href="#none;" >←</a></li>
-              <li><a href="#none;" >↑</a></li>
-              <li><a href="#none;" >↓</a></li>
-              <li><a href="#none;" >↔</a></li>
-              <li><a href="#none;" >∑</a></li>
-              <li><a href="#none;" >∏</a></li>
-              <li><a href="#none;" >＿</a></li>
-              <li><a href="#none;" >￣</a></li>
-              <li><a href="#none;" >。</a></li>
-              <li><a href="#none;" >·</a></li>
-              <li><a href="#none;" >‥</a></li>
-              <li><a href="#none;" >…</a></li>
-              <li><a href="#none;" >㉿</a></li>
+              <li><a href="#none;">★</a></li>
+              <li><a href="#none;">○</a></li>
+              <li><a href="#none;">●</a></li>
+              <li><a href="#none;">◎</a></li>
+              <li><a href="#none;">◇</a></li>
+              <li><a href="#none;">◆</a></li>
+              <li><a href="#none;">□</a></li>
+              <li><a href="#none;">■</a></li>
+              <li><a href="#none;">△</a></li>
+              <li><a href="#none;">▲</a></li>
+              <li><a href="#none;">▽</a></li>
+              <li><a href="#none;">▼</a></li>
+              <li><a href="#none;">※</a></li>
+              <li><a href="#none;">▷</a></li>
+              <li><a href="#none;">◀</a></li>
+              <li><a href="#none;">▷</a></li>
+              <li><a href="#none;">▶</a></li>
+              <li><a href="#none;">♤</a></li>
+              <li><a href="#none;">♠</a></li>
+              <li><a href="#none;">♡</a></li>
+              <li><a href="#none;">♥</a></li>
+              <li><a href="#none;">♧</a></li>
+              <li><a href="#none;">⊙</a></li>
+              <li><a href="#none;">◈</a></li>
+              <li><a href="#none;">▣</a></li>
+              <li><a href="#none;">◐</a></li>
+              <li><a href="#none;">◑</a></li>
+              <li><a href="#none;">▒</a></li>
+              <li><a href="#none;">▤</a></li>
+              <li><a href="#none;">▥</a></li>
+              <li><a href="#none;">▨</a></li>
+              <li><a href="#none;">▧</a></li>
+              <li><a href="#none;">▦</a></li>
+              <li><a href="#none;">▩</a></li>
+              <li><a href="#none;">♨</a></li>
+              <li><a href="#none;">☏</a></li>
+              <li><a href="#none;">☎</a></li>
+              <li><a href="#none;">☜</a></li>
+              <li><a href="#none;">☞</a></li>
+              <li><a href="#none;">♭</a></li>
+              <li><a href="#none;">♩</a></li>
+              <li><a href="#none;">♪</a></li>
+              <li><a href="#none;">♬</a></li>
+              <li><a href="#none;">¶</a></li>
+              <li><a href="#none;">†</a></li>
+              <li><a href="#none;">‡</a></li>
+              <li><a href="#none;">↕</a></li>
+              <li><a href="#none;">↗</a></li>
+              <li><a href="#none;">↙</a></li>
+              <li><a href="#none;">↖</a></li>
+              <li><a href="#none;">↘</a></li>
+              <li><a href="#none;">→</a></li>
+              <li><a href="#none;">←</a></li>
+              <li><a href="#none;">↑</a></li>
+              <li><a href="#none;">↓</a></li>
+              <li><a href="#none;">↔</a></li>
+              <li><a href="#none;">∑</a></li>
+              <li><a href="#none;">∏</a></li>
+              <li><a href="#none;">＿</a></li>
+              <li><a href="#none;">￣</a></li>
+              <li><a href="#none;">。</a></li>
+              <li><a href="#none;">·</a></li>
+              <li><a href="#none;">‥</a></li>
+              <li><a href="#none;">…</a></li>
+              <li><a href="#none;">㉿</a></li>
             </ul>
           </div>
         </div>
@@ -1228,8 +1247,8 @@ $(document).ready(function(){
           </div>
           <div class="pop_contents">
             <div class="folder_sel">
-              <span class="pop_sel">
-                <input type="radio" name="save"/>
+              <div class="pop_sel">
+                <input type="radio" name="save" />
                 <div class="save_sms">
                   <span>
                     <select>
@@ -1249,11 +1268,11 @@ $(document).ready(function(){
                   </span>
                   <i class="down_icon"></i>
                 </div>
-              </span>
+              </div>
               <span>
                 <input type="radio" name="save" />
                 <span>
-                  <input type="text" placeholder="새롭게 생성할 폴더의 이름을 입력하세요."/>
+                  <input type="text" placeholder="새롭게 생성할 폴더의 이름을 입력하세요." />
                 </span>
               </span>
               <div>
@@ -1956,7 +1975,7 @@ $(document).ready(function(){
                 <span class="adser_01"></span>
                 <div class="box_text">
                   <p class="small_text">
-                     LMS 대신 SMS로 발송하여 <br/>비용절감 효과
+                    LMS 대신 SMS로 발송하여 <br />비용절감 효과
                   </p>
                 </div>
               </div>
@@ -1966,7 +1985,7 @@ $(document).ready(function(){
                 <span class="adser_02"></span>
                 <div class="box_text">
                   <p class="small_text">
-                    상품 분류 기능으로 <br/>편리한 상품 및 가격 관리
+                    상품 분류 기능으로 <br />편리한 상품 및 가격 관리
                   </p>
                 </div>
               </div>
@@ -1976,7 +1995,7 @@ $(document).ready(function(){
                 <span class="adser_03"></span>
                 <div class="box_text">
                   <p class="small_text">
-                    무료로 사용가능한 서비스로 <br/>추가비용 없이 홈페이지 생성 가능
+                    무료로 사용가능한 서비스로 <br />추가비용 없이 홈페이지 생성 가능
                   </p>
                 </div>
               </div>
@@ -1986,7 +2005,7 @@ $(document).ready(function(){
                 <span class="adser_04"></span>
                 <div class="box_text">
                   <p class="small_text">
-                    텍스트 대신 이미지 사용으로 <br/>정보 전달력 향상
+                    텍스트 대신 이미지 사용으로 <br />정보 전달력 향상
                   </p>
                 </div>
               </div>
@@ -2037,11 +2056,11 @@ $(document).ready(function(){
         <form>
           <div>
             <label for="user_id"></label>
-            <input id="user_id" type="text" name="user_id" placeholder="아이디"/>
+            <input id="user_id" type="text" name="user_id" placeholder="아이디" />
           </div>
           <div>
             <label for="user_pw"></label>
-            <input id="user_pw" type="password" placeholder="비밀번호"/>
+            <input id="user_pw" type="password" placeholder="비밀번호" />
           </div>
           <div>
             <input class="login" type="submit" value="로그인" />
@@ -2070,13 +2089,13 @@ $(document).ready(function(){
           1566-6639
         </p>
         <p>
-          평일(월~금)<br/>09:00 ~ 18:00<br/>토/일/공휴일 휴무<br/>점심시간<br/>12:30 ~ 13:30
+          평일(월~금)<br />09:00 ~ 18:00<br />토/일/공휴일 휴무<br />점심시간<br />12:30 ~ 13:30
         </p>
       </div>
       <div class="quick_button">
         <div class="quick_b01">
           <p>
-            <a href="client.html">클라이언트<br/>다운로드</a>
+            <a href="client.html">클라이언트<br />다운로드</a>
           </p>
         </div>
         <div class="quick_b02">
@@ -2106,7 +2125,7 @@ $(document).ready(function(){
         <div class="m_customer">
           <span><img src="img/customer.png" alt="고객센터"></span>
           <p class="customer_num">
-            고객센터  1566-6639
+            고객센터 1566-6639
           </p>
           <p class="customer_time">
             월~금 09:00 ~ 18:00 (토/일/공휴일 휴무)
@@ -2200,4 +2219,5 @@ $(document).ready(function(){
     </div>
   </footer>
 </body>
+
 </html>

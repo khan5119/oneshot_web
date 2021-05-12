@@ -1,1019 +1,1030 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>One Shot</title>
-<link href="css/reset.css" rel="stylesheet" type="text/css">
-<link href="css/main.css" rel="stylesheet" type="text/css">
-<link href="css/sub.css" rel="stylesheet" type="text/css">
-<link href="css/mobile.css" rel="stylesheet" type="text/css">
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/jquery.bxslider.min.js"></script>
-<script src="js/jquery.bpopup.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>One Shot</title>
+	<link href="css/reset.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href="css/sub.css" rel="stylesheet" type="text/css">
+	<link href="css/mobile.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.bxslider.min.js"></script>
+	<script src="js/jquery.bpopup.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=2, user-scalable=yes">
 
-<script> //답변
+	<script>
+		//답변
 
-	$(document).ready(function() {
-		$('.kakao_faq .q_box').hide();
-		$('.kakao_faq .f_box').on('click', function() {
-			function slideDown(target) {
-				slideUp();
-				$(target).addClass('on').next().slideDown();
-			}
-			function slideUp() {
-				$('.kakao_faq .f_box').removeClass('on').next().slideUp();
-			}
-			$(this).hasClass('on') ? slideUp() : slideDown(this);
+		$(document).ready(function() {
+			$('.kakao_faq .q_box').hide();
+			$('.kakao_faq .f_box').on('click', function() {
+				function slideDown(target) {
+					slideUp();
+					$(target).addClass('on').next().slideDown();
+				}
+
+				function slideUp() {
+					$('.kakao_faq .f_box').removeClass('on').next().slideUp();
+				}
+				$(this).hasClass('on') ? slideUp() : slideDown(this);
+			});
 		});
-  });
-</script>
+	</script>
 
-<!--공통 스크립트-->
-<script>//로그인 시 상단 변경
-$(document).ready(function(){
-  $(".login").click(function(){
-    $(".login_btn, .join_btn").hide();
-    $(".myinfo_wrap").show();
-    $(".myinfo_wrap").css('display','inline-block');
-  });
-  });
-</script>
+	<!--공통 스크립트-->
+	<script>
+		//로그인 시 상단 변경
+		$(document).ready(function() {
+			$(".login").click(function() {
+				$(".login_btn, .join_btn").hide();
+				$(".myinfo_wrap").show();
+				$(".myinfo_wrap").css('display', 'inline-block');
+			});
+		});
+	</script>
 
-<script>//퀵메뉴
-$(function(){
-    var cssTop = parseInt($(".quick_wrap").css("top"));
-    $(window).scroll(function() {
-        var position = $(window).scrollTop();
+	<script>
+		//퀵메뉴
+		$(function() {
+			var cssTop = parseInt($(".quick_wrap").css("top"));
+			$(window).scroll(function() {
+				var position = $(window).scrollTop();
 
-        var total = cssTop + position + 0;
+				var total = cssTop + position + 0;
 
-        if(total == 0){
-            total = 0;
-        }
+				if (total == 0) {
+					total = 0;
+				}
 
-        $(".quick_wrap").stop().animate({
-            "top" : total + "px"
-        }, 800);
-    });
-})
-</script>
+				$(".quick_wrap").stop().animate({
+					"top": total + "px"
+				}, 800);
+			});
+		})
+	</script>
 
-<script>//메인메뉴 호버
-$(document).ready(function(){
-  $('.sub_menu_wrap li').hover(function() {
-    var index = $(".sub_menu_wrap li").index(this) +1;
-    console.log(index);
-    $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-  }, function(){
-    var index = $(".sub_menu_wrap li").index(this) +1;
-      $('.menu_wrap>ul>li:nth-child('+index+')>a').css("color", "#444444").css("border-bottom", "none");
-    });
+	<script>
+		//메인메뉴 호버
+		$(document).ready(function() {
+			$('.sub_menu_wrap li').hover(function() {
+				var index = $(".sub_menu_wrap li").index(this) + 1;
+				console.log(index);
+				$('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+			}, function() {
+				var index = $(".sub_menu_wrap li").index(this) + 1;
+				$('.menu_wrap>ul>li:nth-child(' + index + ')>a').css("color", "#444444").css("border-bottom", "none");
+			});
 
-    $('.menu_wrap>ul>li>a').hover(function() {
-      $(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
-      }, function(){
-      $(this).css("color", "#444444").css("border-bottom", "none");
-    });
-});
-</script>
+			$('.menu_wrap>ul>li>a').hover(function() {
+				$(this).css("color", "#e20001").css("border-bottom", "2px solid #e20001");
+			}, function() {
+				$(this).css("color", "#444444").css("border-bottom", "none");
+			});
+		});
+	</script>
 
-<script>//로그인팝업
-function layer_login() {
- $(".login_box").bPopup({
- 		modalClose : false
-	});
-}
-</script>
+	<script>
+		//로그인팝업
+		function layer_login() {
+			$(".login_box").bPopup({
+				modalClose: false
+			});
+		}
+	</script>
 
-<script>//모바일메뉴 클릭
-$(document).ready(function(){
-  $('.mobile_btn').on('click', function(){
-    $('.top_wrap').toggleClass('active');
-      if($('.top_wrap').hasClass('active')) {
-      $('.top_wrap').css('height', '100vh');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'block');
-      $('.mobilemenu_wrap').css('opacity', '1');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'none');
-      $('.m_quick_wrap').css('transition', '0.5s');
-    } else {
-      $('.top_wrap').css('height', '65px');
-      $('.top_wrap').css('transition', '0.5s');
-      $('.mobilemenu_wrap').css('display', 'none');
-      $('.mobilemenu_wrap').css('opacity', '0');
-      $('.mobilemenu_wrap').css('transition', '0.5s');
-      $('.m_quick_wrap').css('display', 'block');
-      $('.m_quick_wrap').css('transition', '0.5s');
-    }
-  });
-  });
-</script>
+	<script>
+		//모바일메뉴 클릭
+		$(document).ready(function() {
+			$('.mobile_btn').on('click', function() {
+				$('.top_wrap').toggleClass('active');
+				if ($('.top_wrap').hasClass('active')) {
+					$('.top_wrap').css('height', '100vh');
+					$('.top_wrap').css('transition', '0.5s');
+					$('.mobilemenu_wrap').css('display', 'block');
+					$('.mobilemenu_wrap').css('opacity', '1');
+					$('.mobilemenu_wrap').css('transition', '0.5s');
+					$('.m_quick_wrap').css('display', 'none');
+					$('.m_quick_wrap').css('transition', '0.5s');
+				} else {
+					$('.top_wrap').css('height', '65px');
+					$('.top_wrap').css('transition', '0.5s');
+					$('.mobilemenu_wrap').css('display', 'none');
+					$('.mobilemenu_wrap').css('opacity', '0');
+					$('.mobilemenu_wrap').css('transition', '0.5s');
+					$('.m_quick_wrap').css('display', 'block');
+					$('.m_quick_wrap').css('transition', '0.5s');
+				}
+			});
+		});
+	</script>
 
-<script>// 모바일메뉴탭
-$(document).ready(function() {
-  $(".momenu_left>div").click(function(){
-   var idx=$(".momenu_left>div").index($(this));
-   $(".momenu_left>div.on").removeClass("on");
-   $(this).addClass("on");
-   $(".momenu_right").hide();
-   $(".momenu_right").eq(idx).show();
+	<script>
+		// 모바일메뉴탭
+		$(document).ready(function() {
+			$(".momenu_left>div").click(function() {
+				var idx = $(".momenu_left>div").index($(this));
+				$(".momenu_left>div.on").removeClass("on");
+				$(this).addClass("on");
+				$(".momenu_right").hide();
+				$(".momenu_right").eq(idx).show();
 
-   return false;
-  });
-});
-</script>
+				return false;
+			});
+		});
+	</script>
 
-<script>//테이블 스크롤 연동
-$(document).ready(function(){
-    $(".table_wrap").scroll(function () {
-      $(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
-  });
-	$(".table_popwrap").scroll(function () {
-    $(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
-  });
-});
-</script>
+	<script>
+		//테이블 스크롤 연동
+		$(document).ready(function() {
+			$(".table_wrap").scroll(function() {
+				$(".cover_table").scrollLeft($(".table_wrap").scrollLeft());
+			});
+			$(".table_popwrap").scroll(function() {
+				$(".cover_poptable").scrollLeft($(".table_popwrap").scrollLeft());
+			});
+		});
+	</script>
 
 </head>
 
 
 <body>
-  <header>
-    <div class="top_wrap">
-      <div class="main_logo">
-        <a href="main.html"><img src="img/logo.png" alt="원샷로고" /></a>
-      </div>
-      <div class="login_wrap">
-        <div class="login_btn">
-          <a href="#none;" onclick="layer_login();">로그인</a>
-        </div>
-        <div class="join_btn">
-          <a href="join.html">회원가입</a>
-        </div>
-        <div class="myinfo_wrap">
-          <div>
-            송중기님
-          </div>
-          <div class="info_price">
-            <span>잔액 : <strong>20,000 원</strong></span>
-             <span>SMS : <strong>1,000 건</strong></span>
-            <span>LMS : <strong>500 건</strong></span>
-            <span>MMS : <strong>200 건</strong></span>
-          </div>
-        </div>
-        <div class="mypage_btn">
-          <a href="mypage.html">마이페이지</a>
-        </div>
-      </div>
-      <div class="mobile_btn">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="mobilemenu_wrap">
-        <div class="login_wrap mologin">
-          <div class="mologin_box">
-            <div class="login_btn">
-              <a href="#none;" onclick="layer_login();">로그인</a>
-            </div>
-            <div class="join_btn">
-              <a href="join.html">회원가입</a>
-            </div>
-            <div class="myinfo_wrap">
-              <div>
-                송중기님
-              </div>
-              <div class="info_price">
-                <span>잔액 : <strong>20,000 원</strong></span>
-              </div>
-            </div>
-            <div class="mypage_btn">
-              <a href="mypage.html">마이페이지</a>
-            </div>
-          </div>
-        </div>
-        <div class="momenu_sub">
-          <div class="momenu_left">
-            <div>
-              회사소개
-            </div>
-            <div>
-              문자보내기
-            </div>
-            <div>
-              카카오톡
-            </div>
-            <div>
-              결과조회
-            </div>
-            <div>
-              주소록관리
-            </div>
-            <div>
-              기프티샷
-            </div>
-            <div>
-              고객지원
-            </div>
-            <div>
-              충전하기
-            </div>
-          </div>
-          <div class="momenu_right">
-            <div>
-              <a href="company.html">원샷소개</a>
-            </div>
-            <div>
-              <a href="function.html">기능소개</a>
-            </div>
-            <div>
-              <a href="link.html">문자연동서비스</a>
-            </div>
-            <div>
-              <a href="client.html">클라이언트 다운로드</a>
-            </div>
-          </div>
-          <div class="momenu_right">
-            <div>
-              <a href="message.html">문자보내기</a>
-            </div>
-            <div>
-              <a href="fileshot.html">파일샷보내기</a>
-            </div>
-            <div>
-              <a href="adshot.html">애드샷보내기</a>
-            </div>
-            <div>
-              <a href="reserve.html">예약조회</a>
-            </div>
-          </div>
-          <div class="momenu_right">
-            <div>
-              <a href="ka_service.html">카카오톡 소개</a>
-            </div>
-            <div>
-              <a href="ka_profile.html">프로필키관리</a>
-            </div>
-            <div>
-              <a href="ka_template.html">템플릿 관리</a>
-            </div>
-            <div>
-              <a href="ka_notice.html">알림톡 보내기</a>
-            </div>
-            <div>
-              <a href="ka_friend.html">친구톡 보내기</a>
-            </div>
-          </div>
-          <div class="momenu_right">
-            <div>
-              <a href="result.html">발송내역</a>
-            </div>
-            <div>
-              <a href="statistics.html">발송통계</a>
-            </div>
-          </div>
-          <div class="momenu_right">
-            <div>
-              <a href="address.html">주소록 관리</a>
-            </div>
-            <div>
-              <a href="block.html">수신거부 관리</a>
-            </div>
-          </div>
-          <div class="momenu_right">
-            <div>
-              <a href="giftshot.html">기프티샷 보내기</a>
-            </div>
-            <div>
-              <a href="giftresult.html">결과조회</a>
-            </div>
-          </div>
-          <div class="momenu_right">
-            <div>
-              <a href="notice.html">공지사항</a>
-            </div>
-            <div>
-              <a href="faq.html">FAQ</a>
-            </div>
-            <div>
-              <a href="onetoone.html">1:1문의</a>
-            </div>
-            <div>
-              <a href="control.html">원격지원</a>
-            </div>
-            <div>
-              <a href="tax.html">세금계산서</a>
-            </div>
-            <div>
-              <a href="event.html">이벤트</a>
-            </div>
-          </div>
-          <div class="momenu_right">
-            <div>
-              <a href="charge.html">충전하기</a>
-            </div>
-            <div>
-              <a href="point.html">포인트내역</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+	<header>
+		<div class="top_wrap">
+			<div class="main_logo">
+				<a href="main.html"><img src="img/logo.png" alt="원샷로고" /></a>
+			</div>
+			<div class="login_wrap">
+				<div class="login_btn">
+					<a href="#none;" onclick="layer_login();">로그인</a>
+				</div>
+				<div class="join_btn">
+					<a href="join.html">회원가입</a>
+				</div>
+				<div class="myinfo_wrap">
+					<div>
+						송중기님
+					</div>
+					<div class="info_price">
+						<span>잔액 : <strong>20,000 원</strong></span>
+						<span>SMS : <strong>1,000 건</strong></span>
+						<span>LMS : <strong>500 건</strong></span>
+						<span>MMS : <strong>200 건</strong></span>
+					</div>
+				</div>
+				<div class="mypage_btn">
+					<a href="mypage.html">마이페이지</a>
+				</div>
+			</div>
+			<div class="mobile_btn">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div class="mobilemenu_wrap">
+				<div class="login_wrap mologin">
+					<div class="mologin_box">
+						<div class="login_btn">
+							<a href="#none;" onclick="layer_login();">로그인</a>
+						</div>
+						<div class="join_btn">
+							<a href="join.html">회원가입</a>
+						</div>
+						<div class="myinfo_wrap">
+							<div>
+								송중기님
+							</div>
+							<div class="info_price">
+								<span>잔액 : <strong>20,000 원</strong></span>
+							</div>
+						</div>
+						<div class="mypage_btn">
+							<a href="mypage.html">마이페이지</a>
+						</div>
+					</div>
+				</div>
+				<div class="momenu_sub">
+					<div class="momenu_left">
+						<div>
+							회사소개
+						</div>
+						<div>
+							문자보내기
+						</div>
+						<div>
+							카카오톡
+						</div>
+						<div>
+							결과조회
+						</div>
+						<div>
+							주소록관리
+						</div>
+						<div>
+							기프티샷
+						</div>
+						<div>
+							고객지원
+						</div>
+						<div>
+							충전하기
+						</div>
+					</div>
+					<div class="momenu_right">
+						<div>
+							<a href="company.html">원샷소개</a>
+						</div>
+						<div>
+							<a href="function.html">기능소개</a>
+						</div>
+						<div>
+							<a href="link.html">문자연동서비스</a>
+						</div>
+						<div>
+							<a href="client.html">클라이언트 다운로드</a>
+						</div>
+					</div>
+					<div class="momenu_right">
+						<div>
+							<a href="message.html">문자보내기</a>
+						</div>
+						<div>
+							<a href="fileshot.html">파일샷보내기</a>
+						</div>
+						<div>
+							<a href="adshot.html">애드샷보내기</a>
+						</div>
+						<div>
+							<a href="reserve.html">예약조회</a>
+						</div>
+					</div>
+					<div class="momenu_right">
+						<div>
+							<a href="ka_service.html">카카오톡 소개</a>
+						</div>
+						<div>
+							<a href="ka_profile.html">프로필키관리</a>
+						</div>
+						<div>
+							<a href="ka_template.html">템플릿 관리</a>
+						</div>
+						<div>
+							<a href="ka_notice.html">알림톡 보내기</a>
+						</div>
+						<div>
+							<a href="ka_friend.html">친구톡 보내기</a>
+						</div>
+					</div>
+					<div class="momenu_right">
+						<div>
+							<a href="result.html">발송내역</a>
+						</div>
+						<div>
+							<a href="statistics.html">발송통계</a>
+						</div>
+					</div>
+					<div class="momenu_right">
+						<div>
+							<a href="address.html">주소록 관리</a>
+						</div>
+						<div>
+							<a href="block.html">수신거부 관리</a>
+						</div>
+					</div>
+					<div class="momenu_right">
+						<div>
+							<a href="giftshot.html">기프티샷 보내기</a>
+						</div>
+						<div>
+							<a href="giftresult.html">결과조회</a>
+						</div>
+					</div>
+					<div class="momenu_right">
+						<div>
+							<a href="notice.html">공지사항</a>
+						</div>
+						<div>
+							<a href="faq.html">FAQ</a>
+						</div>
+						<div>
+							<a href="onetoone.html">1:1문의</a>
+						</div>
+						<div>
+							<a href="control.html">원격지원</a>
+						</div>
+						<div>
+							<a href="tax.html">세금계산서</a>
+						</div>
+						<div>
+							<a href="event.html">이벤트</a>
+						</div>
+					</div>
+					<div class="momenu_right">
+						<div>
+							<a href="charge.html">충전하기</a>
+						</div>
+						<div>
+							<a href="point.html">포인트내역</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <div class="menu_wrap">
-      <ul>
-        <li>
-          <a href="#none;">회사소개</a>
-        </li>
-        <li>
-          <a href="#none;">문자보내기</a>
-        </li>
-        <li>
-          <a href="#none;" class="on">카카오톡</a>
-        </li>
-        <li>
-          <a href="#none;">결과조회</a>
-        </li>
-        <li>
-          <a href="#none;">주소록관리</a>
-        </li>
-        <li>
-          <a href="#none;">기프티샷</a>
-        </li>
-        <li>
-          <a href="#none;">고객지원</a>
-        </li>
-        <li>
-          <a href="#none;">충전하기</a>
-        </li>
-      </ul>
-      <div class="sub_menu_wrap">
-        <ul>
-          <li>
-            <a href="company.html">원샷소개</a>
-            <a href="function.html">기능소개</a>
-            <a href="link.html">문자연동서비스</a>
-            <a href="client.html">클라이언트 다운로드</a>
-          </li>
-          <li>
-            <a href="message.html">문자보내기</a>
-            <a href="fileshot.html">파일샷보내기</a>
-            <a href="adshot.html">애드샷보내기</a>
-            <a href="reserve.html">예약조회</a>
-          </li>
-          <li>
-            <a href="ka_service.html">서비스 안내</a>
-            <a href="ka_profile.html">프로필키 관리</a>
-            <a href="ka_template.html">템플릿 관리</a>
-            <a href="ka_notice.html">알림톡 보내기</a>
-            <a href="ka_friend.html">친구톡 보내기</a>
-          </li>
-          <li>
-            <a href="result.html">발송내역</a>
-            <a href="statistics.html">발송통계</a>
-          </li>
-          <li>
-            <a href="address.html">주소록 관리</a>
-            <a href="block.html">수신거부 관리</a>
-          </li>
-          <li>
-            <a href="giftshot.html">기프티샷 보내기</a>
-            <a href="giftresult.html">결과조회</a>
-          </li>
-          <li>
-            <a href="notice.html">공지사항</a>
-            <a href="faq.html">FAQ</a>
-            <a href="onetoone.html">1:1문의</a>
-            <a href="control.html">원격지원</a>
-            <a href="tax.html">세금계산서</a>
-            <a href="event.html">이벤트</a>
-          </li>
-          <li>
-            <a href="charge.html">충전하기</a>
-            <a href="point.html">포인트내역</a>
-          </li>
-        </ul>
-      </div>
-    </div>
- 	</header>
-  <section>
-    <div class="sub_tab_wrap">
-      <ul>
-        <li>
-          <a href="ka_service.html" class="on">서비스 안내</a>
-        </li>
-        <li>
-          <a href="ka_profile.html">프로필키 관리</a>
-        </li>
-        <li>
-          <a href="ka_template.html" >템플릿 관리</a>
-        </li>
-        <li>
-          <a href="ka_notice.html">알림톡 보내기</a>
-        </li>
-        <li>
-          <a href="ka_friend.html">친구톡 보내기</a>
-        </li>
-      </ul>
-    </div>
-    <div class="shot_wrap">
-      <div class="shot_tit">
-        <h1><span></span>서비스 안내</h1>
-      </div>
-    </div>
-    <div class="message_wrap">
-      <div class="kakao_main">
-        <h1><img src="img/kakao_logo.png" /></h1>
-        <h2>비즈메시지 이제 <strong>알림톡, 친구톡</strong> 으로!</h2>
-        <p>
-          주문 / 예약 안내, 결제 / 계좌 정보, 배송정보 등 알림 메시지, 이벤트 및 홍보용 광고성 안내 메시지.<br />이제 편리하게 카카오 비즈메시지 서비스로 이용하세요.
-        </p>
-      </div>
-      <div class="service_wrap kakao_wrap">
-        <div class="kakao_tit">
-          <p class="main_text">
-            알림톡(정보성 메시지)은 카카오 비즈메시지
-          </p>
-          <p class="sub_text">
-            알림톡(정보성메시지)은 별도의 <strong>친구 추가 없이 정보성 메세지를 전송</strong>하는 서비스입니다.
-          </p>
-        </div>
-        <div class="contents_wrap">
-          <div class="phone_kakao">
-            <img src="img/kakao_img01.png" alt="카카오알림톡" />
-          </div>
-        </div>
-        <div class="contents_wrap">
-          <ul>
-            <li>
-              <div class="kakao_box">
-                <div>
-                  <img src="img/kakao_img11.png" alt="주문" />
-                  <p class="detail_text">
-                    주문/예약 안내
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="kakao_box">
-                <div>
-                  <img src="img/kakao_img12.png" alt="걸제" />
-                  <p class="detail_text">
-                    결제/계좌 정보
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="kakao_box">
-                <div>
-                  <img src="img/kakao_img13.png" alt="배송" />
-                  <p class="detail_text">
-                    배송 정보
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="kakao_box">
-                <div>
-                  <img src="img/kakao_img14.png" alt="멤버십" />
-                  <p class="detail_text">
-                    멤버십 정보
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="service_wrap kakao_wrap">
-        <div class="kakao_tit">
-          <p class="main_text">
-            친구톡(광고성 메시지)도 카카오 비즈메시지
-          </p>
-          <p class="sub_text">
-            친구톡(광고성메시지)은 <strong>카카오톡 채널로 친구를 맺은 사용자를 대상으로 광고성 메시지를 전송</strong>하는 서비스입니다.
-          </p>
-        </div>
-        <div class="contents_wrap">
-          <div class="phone_kakao">
-            <img src="img/kakao_img02.png" alt="카카오친구톡" />
-          </div>
-        </div>
-        <div class="contents_wrap">
-          <ul>
-            <li>
-              <div class="kakao_box">
-                <div>
-                  <img src="img/kakao_img16.png" alt="신제품" />
-                  <p class="detail_text">
-                    신제품 홍보
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="kakao_box">
-                <div>
-                  <img src="img/kakao_img17.png" alt="세일" />
-                  <p class="detail_text">
-                    할인 이벤트
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="kakao_box">
-                <div>
-                  <img src="img/kakao_img18.png" alt="프로모션" />
-                  <p class="detail_text">
-                    프로모션
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="kakao_box">
-                <div>
-                  <img src="img/kakao_img19.png" alt="공지" />
-                  <p class="detail_text">
-                    공지사항
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="service_wrap kakao_wrap">
-        <div class="kakao_tit">
-          <p class="main_text">
-            카카오 비즈메시지 서비스 특징
-          </p>
-          <p class="sub_text">
-            한번의 시스템 구축으로 문자메시지와 카카오 비즈메시지를 편리하고 저렴하게 발송할 수 있습니다.
-          </p>
-        </div>
-        <div class="contents_wrap">
-          <ul class="kakao_advan">
-            <li>
-              <div class="kakao_rbox">
-                <div>
-                  <p class="sub_text">
-                    고객소통 채널 확보로<br /> 홍보효과 상승
-                  </p>
-                  <img src="img/kakao_img21.png" alt="그래프" />
-                  <p class="detail_text">
-                    &#8226;  국내 스마트폰 사용자 <strong>90% 이상</strong> 카카오톡 이용 중
-                  </p>
-                  <p class="detail_text">
-                    &#8226;  카카오톡 채널 친구 추가로 <strong>신규 고객 대상 마케팅</strong> 가능
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="kakao_rbox">
-                <div>
-                  <p class="sub_text">
-                    사용자 편의성과<br /> 보안성 상승
-                  </p>
-                  <img src="img/kakao_img22.png" alt="보안" />
-                  <p class="detail_text">
-                    &#8226;  타사 대비 처리 <strong>효율이 높음</strong> (SMTNT 메시지 + 비즈메시지)
-                  </p>
-                  <p class="detail_text">
-                    &#8226;  알림톡 인증 마크를 통해 수신자는 <strong>스팸/스미싱 메시지</strong> 판별 가능
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="kakao_rbox">
-                <div>
-                  <p class="sub_text">
-                    효율성 증가로<br /> 비용 절감 효과
-                  </p>
-                  <img src="img/kakao_img23.png" alt="절약" />
-                  <p class="detail_text">
-                    &#8226;  메시지 대비 <strong>저렴한 이용 요금</strong>
-                  </p>
-                  <p class="detail_text">
-                    &#8226;  발송 <strong>성공 건당 과금</strong> 적용
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="service_wrap kakao_wrap">
-        <div class="kakao_tit">
-          <p class="main_text">
-            카카오 비즈메시지 서비스 이용 절차
-          </p>
+		<div class="menu_wrap">
+			<ul>
+				<li>
+					<a href="#none;">회사소개</a>
+				</li>
+				<li>
+					<a href="#none;">문자보내기</a>
+				</li>
+				<li>
+					<a href="#none;" class="on">카카오톡</a>
+				</li>
+				<li>
+					<a href="#none;">결과조회</a>
+				</li>
+				<li>
+					<a href="#none;">주소록관리</a>
+				</li>
+				<li>
+					<a href="#none;">기프티샷</a>
+				</li>
+				<li>
+					<a href="#none;">고객지원</a>
+				</li>
+				<li>
+					<a href="#none;">충전하기</a>
+				</li>
+			</ul>
+			<div class="sub_menu_wrap">
+				<ul>
+					<li>
+						<a href="company.html">원샷소개</a>
+						<a href="function.html">기능소개</a>
+						<a href="link.html">문자연동서비스</a>
+						<a href="client.html">클라이언트 다운로드</a>
+					</li>
+					<li>
+						<a href="message.html">문자보내기</a>
+						<a href="fileshot.html">파일샷보내기</a>
+						<a href="adshot.html">애드샷보내기</a>
+						<a href="reserve.html">예약조회</a>
+					</li>
+					<li>
+						<a href="ka_service.html">서비스 안내</a>
+						<a href="ka_profile.html">프로필키 관리</a>
+						<a href="ka_template.html">템플릿 관리</a>
+						<a href="ka_notice.html">알림톡 보내기</a>
+						<a href="ka_friend.html">친구톡 보내기</a>
+					</li>
+					<li>
+						<a href="result.html">발송내역</a>
+						<a href="statistics.html">발송통계</a>
+					</li>
+					<li>
+						<a href="address.html">주소록 관리</a>
+						<a href="block.html">수신거부 관리</a>
+					</li>
+					<li>
+						<a href="giftshot.html">기프티샷 보내기</a>
+						<a href="giftresult.html">결과조회</a>
+					</li>
+					<li>
+						<a href="notice.html">공지사항</a>
+						<a href="faq.html">FAQ</a>
+						<a href="onetoone.html">1:1문의</a>
+						<a href="control.html">원격지원</a>
+						<a href="tax.html">세금계산서</a>
+						<a href="event.html">이벤트</a>
+					</li>
+					<li>
+						<a href="charge.html">충전하기</a>
+						<a href="point.html">포인트내역</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section>
+		<div class="sub_tab_wrap">
+			<ul>
+				<li>
+					<a href="ka_service.html" class="on">서비스 안내</a>
+				</li>
+				<li>
+					<a href="ka_profile.html">프로필키 관리</a>
+				</li>
+				<li>
+					<a href="ka_template.html">템플릿 관리</a>
+				</li>
+				<li>
+					<a href="ka_notice.html">알림톡 보내기</a>
+				</li>
+				<li>
+					<a href="ka_friend.html">친구톡 보내기</a>
+				</li>
+			</ul>
+		</div>
+		<div class="shot_wrap">
+			<div class="shot_tit">
+				<h1><span></span>서비스 안내</h1>
+			</div>
+		</div>
+		<div class="message_wrap">
+			<div class="kakao_main">
+				<h1><img src="img/kakao_logo.png" alt="kakao_logo" /></h1>
+				<h2>비즈메시지 이제 <strong>알림톡, 친구톡</strong> 으로!</h2>
+				<p>
+					주문 / 예약 안내, 결제 / 계좌 정보, 배송정보 등 알림 메시지, 이벤트 및 홍보용 광고성 안내 메시지.<br />이제 편리하게 카카오 비즈메시지 서비스로 이용하세요.
+				</p>
+			</div>
+			<div class="service_wrap kakao_wrap">
+				<div class="kakao_tit">
+					<p class="main_text">
+						알림톡(정보성 메시지)은 카카오 비즈메시지
+					</p>
+					<p class="sub_text">
+						알림톡(정보성메시지)은 별도의 <strong>친구 추가 없이 정보성 메세지를 전송</strong>하는 서비스입니다.
+					</p>
+				</div>
+				<div class="contents_wrap">
+					<div class="phone_kakao">
+						<img src="img/kakao_img01.png" alt="카카오알림톡" />
+					</div>
+				</div>
+				<div class="contents_wrap">
+					<ul>
+						<li>
+							<div class="kakao_box">
+								<div>
+									<img src="img/kakao_img11.png" alt="주문" />
+									<p class="detail_text">
+										주문/예약 안내
+									</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="kakao_box">
+								<div>
+									<img src="img/kakao_img12.png" alt="걸제" />
+									<p class="detail_text">
+										결제/계좌 정보
+									</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="kakao_box">
+								<div>
+									<img src="img/kakao_img13.png" alt="배송" />
+									<p class="detail_text">
+										배송 정보
+									</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="kakao_box">
+								<div>
+									<img src="img/kakao_img14.png" alt="멤버십" />
+									<p class="detail_text">
+										멤버십 정보
+									</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="service_wrap kakao_wrap">
+				<div class="kakao_tit">
+					<p class="main_text">
+						친구톡(광고성 메시지)도 카카오 비즈메시지
+					</p>
+					<p class="sub_text">
+						친구톡(광고성메시지)은 <strong>카카오톡 채널로 친구를 맺은 사용자를 대상으로 광고성 메시지를 전송</strong>하는 서비스입니다.
+					</p>
+				</div>
+				<div class="contents_wrap">
+					<div class="phone_kakao">
+						<img src="img/kakao_img02.png" alt="카카오친구톡" />
+					</div>
+				</div>
+				<div class="contents_wrap">
+					<ul>
+						<li>
+							<div class="kakao_box">
+								<div>
+									<img src="img/kakao_img16.png" alt="신제품" />
+									<p class="detail_text">
+										신제품 홍보
+									</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="kakao_box">
+								<div>
+									<img src="img/kakao_img17.png" alt="세일" />
+									<p class="detail_text">
+										할인 이벤트
+									</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="kakao_box">
+								<div>
+									<img src="img/kakao_img18.png" alt="프로모션" />
+									<p class="detail_text">
+										프로모션
+									</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="kakao_box">
+								<div>
+									<img src="img/kakao_img19.png" alt="공지" />
+									<p class="detail_text">
+										공지사항
+									</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="service_wrap kakao_wrap">
+				<div class="kakao_tit">
+					<p class="main_text">
+						카카오 비즈메시지 서비스 특징
+					</p>
+					<p class="sub_text">
+						한번의 시스템 구축으로 문자메시지와 카카오 비즈메시지를 편리하고 저렴하게 발송할 수 있습니다.
+					</p>
+				</div>
+				<div class="contents_wrap">
+					<ul class="kakao_advan">
+						<li>
+							<div class="kakao_rbox">
+								<div>
+									<p class="sub_text">
+										고객소통 채널 확보로<br /> 홍보효과 상승
+									</p>
+									<img src="img/kakao_img21.png" alt="그래프" />
+									<p class="detail_text">
+										&#8226; 국내 스마트폰 사용자 <strong>90% 이상</strong> 카카오톡 이용 중
+									</p>
+									<p class="detail_text">
+										&#8226; 카카오톡 채널 친구 추가로 <strong>신규 고객 대상 마케팅</strong> 가능
+									</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="kakao_rbox">
+								<div>
+									<p class="sub_text">
+										사용자 편의성과<br /> 보안성 상승
+									</p>
+									<img src="img/kakao_img22.png" alt="보안" />
+									<p class="detail_text">
+										&#8226; 타사 대비 처리 <strong>효율이 높음</strong> (SMTNT 메시지 + 비즈메시지)
+									</p>
+									<p class="detail_text">
+										&#8226; 알림톡 인증 마크를 통해 수신자는 <strong>스팸/스미싱 메시지</strong> 판별 가능
+									</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="kakao_rbox">
+								<div>
+									<p class="sub_text">
+										효율성 증가로<br /> 비용 절감 효과
+									</p>
+									<img src="img/kakao_img23.png" alt="절약" />
+									<p class="detail_text">
+										&#8226; 메시지 대비 <strong>저렴한 이용 요금</strong>
+									</p>
+									<p class="detail_text">
+										&#8226; 발송 <strong>성공 건당 과금</strong> 적용
+									</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="service_wrap kakao_wrap">
+				<div class="kakao_tit">
+					<p class="main_text">
+						카카오 비즈메시지 서비스 이용 절차
+					</p>
 
-        </div>
-        <div class="contents_wrap">
-          <ul class="kakao_advan kakao_allstep">
-            <li>
-              <div class="kakao_rbox step_rbox">
-                <div class="kakao_box kakao_step">
-                  <p class="sub_text">
-                    <strong>Step 1.</strong><br />카카오 채널 가입
-                  </p>
-                </div>
-                <div>
-                  <p class="detail_text">
-                    &#8226;  카카오 채널을 가입해 주세요.
-                  </p>
-                  <p class="detail_text">
-                    &#8226;  서비스관리 &#8227; 프로필키클릭 &#8227; 관리 &#8227; 채널홈 공개 및 검색허용
-                  </p>
-                  <div class="step_btn">
-                    <a href="https://center-pf.kakao.com" target="_blank">카카오 채널 가입 바로가기</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="kakao_rbox step_rbox">
-                <div class="kakao_box kakao_step">
-                  <p class="sub_text">
-                    <strong>Step 2.</strong><br />프로필 등록
-                  </p>
-                </div>
-                <div>
-                  <p class="detail_text">
-                    &#8226;  One Shot 사이트에 가입한 카카오톡 채널 이름을 프로필 관리 메뉴에서 등록해주세요.
-                  </p>
-                  <div class="step_btn">
-                    <a href="ka_profile.html">프로필키 등록 바로가기</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <ul class="kakao_advan kakao_allstep">
-            <li>
-              <div class="kakao_rbox step_rbox">
-                <div class="kakao_box kakao_step">
-                  <p class="sub_text">
-                    <strong>Step 3.</strong><br />템플릿 관리
-                  </p>
-                </div>
-                <div>
-                  <p class="detail_text">
-                    &#8226;  알림톡 발송 시 템플릿 등록, 승인완료 후 발송이 가능합니다.
-                  </p>
-                  <p class="detail_text">
-                    &#8226;  템플릿 승인 기간은 1 ~ 2일 소요되며, 사전에 등록해 주세요.
-                  </p>
-                  <div class="step_btn">
-                    <a href="ka_template.html">템플릿 등록 바로가기</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="kakao_rbox step_rbox">
-                <div class="kakao_box kakao_step">
-                  <p class="sub_text">
-                    <strong>Step 4.</strong><br />알림톡/친구톡 발송
-                  </p>
-                </div>
-                <div>
-                  <p class="detail_text">
-                    &#8226; 알림톡은 승인 된 템플릿으로 발송이 가능합니다.
-                  </p>
-                  <p class="detail_text">
-                    &#8226; 친구톡은 프로필키 등록 후 바로 발송이 가능합니다.
-                  </p>
-                  <div class="step_btn">
-                    <a href="ka_notice.html">알림톡 발송하기</a>
-                    <a href="ka_friend.html">친구톡 발송하기</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="service_wrap kakao_wrap">
-        <div class="kakao_tit">
-          <p class="main_text">
-            카카오 비즈메시지 서비스 주요기능
-          </p>
-          <p class="sub_text">
-            알림톡, 친구톡에서 제공하는 기능에 맞춰 고객사에서 원하는 형태로 마케팅 활용이 가능합니다.
-          </p>
-        </div>
-        <div class="link_table">
-          <table>
-            <colgroup>
-              <col width = "20%" />
-              <col width = "40%" />
-              <col width = "40%" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th>
-                  구분
-                </th>
-                <th>
-                  알림톡
-                </th>
-                <th>
-                  친구톡
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>
-                  서비스 형태
-                </th>
-                <td colspan="2">
-                  전화번호 기반 메시지 PUSH
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  텍스트 길이
-                </th>
-                <td colspan="2">
-                  한/영 구분 없이 띄어쓰기 포함 1,000자
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  웹 URL 링크 지원
-                </th>
-                <td colspan="2">
-                  카카오톡 IN APP 브라우저 지원
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  카카오 인증마크
-                </th>
-                <td>
-                  부착
-                </td>
-                <td>
-                  미부착
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  특이사항
-                </th>
-                <td style="padding:10px 0;">
-                  &#8226; 카카오톡 채널 관리도구로 마케팅 활용 가능<br />(1:1 채팅, 자동응답 기능, 단체 PUSH 메시지 등)<br />&#8226; 정보형 비즈 메시지에 국한<br />&#8226; 승인된 템플릿 기반으로 발송 내용 필터링
-                </td>
-                <td>
-                  &#8226; 광고성 메시지 발송 가능<br />&#8226; 거부 의사를 밝힌 경우 친구톡 발송 대상에서 제외해야 함<br />&#8226; 야간 발송 제한(20:00 ~ 익일 08:00)
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="service_wrap kakao_wrap">
-        <div class="kakao_tit">
-          <p class="main_text">
-            카카오 비즈메시지 FAQ
-          </p>
-        </div>
-        <div class="list_wrap contents_wrap">
-          <div class="faq_wrap kakao_faq">
-            <div>
-              <div class="f_box">
-                카카오 알림톡으로 광고성 메시지도 발송이 가능한가요?
-              </div>
-              <div class="q_box">
-                알림톡으로 광고성 메시지는 발송이 불가합니다.<br /> 알림톡은 정보성 메시지만 발송이 가능합니다.<br /> 광고성 메시지는 친구톡을 이용해주세요.<br />
-              </div>
-            </div>
-            <div>
-              <div class="f_box">
-                알림톡, 친구톡은 누구나 이용할수 있나요?
-              </div>
-              <div class="q_box">
-                카카오톡 비즈메시지 서비스는 기업회원만 이용 가능합니다.
-              </div>
-            </div>
-            <div>
-              <div class="f_box">
-                알림톡은 수신동의없이 발송가능한가요?
-              </div>
-              <div class="q_box">
-                카카오 알림톡은 정보성 메시지로 수신동의없이 이용이 가능합니다.
-              </div>
-            </div>
-            <div>
-              <div class="f_box">
-                친구차단을 하면 알림톡도 차단되나요?
-              </div>
-              <div class="q_box">
-                수신자가 카카오톡 채널을 차단해도 알림톡은 수신 가능합니다.<br /> 알림톡은 채팅방에서 ‘알림톡차단’으로 차단이 가능합니다.
-              </div>
-            </div>
-            <div>
-              <div class="f_box">
-                알림톡, 친구톡 예약발송을 할 수 있나요?
-              </div>
-              <div class="q_box">
-                예약발송이 가능합니다.<br /> 다만 친구톡은 광고성 메시지로 08:00~20:00 사이에만 발송이 가능합니다.
-              </div>
-            </div>
-            <div>
-              <div class="f_box">
-                알림톡, 친구톡 발송실패시 문자메시지로 발송이 가능한가요?
-              </div>
-              <div class="q_box">
-                알림톡 실패시 단문, 장문으로 친구톡 실패시 장문, 포토문자로 대체발송이 가능합니다.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="login_box">
-      <h1>
-        <img src="img/logo.png" alt="원샷로고" />
-      </h1>
-      <span class="b-close">&times;</span>
-      <div class="login_input">
-        <form>
-          <div>
-            <label for="user_id"></label>
-            <input id="user_id" type="text" name="user_id" placeholder="아이디"/>
-          </div>
-          <div>
-            <label for="user_pw"></label>
-            <input id="user_pw" type="password" placeholder="비밀번호"/>
-          </div>
-          <div>
-            <input class="login" type="submit" value="로그인" />
-          </div>
+				</div>
+				<div class="contents_wrap">
+					<ul class="kakao_advan kakao_allstep">
+						<li>
+							<div class="kakao_rbox step_rbox">
+								<div class="kakao_box kakao_step">
+									<p class="sub_text">
+										<strong>Step 1.</strong><br />카카오 채널 가입
+									</p>
+								</div>
+								<div>
+									<p class="detail_text">
+										&#8226; 카카오 채널을 가입해 주세요.
+									</p>
+									<p class="detail_text">
+										&#8226; 서비스관리 &#8227; 프로필키클릭 &#8227; 관리 &#8227; 채널홈 공개 및 검색허용
+									</p>
+									<div class="step_btn">
+										<a href="https://center-pf.kakao.com" target="_blank">카카오 채널 가입 바로가기</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="kakao_rbox step_rbox">
+								<div class="kakao_box kakao_step">
+									<p class="sub_text">
+										<strong>Step 2.</strong><br />프로필 등록
+									</p>
+								</div>
+								<div>
+									<p class="detail_text">
+										&#8226; One Shot 사이트에 가입한 카카오톡 채널 이름을 프로필 관리 메뉴에서 등록해주세요.
+									</p>
+									<div class="step_btn">
+										<a href="ka_profile.html">프로필키 등록 바로가기</a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul class="kakao_advan kakao_allstep">
+						<li>
+							<div class="kakao_rbox step_rbox">
+								<div class="kakao_box kakao_step">
+									<p class="sub_text">
+										<strong>Step 3.</strong><br />템플릿 관리
+									</p>
+								</div>
+								<div>
+									<p class="detail_text">
+										&#8226; 알림톡 발송 시 템플릿 등록, 승인완료 후 발송이 가능합니다.
+									</p>
+									<p class="detail_text">
+										&#8226; 템플릿 승인 기간은 1 ~ 2일 소요되며, 사전에 등록해 주세요.
+									</p>
+									<div class="step_btn">
+										<a href="ka_template.html">템플릿 등록 바로가기</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="kakao_rbox step_rbox">
+								<div class="kakao_box kakao_step">
+									<p class="sub_text">
+										<strong>Step 4.</strong><br />알림톡/친구톡 발송
+									</p>
+								</div>
+								<div>
+									<p class="detail_text">
+										&#8226; 알림톡은 승인 된 템플릿으로 발송이 가능합니다.
+									</p>
+									<p class="detail_text">
+										&#8226; 친구톡은 프로필키 등록 후 바로 발송이 가능합니다.
+									</p>
+									<div class="step_btn">
+										<a href="ka_notice.html">알림톡 발송하기</a>
+										<a href="ka_friend.html">친구톡 발송하기</a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="service_wrap kakao_wrap">
+				<div class="kakao_tit">
+					<p class="main_text">
+						카카오 비즈메시지 서비스 주요기능
+					</p>
+					<p class="sub_text">
+						알림톡, 친구톡에서 제공하는 기능에 맞춰 고객사에서 원하는 형태로 마케팅 활용이 가능합니다.
+					</p>
+				</div>
+				<div class="link_table">
+					<table>
+						<colgroup>
+							<col style="width:20%;" />
+							<col style="width:40%;" />
+							<col style="width:40%;" />
+						</colgroup>
+						<thead>
+							<tr>
+								<th>
+									구분
+								</th>
+								<th>
+									알림톡
+								</th>
+								<th>
+									친구톡
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>
+									서비스 형태
+								</th>
+								<td colspan="2">
+									전화번호 기반 메시지 PUSH
+								</td>
+							</tr>
+							<tr>
+								<th>
+									텍스트 길이
+								</th>
+								<td colspan="2">
+									한/영 구분 없이 띄어쓰기 포함 1,000자
+								</td>
+							</tr>
+							<tr>
+								<th>
+									웹 URL 링크 지원
+								</th>
+								<td colspan="2">
+									카카오톡 IN APP 브라우저 지원
+								</td>
+							</tr>
+							<tr>
+								<th>
+									카카오 인증마크
+								</th>
+								<td>
+									부착
+								</td>
+								<td>
+									미부착
+								</td>
+							</tr>
+							<tr>
+								<th>
+									특이사항
+								</th>
+								<td style="padding:10px 0;">
+									&#8226; 카카오톡 채널 관리도구로 마케팅 활용 가능<br />(1:1 채팅, 자동응답 기능, 단체 PUSH 메시지 등)<br />&#8226; 정보형 비즈 메시지에 국한<br />&#8226; 승인된 템플릿 기반으로 발송 내용 필터링
+								</td>
+								<td>
+									&#8226; 광고성 메시지 발송 가능<br />&#8226; 거부 의사를 밝힌 경우 친구톡 발송 대상에서 제외해야 함<br />&#8226; 야간 발송 제한(20:00 ~ 익일 08:00)
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="service_wrap kakao_wrap">
+				<div class="kakao_tit">
+					<p class="main_text">
+						카카오 비즈메시지 FAQ
+					</p>
+				</div>
+				<div class="list_wrap contents_wrap">
+					<div class="faq_wrap kakao_faq">
+						<div>
+							<div class="f_box">
+								카카오 알림톡으로 광고성 메시지도 발송이 가능한가요?
+							</div>
+							<div class="q_box">
+								알림톡으로 광고성 메시지는 발송이 불가합니다.<br /> 알림톡은 정보성 메시지만 발송이 가능합니다.<br /> 광고성 메시지는 친구톡을 이용해주세요.<br />
+							</div>
+						</div>
+						<div>
+							<div class="f_box">
+								알림톡, 친구톡은 누구나 이용할수 있나요?
+							</div>
+							<div class="q_box">
+								카카오톡 비즈메시지 서비스는 기업회원만 이용 가능합니다.
+							</div>
+						</div>
+						<div>
+							<div class="f_box">
+								알림톡은 수신동의없이 발송가능한가요?
+							</div>
+							<div class="q_box">
+								카카오 알림톡은 정보성 메시지로 수신동의없이 이용이 가능합니다.
+							</div>
+						</div>
+						<div>
+							<div class="f_box">
+								친구차단을 하면 알림톡도 차단되나요?
+							</div>
+							<div class="q_box">
+								수신자가 카카오톡 채널을 차단해도 알림톡은 수신 가능합니다.<br /> 알림톡은 채팅방에서 ‘알림톡차단’으로 차단이 가능합니다.
+							</div>
+						</div>
+						<div>
+							<div class="f_box">
+								알림톡, 친구톡 예약발송을 할 수 있나요?
+							</div>
+							<div class="q_box">
+								예약발송이 가능합니다.<br /> 다만 친구톡은 광고성 메시지로 08:00~20:00 사이에만 발송이 가능합니다.
+							</div>
+						</div>
+						<div>
+							<div class="f_box">
+								알림톡, 친구톡 발송실패시 문자메시지로 발송이 가능한가요?
+							</div>
+							<div class="q_box">
+								알림톡 실패시 단문, 장문으로 친구톡 실패시 장문, 포토문자로 대체발송이 가능합니다.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="login_box">
+			<h1>
+				<img src="img/logo.png" alt="원샷로고" />
+			</h1>
+			<span class="b-close">&times;</span>
+			<div class="login_input">
+				<form>
+					<div>
+						<label for="user_id"></label>
+						<input id="user_id" type="text" name="user_id" placeholder="아이디" />
+					</div>
+					<div>
+						<label for="user_pw"></label>
+						<input id="user_pw" type="password" placeholder="비밀번호" />
+					</div>
+					<div>
+						<input class="login" type="submit" value="로그인" />
+					</div>
 
-        </form>
-      </div>
-      <div class="find_wrap">
-        <a href="#none" class="find_btn">아이디 / 비밀번호 찾기</a>
-        <a href="join.html">회원가입</a>
-      </div>
+				</form>
+			</div>
+			<div class="find_wrap">
+				<a href="#none" class="find_btn">아이디 / 비밀번호 찾기</a>
+				<a href="join.html">회원가입</a>
+			</div>
 
-    </div>
+		</div>
 
-  </section>
-  <aside>
-    <div class="quick_wrap">
-      <div class="charge">
-        <a href="#none;">충전하기</a>
-      </div>
-      <div class="customer">
-        <p class="customer_font">
-          고객센터
-        </p>
-        <img src="img/customer.png" alt="고객센터" />
-        <p class="customer_font font_28">
-          1566-6639
-        </p>
-        <p>
-          평일(월~금)<br/>09:00 ~ 18:00<br/>토/일/공휴일 휴무<br/>점심시간<br/>12:30 ~ 13:30
-        </p>
-      </div>
-      <div class="quick_button">
-        <div class="quick_b01">
-          <p>
-            <a href="client.html">클라이언트<br/>다운로드</a>
-          </p>
-        </div>
-        <div class="quick_b02">
-          <p>
-            <a href="tax.html">세금계산서</a>
-          </p>
-        </div>
-        <div class="quick_b03">
-          <p>
-            <a href="control.html">원격지원</a>
-          </p>
-        </div>
-        <div class="quick_b04">
-          <p>
-            <a href="price.html">견적문의</a>
-          </p>
-        </div>
-        <div class="quick_b05">
-          <p>
-            <a href="onetoone.html">1:1 문의</a>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="m_quick_wrap">
-      <div class="m_quick">
-        <div class="m_customer">
-          <span><img src="img/customer.png" alt="고객센터"></span>
-          <p class="customer_num">
-            고객센터  1566-6639
-          </p>
-          <p class="customer_time">
-            월~금 09:00 ~ 18:00 (토/일/공휴일 휴무)
-          </p>
-        </div>
-        <div class="m_quickmenu">
-          <div>
-            <span>
-              <a href="client.html">클라이언트 다운로드</a>
-            </span>
-          </div>
-          <div>
-            <span>
-              <a href="tax.html">세금계산서</a>
-            </span>
-          </div>
-          <div>
-            <span>
-              <a href="control.html">원격지원</a>
-            </span>
-          </div>
-          <div>
-            <span>
-              <a href="price.html">견적문의</a>
-            </span>
-          </div>
-          <div>
-            <span>
-              <a href="onetoone.html">1:1문의</a>
-            </span>
-          </div>
-        </div>
-      </div>
+	</section>
+	<aside>
+		<div class="quick_wrap">
+			<div class="charge">
+				<a href="#none;">충전하기</a>
+			</div>
+			<div class="customer">
+				<p class="customer_font">
+					고객센터
+				</p>
+				<img src="img/customer.png" alt="고객센터" />
+				<p class="customer_font font_28">
+					1566-6639
+				</p>
+				<p>
+					평일(월~금)<br />09:00 ~ 18:00<br />토/일/공휴일 휴무<br />점심시간<br />12:30 ~ 13:30
+				</p>
+			</div>
+			<div class="quick_button">
+				<div class="quick_b01">
+					<p>
+						<a href="client.html">클라이언트<br />다운로드</a>
+					</p>
+				</div>
+				<div class="quick_b02">
+					<p>
+						<a href="tax.html">세금계산서</a>
+					</p>
+				</div>
+				<div class="quick_b03">
+					<p>
+						<a href="control.html">원격지원</a>
+					</p>
+				</div>
+				<div class="quick_b04">
+					<p>
+						<a href="price.html">견적문의</a>
+					</p>
+				</div>
+				<div class="quick_b05">
+					<p>
+						<a href="onetoone.html">1:1 문의</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="m_quick_wrap">
+			<div class="m_quick">
+				<div class="m_customer">
+					<span><img src="img/customer.png" alt="고객센터"></span>
+					<p class="customer_num">
+						고객센터 1566-6639
+					</p>
+					<p class="customer_time">
+						월~금 09:00 ~ 18:00 (토/일/공휴일 휴무)
+					</p>
+				</div>
+				<div class="m_quickmenu">
+					<div>
+						<span>
+							<a href="client.html">클라이언트 다운로드</a>
+						</span>
+					</div>
+					<div>
+						<span>
+							<a href="tax.html">세금계산서</a>
+						</span>
+					</div>
+					<div>
+						<span>
+							<a href="control.html">원격지원</a>
+						</span>
+					</div>
+					<div>
+						<span>
+							<a href="price.html">견적문의</a>
+						</span>
+					</div>
+					<div>
+						<span>
+							<a href="onetoone.html">1:1문의</a>
+						</span>
+					</div>
+				</div>
+			</div>
 
-    </div>
-  </aside>
-  <footer>
-    <div class="footer_wrap">
-      <div class="footer_logo">
-        <img src="img/logo_white.png" alt="로고" />
-      </div>
-      <div class="footer_text">
-        <div class="claus">
-          <ul class="footer_line">
-            <li>
-              <a href="#none;">이용약관</a>
-            </li>
-            <li>
-              <a href="#none;">개인정보취급방침</a>
-            </li>
-            <li>
-              <a href="#none;">스팸정책</a>
-            </li>
-            <li>
-              <a href="#none;">이메일 무단수집거부</a>
-            </li>
-            <li>
-              <a href="#none;">스팸방지 이용약관</a>
-            </li>
-          </ul>
-        </div>
-        <div class="claus">
-          <ul>
-            <li>
-              주식회사 에스엠티엔티
-            </li>
-            <li>
-              서울시 강동구 성내로 36 6층 (예원빌딩)
-            </li>
-            <li>
-              고객센터 1566-6639
-            </li>
-            <li>
-              팩스 02-477-9035
-            </li>
-            <li>
-              이메일 master@smtnt.com
-            </li>
-            <li>
-              대표 김문식
-            </li>
-            <li>
-              사업자등록번호 212-81-75893
-            </li>
-            <li>
-              통신판매업신고번호 25-2245호
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+		</div>
+	</aside>
+	<footer>
+		<div class="footer_wrap">
+			<div class="footer_logo">
+				<img src="img/logo_white.png" alt="로고" />
+			</div>
+			<div class="footer_text">
+				<div class="claus">
+					<ul class="footer_line">
+						<li>
+							<a href="#none;">이용약관</a>
+						</li>
+						<li>
+							<a href="#none;">개인정보취급방침</a>
+						</li>
+						<li>
+							<a href="#none;">스팸정책</a>
+						</li>
+						<li>
+							<a href="#none;">이메일 무단수집거부</a>
+						</li>
+						<li>
+							<a href="#none;">스팸방지 이용약관</a>
+						</li>
+					</ul>
+				</div>
+				<div class="claus">
+					<ul>
+						<li>
+							주식회사 에스엠티엔티
+						</li>
+						<li>
+							서울시 강동구 성내로 36 6층 (예원빌딩)
+						</li>
+						<li>
+							고객센터 1566-6639
+						</li>
+						<li>
+							팩스 02-477-9035
+						</li>
+						<li>
+							이메일 master@smtnt.com
+						</li>
+						<li>
+							대표 김문식
+						</li>
+						<li>
+							사업자등록번호 212-81-75893
+						</li>
+						<li>
+							통신판매업신고번호 25-2245호
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
+
 </html>
